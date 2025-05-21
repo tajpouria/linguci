@@ -750,15 +750,13 @@ class Linguci {
   /**
    * Creates a pull request for translation changes
    * @param {Object} options - Configuration options
-   * @param {string} [options.baseBranch="main"] - The base branch to create PR against
    * @param {string} [options.branchPrefix="linguci-translations"] - Prefix for the new branch name
    * @param {string} [options.prTitle] - Optional custom PR title
    * @param {string} [options.prBody] - Optional custom PR body
    * @returns {Promise<Linguci>} this instance for chaining
    */
   async createPullRequest({
-    baseBranch = "main",
-    branchPrefix = "linguci-translations",
+    branchPrefix = "linguci",
     prTitle = "Update translations",
     prBody = "This PR includes translation updates\n\n*Generated automatically by linguci*",
   } = {}) {
@@ -786,6 +784,20 @@ class Linguci {
         "git rev-parse --abbrev-ref HEAD"
       );
       const currentBranch = currentBranchResult.stdout.trim();
+
+      // Get the default branch from git
+      const getDefaultBranchResult = await this._executeCommand(
+        "git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'"
+      );
+
+      if (getDefaultBranchResult.error) {
+        throw new Error(
+          `Failed to get default branch: ${getDefaultBranchResult.error}`
+        );
+      }
+
+      const baseBranch = getDefaultBranchResult.stdout.trim();
+      this.log("DEBUG", `Using base branch: ${baseBranch}`);
 
       // Create branch name with timestamp
       const newBranch = `${branchPrefix}-${timestamp}`;
