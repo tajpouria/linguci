@@ -75,7 +75,7 @@ class Linguci {
    * The workspace directory path
    * @type {string}
    */
-  workspace = null;
+  workspace = ".";
 
   /**
    * The parsed configuration object from linguci.yml/yaml
@@ -84,7 +84,7 @@ class Linguci {
    * @property {string[]} locales - List of target locale codes that must be valid language keys
    * @property {string} base_path - Base path for file resolution
    */
-  config = null;
+  config = {};
 
   /**
    * Storage for translation batches organized by file, locale, and context
@@ -94,7 +94,7 @@ class Linguci {
    * @property {Object<number, Object>} [sourcePath.translationPath.contextKey] - Key is context name
    * @property {Object} [sourcePath.translationPath.contextKey.batchNumber] - Zod schema for validating translations
    */
-  translationBatches = null;
+  translationBatches = {};
 
   /**
    * Storage for translation PO objects organized by file and locale
@@ -102,14 +102,13 @@ class Linguci {
    * @property {Object<string, Object>} [sourcePath] - Key is source file path
    * @property {Object} [sourcePath.translationPath] - Key is translation file path, value is PO object
    */
-  translationPos = null;
+  translationPos = {};
 
   /**
    * @param {string} workspace - The workspace directory path
    */
   constructor(workspace) {
     this.workspace = workspace;
-    this.config = null;
   }
 
   /**
@@ -231,38 +230,29 @@ class Linguci {
    * Processes all source and translation files defined in the config
    * Organizes entries by source file, translation file, context and batch number
    * Uses Zod schemas to validate translations
-   * 
+   *
    * @param {Object} options - Configuration options
    * @param {number} [options.batchSize=5] - Number of entries per batch
    * @returns {Linguci} this instance for chaining
    */
   createTranslationBatches({ batchSize = 5 }) {
-    const config = this.config;
-    this.translationBatches = {};
-    this.translationPos = {};
-
-    for (const file of config.files) {
-      const sourcePath = path.join(config.base_path, file.source);
-      const sourceContent = fs.readFileSync(sourcePath, "utf8");
-      const sourcePo = gettextParser.po.parse(sourceContent);
+    for (const file of this.config.files) {
+      const sourcePath = path.join(this.config.base_path, file.source);
+      const sourcePo = this._processSourceFile(sourcePath);
 
       // Extract source locale from source file path if possible
-      const sourceLocale = config.locales.find((locale) =>
+      const sourceLocale = this.config.locales.find((locale) =>
         file.source.includes(locale)
       );
 
-      for (const locale of config.locales) {
+      for (const locale of this.config.locales) {
         // Skip if this locale is the source locale
-        if (locale === sourceLocale) {
-          continue;
-        }
+        if (locale === sourceLocale) continue;
 
         // Handle %locale% placeholder in translation path
-        const translationPath = path.join(
-          config.base_path,
-          file.translation.includes("%locale%")
-            ? file.translation.replace("%locale%", locale)
-            : file.translation
+        const translationPath = this._getTranslationPath(
+          file.translation,
+          locale
         );
 
         // Skip if translation file doesn't exist
@@ -271,98 +261,20 @@ class Linguci {
           continue;
         }
 
-        const translationContent = fs.readFileSync(translationPath, "utf8");
-        const translationPo = gettextParser.po.parse(translationContent);
+        const translationPo = this._processTranslationFile(
+          sourcePath,
+          translationPath,
+          sourcePo
+        );
 
-        // Store translation PO object using full paths
-        if (!this.translationPos[sourcePath]) {
-          this.translationPos[sourcePath] = {};
-        }
-        if (!this.translationPos[sourcePath][translationPath]) {
-          this.translationPos[sourcePath][translationPath] = {};
-        }
-        this.translationPos[sourcePath][translationPath] = translationPo;
-
-        // Ensure the file and locale are initialized in batches using full paths
-        if (!this.translationBatches[sourcePath]) {
-          this.translationBatches[sourcePath] = {};
-        }
-        if (!this.translationBatches[sourcePath][translationPath]) {
-          this.translationBatches[sourcePath][translationPath] = {};
-        }
-
-        const sourceTranslations = sourcePo.translations;
-
-        // First, ensure all entries from source exist in translation
-        for (const contextKey in sourceTranslations) {
-          const sourceContext = sourceTranslations[contextKey];
-
-          // Create context in translation if it doesn't exist
-          if (!translationPo.translations[contextKey]) {
-            translationPo.translations[contextKey] = {};
-          }
-
-          const translationContext = translationPo.translations[contextKey];
-
-          // Check each message in this context
-          for (const msgid in sourceContext) {
-            if (!translationContext[msgid]) {
-              // Copy the missing entry to translation
-              translationContext[msgid] = { ...sourceContext[msgid] };
-
-              // Clear the translation if it's not the empty msgid
-              if (msgid !== "") {
-                translationContext[msgid].msgstr = [""];
-              }
-            }
-          }
-        }
-
-        // Find entries that need translation (empty msgstr)
-        const emptyMsgStrs = {};
-        for (const contextKey in translationPo.translations) {
-          const translationContext = translationPo.translations[contextKey];
-
-          for (const msgid in translationContext) {
-            if (
-              msgid !== "" && // Skip the header
-              (translationContext[msgid].msgstr.length === 0 ||
-                translationContext[msgid].msgstr[0] === "")
-            ) {
-              emptyMsgStrs[contextKey] = emptyMsgStrs[contextKey] || {};
-              emptyMsgStrs[contextKey][msgid] = translationContext[msgid];
-            }
-          }
-        }
+        // Find entries that need translation
+        const emptyMsgStrs = this._findEntriesNeedingTranslation(translationPo);
 
         // Create schema batches for this file and locale
-        const schemaBatches = {};
-
-        // Organize all the msgids by context
-        for (const contextKey in emptyMsgStrs) {
-          const msgids = Object.keys(emptyMsgStrs[contextKey]);
-
-          // Initialize this context in the schema batches
-          schemaBatches[contextKey] = {};
-
-          // Create batches for this context
-          for (
-            let i = 0, batchNumber = 0;
-            i < msgids.length;
-            i += batchSize, batchNumber++
-          ) {
-            const batchMsgids = msgids.slice(i, i + batchSize);
-            const batchSchemaObj = {};
-
-            // Add schemas for each msgid in this batch
-            for (const msgid of batchMsgids) {
-              batchSchemaObj[msgid] = z.string();
-            }
-
-            // Store the Zod schema object
-            schemaBatches[contextKey][batchNumber] = z.object(batchSchemaObj);
-          }
-        }
+        const schemaBatches = this._createSchemaBatches(
+          emptyMsgStrs,
+          batchSize
+        );
 
         // Store batches for this file and translation path
         this.translationBatches[sourcePath][translationPath] = schemaBatches;
@@ -370,6 +282,173 @@ class Linguci {
     }
 
     return this;
+  }
+
+  /**
+   * Get the full translation path with locale substitution if needed
+   * @private
+   * @param {string} translationPathTemplate - The translation path template
+   * @param {string} locale - The locale code
+   * @returns {string} The full translation path
+   */
+  _getTranslationPath(translationPathTemplate, locale) {
+    return path.join(
+      this.config.base_path,
+      translationPathTemplate.includes("%locale%")
+        ? translationPathTemplate.replace("%locale%", locale)
+        : translationPathTemplate
+    );
+  }
+
+  /**
+   * Process a source file and return its PO object
+   * @private
+   * @param {string} sourcePath - Path to the source file
+   * @returns {Object} The parsed PO object
+   */
+  _processSourceFile(sourcePath) {
+    const sourceContent = fs.readFileSync(sourcePath, "utf8");
+    return gettextParser.po.parse(sourceContent);
+  }
+
+  /**
+   * Process a translation file, ensure all source entries exist in it
+   * @private
+   * @param {string} sourcePath - Path to the source file
+   * @param {string} translationPath - Path to the translation file
+   * @param {Object} sourcePo - The source PO object
+   * @returns {Object} The processed translation PO object
+   */
+  _processTranslationFile(sourcePath, translationPath, sourcePo) {
+    const translationContent = fs.readFileSync(translationPath, "utf8");
+    const translationPo = gettextParser.po.parse(translationContent);
+
+    // Initialize storage structures if not exists
+    this._ensureStorageExists(sourcePath, translationPath);
+
+    // Store translation PO object
+    this.translationPos[sourcePath][translationPath] = translationPo;
+
+    // Ensure all entries from source exist in translation
+    this._syncEntriesFromSource(sourcePo, translationPo);
+
+    return translationPo;
+  }
+
+  /**
+   * Ensure storage structures exist for the given paths
+   * @private
+   * @param {string} sourcePath - Path to the source file
+   * @param {string} translationPath - Path to the translation file
+   */
+  _ensureStorageExists(sourcePath, translationPath) {
+    // For translation POs
+    if (!this.translationPos[sourcePath]) {
+      this.translationPos[sourcePath] = {};
+    }
+
+    // For translation batches
+    if (!this.translationBatches[sourcePath]) {
+      this.translationBatches[sourcePath] = {};
+    }
+    if (!this.translationBatches[sourcePath][translationPath]) {
+      this.translationBatches[sourcePath][translationPath] = {};
+    }
+  }
+
+  /**
+   * Ensure all entries from source exist in translation
+   * @private
+   * @param {Object} sourcePo - The source PO object
+   * @param {Object} translationPo - The translation PO object
+   */
+  _syncEntriesFromSource(sourcePo, translationPo) {
+    for (const contextKey in sourcePo.translations) {
+      const sourceContext = sourcePo.translations[contextKey];
+
+      // Create context in translation if it doesn't exist
+      if (!translationPo.translations[contextKey]) {
+        translationPo.translations[contextKey] = {};
+      }
+
+      const translationContext = translationPo.translations[contextKey];
+
+      // Check each message in this context
+      for (const msgid in sourceContext) {
+        if (!translationContext[msgid]) {
+          // Copy the missing entry to translation
+          translationContext[msgid] = { ...sourceContext[msgid] };
+
+          // Clear the translation if it's not the empty msgid
+          if (msgid !== "") {
+            translationContext[msgid].msgstr = [""];
+          }
+        }
+      }
+    }
+  }
+
+  /**
+   * Find entries that need translation (empty msgstr)
+   * @private
+   * @param {Object} translationPo - The translation PO object
+   * @returns {Object} Object with entries needing translation, grouped by context
+   */
+  _findEntriesNeedingTranslation(translationPo) {
+    const emptyMsgStrs = {};
+
+    for (const contextKey in translationPo.translations) {
+      const translationContext = translationPo.translations[contextKey];
+
+      for (const msgid in translationContext) {
+        if (
+          msgid !== "" && // Skip the header
+          (translationContext[msgid].msgstr.length === 0 ||
+            translationContext[msgid].msgstr[0] === "")
+        ) {
+          emptyMsgStrs[contextKey] = emptyMsgStrs[contextKey] || {};
+          emptyMsgStrs[contextKey][msgid] = translationContext[msgid];
+        }
+      }
+    }
+
+    return emptyMsgStrs;
+  }
+
+  /**
+   * Create Zod schema batches for entries that need translation
+   * @private
+   * @param {Object} emptyMsgStrs - Object with entries needing translation
+   * @param {number} batchSize - Number of entries per batch
+   * @returns {Object} Object with schema batches grouped by context
+   */
+  _createSchemaBatches(emptyMsgStrs, batchSize) {
+    const schemaBatches = {};
+
+    for (const contextKey in emptyMsgStrs) {
+      const msgids = Object.keys(emptyMsgStrs[contextKey]);
+      schemaBatches[contextKey] = {};
+
+      // Create batches for this context
+      for (
+        let i = 0, batchNumber = 0;
+        i < msgids.length;
+        i += batchSize, batchNumber++
+      ) {
+        const batchMsgids = msgids.slice(i, i + batchSize);
+        const batchSchemaObj = {};
+
+        // Add schemas for each msgid in this batch
+        for (const msgid of batchMsgids) {
+          batchSchemaObj[msgid] = z.string();
+        }
+
+        // Store the Zod schema object
+        schemaBatches[contextKey][batchNumber] = z.object(batchSchemaObj);
+      }
+    }
+
+    return schemaBatches;
   }
 }
 
