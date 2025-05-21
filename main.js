@@ -6,7 +6,10 @@ async function run() {
   try {
     const linguci = new Linguci(process.env.GITHUB_WORKSPACE);
 
-    linguci.readConfig().validateConfig().createTranslationBatches(5);
+    linguci
+      .readConfig()
+      .validateConfig()
+      .createTranslationBatches({ batchSize: 5 });
 
     console.log(linguci.translationBatches);
     console.log(linguci.translationPos);
