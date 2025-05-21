@@ -9,7 +9,8 @@ async function run() {
     linguci
       .readConfig()
       .validateConfig()
-      .createTranslationBatches({ batchSize: 5 });
+      .createTranslationBatches({ batchSize: 5 })
+      .executeTranslations();
 
     console.log(linguci.translationBatches);
     console.log(linguci.translationPos);
