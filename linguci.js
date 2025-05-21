@@ -230,7 +230,17 @@ class Linguci {
       const sourceContent = fs.readFileSync(sourcePath, "utf8");
       const sourcePo = gettextParser.po.parse(sourceContent);
 
+      // Extract source locale from source file path if possible
+      const sourceLocale = config.locales.find((locale) =>
+        file.source.includes(locale)
+      );
+
       for (const locale of config.locales) {
+        // Skip if this locale is the source locale
+        if (locale === sourceLocale) {
+          continue;
+        }
+
         // Handle %locale% placeholder in translation path
         const translationPath = path.join(
           config.base_path,
@@ -248,16 +258,22 @@ class Linguci {
         const translationContent = fs.readFileSync(translationPath, "utf8");
         const translationPo = gettextParser.po.parse(translationContent);
 
-        // Store translation PO object
-        this.translationPos[file.source] =
-          this.translationPos[file.source] || {};
-        this.translationPos[file.source][locale] = translationPo;
+        // Store translation PO object using full paths
+        if (!this.translationPos[sourcePath]) {
+          this.translationPos[sourcePath] = {};
+        }
+        if (!this.translationPos[sourcePath][translationPath]) {
+          this.translationPos[sourcePath][translationPath] = {};
+        }
+        this.translationPos[sourcePath][translationPath] = translationPo;
 
-        // Ensure the file and locale are initialized in batches
-        this.translationBatches[file.source] =
-          this.translationBatches[file.source] || {};
-        this.translationBatches[file.source][locale] =
-          this.translationBatches[file.source][locale] || {};
+        // Ensure the file and locale are initialized in batches using full paths
+        if (!this.translationBatches[sourcePath]) {
+          this.translationBatches[sourcePath] = {};
+        }
+        if (!this.translationBatches[sourcePath][translationPath]) {
+          this.translationBatches[sourcePath][translationPath] = {};
+        }
 
         const sourceTranslations = sourcePo.translations;
 
@@ -332,8 +348,8 @@ class Linguci {
           }
         }
 
-        // Store batches for this file and locale
-        this.translationBatches[file.source][locale] = schemaBatches;
+        // Store batches for this file and translation path
+        this.translationBatches[sourcePath][translationPath] = schemaBatches;
       }
     }
 
