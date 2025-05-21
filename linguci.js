@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const yaml = require("js-yaml");
+const gettextParser = require("gettext-parser");
 
 /**
  * Main class for handling linguci configuration

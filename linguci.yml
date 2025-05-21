@@ -1,10 +1,5 @@
 # Sample linguci configuration
 base_path: .
-files:
-  - source: locales/en-US.json
-    translation: locales/{locale}.json
-  - source: src/texts/en-US.js
-    translation: src/texts/{locale}.js
 locales:
   - fa-IR
   - en-US
@@ -12,3 +7,6 @@ locales:
   - es-ES
   - de-DE
   - ja-JP
+files:
+  - source: locales/en-US.po
+    translation: locales/%locale%.po
