@@ -1,6 +1,8 @@
-const gettextParser = require("gettext-parser");
-const fs = require("fs");
-const { z } = require("zod");
+import gettextParser from "gettext-parser";
+import fs from "fs";
+import { z } from "zod";
+import { google } from "@ai-sdk/google";
+import { generateObject } from "ai";
 
 const sourceInput = gettextParser.po.parse(
   fs.readFileSync("locales/en-US.po", "utf8")
@@ -78,15 +80,33 @@ for (const contextKey in emptyMsgStrs) {
     i += batchSize, batchNumber++
   ) {
     const batchMsgids = msgids.slice(i, i + batchSize);
-
-    // Initialize this batch for this context
-    schemaBatches[contextKey][batchNumber] = {};
+    const batchSchemaObj = {};
 
     // Add schemas for each msgid in this batch
     for (const msgid of batchMsgids) {
-      schemaBatches[contextKey][batchNumber][msgid] = z
-        .string()
-        .describe("Word by word translation of the key");
+      batchSchemaObj[msgid] = z.string();
     }
+
+    // Store the Zod schema object instead of raw object
+    schemaBatches[contextKey][batchNumber] = z.object(batchSchemaObj);
   }
 }
+
+const model = google("gemini-2.0-flash", {
+  structuredOutputs: false,
+});
+
+// Process one batch at a time for demonstration
+// Choose a context and batch to process
+const contextKey = Object.keys(schemaBatches)[0];
+const batchKey = Object.keys(schemaBatches[contextKey])[0];
+const schemaToUse = schemaBatches[contextKey][batchKey];
+const language = ["فارسی", "Persian"];
+
+const result = await generateObject({
+  model,
+  prompt: `Translate the following keys word by word to ${language}`,
+  schema: schemaToUse,
+});
+
+console.log(result);
