@@ -1,9 +1,9 @@
 # Sample linguci configuration
 base_path: .
 locales:
-  - fa-IR
-  - es-ES
   - en-US
+  - fa-IR
+  # - es-ES
   # - fr-FR
   # - de-DE
   # - ja-JP
