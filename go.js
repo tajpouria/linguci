@@ -72,9 +72,12 @@ for (const contextKey in emptyMsgStrs) {
   schemaBatches[contextKey] = {};
 
   // Create batches for this context
-  for (let i = 0; i < msgids.length; i += batchSize) {
+  for (
+    let i = 0, batchNumber = 0;
+    i < msgids.length;
+    i += batchSize, batchNumber++
+  ) {
     const batchMsgids = msgids.slice(i, i + batchSize);
-    const batchNumber = Math.floor(i / batchSize);
 
     // Initialize this batch for this context
     schemaBatches[contextKey][batchNumber] = {};
@@ -87,5 +90,3 @@ for (const contextKey in emptyMsgStrs) {
     }
   }
 }
-
-console.log(schemaBatches);
