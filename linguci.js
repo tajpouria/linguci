@@ -536,6 +536,54 @@ class Linguci {
   }
 
   /**
+   * Writes the translated PO objects to their respective files
+   * @param {Object} options - Configuration options
+   * @param {boolean} [options.backup=true] - Whether to create backup files before writing
+   * @returns {Linguci} this instance for chaining
+   */
+  writeTranslations({ backup = true } = {}) {
+    console.log(
+      `[DEBUG] Starting to write translation files (backup=${backup})`
+    );
+
+    let filesWritten = 0;
+
+    // Write all updated PO files
+    for (const sourcePath in this.translationPos) {
+      console.log(`[DEBUG] Writing translations for source: ${sourcePath}`);
+
+      for (const translationPath in this.translationPos[sourcePath]) {
+        const translationPo = this.translationPos[sourcePath][translationPath];
+
+        try {
+          // Create backup if requested
+          if (backup && fs.existsSync(translationPath)) {
+            const backupPath = `${translationPath}.bak`;
+            console.log(`[DEBUG] Creating backup at: ${backupPath}`);
+            fs.copyFileSync(translationPath, backupPath);
+          }
+
+          // Compile PO object to buffer
+          const outputBuf = gettextParser.po.compile(translationPo);
+
+          // Write to file
+          console.log(`[DEBUG] Writing PO file: ${translationPath}`);
+          fs.writeFileSync(translationPath, outputBuf);
+          filesWritten++;
+        } catch (error) {
+          console.error(
+            `[ERROR] Failed to write file ${translationPath}: ${error.message}`
+          );
+          throw error;
+        }
+      }
+    }
+
+    console.log(`[INFO] Translation files written: ${filesWritten}`);
+    return this;
+  }
+
+  /**
    * Extract locale code from translation file path
    * @private
    * @param {string} translationPath - Path to the translation file
