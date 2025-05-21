@@ -12,7 +12,9 @@ async function run() {
       .readConfig()
       .validateConfig()
       .createTranslationBatches({ batchSize: 20 })
-      .executeTranslations()
+      .executeTranslations({
+        languageConcurrency: 2,
+      })
       .then((instance) => instance.writeTranslations());
 
     core.setOutput("status", "success");

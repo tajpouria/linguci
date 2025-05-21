@@ -3,10 +3,7 @@ base_path: .
 locales:
   - en-US
   - fa-IR
-  # - es-ES
-  # - fr-FR
-  # - de-DE
-  # - ja-JP
+  - es-ES
 files:
   - source: locales/en-US.po
     translation: locales/%locale%.po
