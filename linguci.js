@@ -338,10 +338,10 @@ class Linguci {
    * Uses Zod schemas to validate translations
    *
    * @param {Object} options - Configuration options
-   * @param {number} [options.batchSize=5] - Number of entries per batch
+   * @param {number} [options.batchSize=20] - Number of entries per batch
    * @returns {Linguci} this instance for chaining
    */
-  createTranslationBatches({ batchSize = 5 }) {
+  createTranslationBatches({ batchSize = 20 }) {
     for (const file of this.config.files) {
       const sourcePath = path.join(this.config.base_path, file.source);
       const sourcePo = this._processSourceFile(sourcePath);
@@ -499,7 +499,7 @@ class Linguci {
 
       let retries = 0;
       let success = false;
-      let result;
+      let object;
 
       // Retry loop
       while (!success && retries <= maxRetries) {
@@ -510,14 +510,15 @@ class Linguci {
           );
 
           const startTime = Date.now();
-          result = await generateObject({
+          const result = await generateObject({
             model,
             prompt: `Translate the following keys word by word to ${language}. Keep the original format and only translate the text values. Do not add any formatting or explanations.`,
             schema,
           });
+          object = result.object;
           const endTime = Date.now();
 
-          const translationKeys = Object.keys(result).join(", ");
+          const translationKeys = Object.keys(object).join(", ");
           this.log(
             "DEBUG",
             `Translation successful for batch #${batchNumber} (${
@@ -553,16 +554,16 @@ class Linguci {
       }
 
       // Update the PO object with translations
-      if (success && result) {
+      if (success && object) {
         this.log(
           "DEBUG",
           `Updating PO object for ${translationPath}, context '${contextKey}'`
         );
-        this._updateTranslationPoWithResults(translationPo, contextKey, result);
+        this._updateTranslationPoWithResults(translationPo, contextKey, object);
         this.log(
           "DEBUG",
           `PO object updated successfully with ${
-            Object.keys(result).length
+            Object.keys(object).length
           } translations`
         );
       }
@@ -687,9 +688,9 @@ class Linguci {
    * @private
    * @param {Object} translationPo - The translation PO object
    * @param {string} contextKey - The context key
-   * @param {Object} results - The translation results
+   * @param {Object} object - The translation object
    */
-  _updateTranslationPoWithResults(translationPo, contextKey, results) {
+  _updateTranslationPoWithResults(translationPo, contextKey, object) {
     if (!translationPo.translations[contextKey]) {
       return;
     }
@@ -697,9 +698,13 @@ class Linguci {
     const context = translationPo.translations[contextKey];
 
     // Update each msgid with its translation
-    for (const msgid in results) {
+    for (const msgid in object) {
       if (context[msgid]) {
-        context[msgid].msgstr = [results[msgid]];
+        // Ensure the translation is a non-empty string
+        const translation = object[msgid] ? object[msgid].trim() : "";
+
+        // Always initialize msgstr as an array with the translation
+        context[msgid].msgstr = [translation];
       }
     }
   }
@@ -803,6 +808,12 @@ class Linguci {
           if (msgid !== "") {
             translationContext[msgid].msgstr = [""];
           }
+        } else if (
+          msgid !== "" &&
+          translationContext[msgid].msgstr.length === 0
+        ) {
+          // Fix any entries that have an empty array instead of an array with empty string
+          translationContext[msgid].msgstr = [""];
         }
       }
     }
@@ -821,11 +832,12 @@ class Linguci {
       const translationContext = translationPo.translations[contextKey];
 
       for (const msgid in translationContext) {
-        if (
-          msgid !== "" && // Skip the header
-          (translationContext[msgid].msgstr.length === 0 ||
-            translationContext[msgid].msgstr[0] === "")
-        ) {
+        // Skip the header
+        if (msgid === "") continue;
+
+        // Check if translation is missing or empty
+        const msgstr = translationContext[msgid].msgstr;
+        if (msgstr.length === 0 || (msgstr.length === 1 && msgstr[0] === "")) {
           emptyMsgStrs[contextKey] = emptyMsgStrs[contextKey] || {};
           emptyMsgStrs[contextKey][msgid] = translationContext[msgid];
         }

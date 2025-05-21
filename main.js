@@ -2,6 +2,8 @@ import core from "@actions/core";
 import github from "@actions/github";
 import Linguci from "./linguci.js";
 
+import { zodToJsonSchema } from "zod-to-json-schema";
+
 async function run() {
   try {
     const linguci = new Linguci();
@@ -9,12 +11,9 @@ async function run() {
     await linguci
       .readConfig()
       .validateConfig()
-      .createTranslationBatches({ batchSize: 5 })
+      .createTranslationBatches({ batchSize: 20 })
       .executeTranslations()
       .then((instance) => instance.writeTranslations());
-
-    console.log(linguci.translationBatches);
-    console.log(linguci.translationPos);
 
     core.setOutput("status", "success");
   } catch (error) {
