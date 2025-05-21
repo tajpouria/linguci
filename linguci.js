@@ -791,8 +791,9 @@ class Linguci {
    * @returns {Promise<Object>} Object with stdout, stderr, and error properties
    */
   async _executeCommand(command) {
-    return new Promise((resolve) => {
-      const { exec } = require("child_process");
+    return new Promise(async (resolve) => {
+      // Use dynamic import for ES modules
+      const { exec } = await import("child_process");
 
       exec(command, { cwd: this.workspace }, (error, stdout, stderr) => {
         resolve({

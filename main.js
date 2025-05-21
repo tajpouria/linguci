@@ -12,11 +12,12 @@ async function run() {
       .readConfig()
       .validateConfig()
       .createTranslationBatches({ batchSize: 20 })
-      .executeTranslations({
-        languageConcurrency: 2,
-      })
-      .then((instance) => instance.writeTranslations())
-      .then((instance) => instance.commitChanges());
+      .commitChanges();
+      // .executeTranslations({
+      //   languageConcurrency: 2,
+      // })
+      // .then((instance) => instance.writeTranslations())
+      // .then((instance) => instance.commitChanges());
 
     core.setOutput("status", "success");
   } catch (error) {
