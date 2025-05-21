@@ -787,7 +787,7 @@ class Linguci {
 
       // Get the default branch from git
       const getDefaultBranchResult = await this._executeCommand(
-        "git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'"
+        "git rev-parse --abbrev-ref HEAD"
       );
 
       if (getDefaultBranchResult.error) {
