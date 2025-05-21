@@ -779,24 +779,18 @@ class Linguci {
         .replace("T", "-")
         .slice(0, 19);
 
-      // Get current branch name to return to later if needed
-      const currentBranchResult = await this._executeCommand(
-        "git rev-parse --abbrev-ref HEAD"
-      );
-      const currentBranch = currentBranchResult.stdout.trim();
-
       // Get the default branch from git
-      const getDefaultBranchResult = await this._executeCommand(
+      const getCurrentBranch = await this._executeCommand(
         "git rev-parse --abbrev-ref HEAD"
       );
 
-      if (getDefaultBranchResult.error) {
+      if (getCurrentBranch.error) {
         throw new Error(
-          `Failed to get default branch: ${getDefaultBranchResult.error}`
+          `Failed to get default branch: ${getCurrentBranch.error}`
         );
       }
 
-      const baseBranch = getDefaultBranchResult.stdout.trim();
+      const baseBranch = getCurrentBranch.stdout.trim();
       this.log("DEBUG", `Using base branch: ${baseBranch}`);
 
       // Create branch name with timestamp
