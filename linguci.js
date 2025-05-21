@@ -730,7 +730,7 @@ class Linguci {
         const changedLocales = this._getChangedLocales(changedFiles);
 
         commitMessage =
-          `feat(i18n): update translations for ${changedLocales.length} locales\n\n` +
+          `linguci: update translations for ${changedLocales.length} locales\n\n` +
           `Added ${addedFiles}, modified ${modifiedFiles} translation files\n` +
           `Locales: ${changedLocales.join(", ")}`;
       }
