@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "POT-Creation-Date: 2023-11-10 13:15+0100\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: fa\n"
@@ -24,19 +24,19 @@ msgstr "احراز هویت دو مرحله ای را با موفقیت فعال
 
 #: apps/client/src/pages/builder/_components/analysis/gap-red-flag-detection.tsx:142
 msgid "{0} ({1} - {2})"
-msgstr ""
+msgstr "{0} ({1} - {2})"
 
 #: apps/client/src/pages/builder/_components/analysis/career-trajectory.tsx:445
 msgid "{0} → {1}"
-msgstr ""
+msgstr "{0} → {1}"
 
 #: apps/client/src/pages/builder/_components/analysis/keyword-in-context-integrity.tsx:223
 msgid "{0} bullet points"
-msgstr ""
+msgstr "{0} نکته"
 
 #: apps/client/src/pages/builder/_components/analysis/recency-weighting.tsx:98
 msgid "{age} years ago"
-msgstr ""
+msgstr "{age} سال پیش"
 
 #: apps/client/src/pages/home/sections/features/index.tsx:57
 msgid "{templatesCount} resume templates to choose from"
@@ -49,7 +49,7 @@ msgstr "{value, plural, one {ستون} other {ستون}}"
 #: apps/client/src/pages/builder/_components/analysis/domain-industry-experience.tsx:74
 #: apps/client/src/pages/builder/_components/analysis/years-experience-match.tsx:76
 msgid "{years} years"
-msgstr ""
+msgstr "{years} سال"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/progress.tsx:574
 #: apps/client/src/pages/builder/_components/ai-optimize/progress.tsx:591
@@ -57,7 +57,7 @@ msgstr ""
 #: apps/client/src/pages/builder/_components/ai-optimize/progress.tsx:683
 #: apps/client/src/pages/builder/_components/analysis/achievement-relevance-index.tsx:175
 msgid "#{0}"
-msgstr ""
+msgstr "#{0}"
 
 #: apps/client/src/pages/builder/_components/analysis/achievement-relevance-index.tsx:153
 #: apps/client/src/pages/builder/_components/analysis/achievement-relevance-index.tsx:196
@@ -65,40 +65,84 @@ msgstr ""
 #: apps/client/src/pages/builder/_components/analysis/skill-similarity.tsx:130
 #: apps/client/src/pages/builder/_components/analysis/skill-similarity.tsx:170
 msgid "+{0} more"
-msgstr ""
+msgstr "+{0} بیشتر"
 
 #: apps/client/src/pages/builder/sidebars/right/sections/information.tsx:20
-msgid "<0>I built Reactive Resume mostly by myself during my spare time, with a lot of help from other great open-source contributors.</0><1>If you like the app and want to support keeping it free forever, please donate whatever you can afford to give.</1>"
-msgstr "<0>من Reactive Resume را بیشتر در اوقات فراغت خودم و با کمک جامعه اوپن‌سورس ساختم.</0> <1>اگر این اپلیکیشن را دوست دارید و می‌خواهید از رایگان نگه داشتن آن برای همیشه حمایت کنید، لطفاً هر چقدر در توان شماست دونیت کنید.</1>"
+msgid ""
+"<0>I built Reactive Resume mostly by myself during my spare time, with a "
+"lot of help from other great open-source contributors.</0><1>If you like "
+"the app and want to support keeping it free forever, please donate whatever "
+"you can afford to give.</1>"
+msgstr ""
+"<0>من Reactive Resume را بیشتر در اوقات فراغت خودم و با کمک جامعه اوپن‌سورس "
+"ساختم.</0> <1>اگر این اپلیکیشن را دوست دارید و می‌خواهید از رایگان نگه "
+"داشتن آن برای همیشه حمایت کنید، لطفاً هر چقدر در توان شماست دونیت کنید.</1>"
 
 #: apps/client/src/pages/builder/sidebars/right/sections/information.tsx:51
-msgid "<0>I'm sure the app is not perfect, but I'd like for it to be.</0><1>If you faced any issues while creating your resume, or have an idea that would help you and other users in creating your resume more easily, drop an issue on the repository or send me an email about it.</1>"
-msgstr "<0>مطمئنم که برنامه بی‌نقص نیست، اما دوست دارم که باشد.</0> <1>اگر موقع ایجاد رزومه خودتان با مشکلی مواجه شدید یا ایده‌ای دارید که به شما و سایر کاربران در ساختن راحت‌تر رزومه کمک می‌کند، در گیت‌هاب پروژه یک issue ایجاد کنید یا به من ایمیل بفرستید.</1>"
+msgid ""
+"<0>I'm sure the app is not perfect, but I'd like for it to be.</0><1>If you "
+"faced any issues while creating your resume, or have an idea that would "
+"help you and other users in creating your resume more easily, drop an issue "
+"on the repository or send me an email about it.</1>"
+msgstr ""
+"<0>مطمئنم که برنامه بی‌نقص نیست، اما دوست دارم که باشد.</0> <1>اگر موقع "
+"ایجاد رزومه خودتان با مشکلی مواجه شدید یا ایده‌ای دارید که به شما و سایر "
+"کاربران در ساختن راحت‌تر رزومه کمک می‌کند، در گیت‌هاب پروژه یک issue ایجاد "
+"کنید یا به من ایمیل بفرستید.</1>"
 
 #: apps/client/src/pages/dashboard/settings/_sections/openai.tsx:201
-msgid "<0>Note: </0>By utilizing the OpenAI API, you acknowledge and accept the <1>terms of use</1> and <2>privacy policy</2> outlined by OpenAI. Please note that Reactive Resume bears no responsibility for any improper or unauthorized utilization of the service, and any resulting repercussions or liabilities solely rest on the user."
-msgstr "<0>توجه:</0> با استفاده از امکانات OpenAI API، <1>شرایط استفاده را تایید می‌کنید و می‌پذیرید</1> و <2>خط مشی رازداری</2> را که توسط OpenAI مشخص شده است. لطفاً توجه داشته باشید که Reactive Resume هیچ مسئولیتی در قبال هرگونه استفاده نادرست یا غیرمجاز از سرویس ندارد و هرگونه عواقب یا تعهدات ناشی از آن صرفاً بر عهده کاربر است."
+msgid ""
+"<0>Note: </0>By utilizing the OpenAI API, you acknowledge and accept the "
+"<1>terms of use</1> and <2>privacy policy</2> outlined by OpenAI. Please "
+"note that Reactive Resume bears no responsibility for any improper or "
+"unauthorized utilization of the service, and any resulting repercussions or "
+"liabilities solely rest on the user."
+msgstr ""
+"<0>توجه:</0> با استفاده از امکانات OpenAI API، <1>شرایط استفاده را تایید "
+"می‌کنید و می‌پذیرید</1> و <2>خط مشی رازداری</2> را که توسط OpenAI مشخص شده "
+"است. لطفاً توجه داشته باشید که Reactive Resume هیچ مسئولیتی در قبال هرگونه "
+"استفاده نادرست یا غیرمجاز از سرویس ندارد و هرگونه عواقب یا تعهدات ناشی از "
+"آن صرفاً بر عهده کاربر است."
 
 #: apps/client/src/pages/builder/sidebars/right/sections/information.tsx:85
-msgid "<0>The community has spent a lot of time writing the documentation for Reactive Resume, and I'm sure it will help you get started with the app.</0><1>There are also a lot of examples to help you get started, and features that you might not know about which could help you build your perfect resume.</1>"
-msgstr "<0>جامعه Reactive Resume زمان زیادی را صرف نوشتن مستندات کرده است، و من مطمئن هستم که به شما در شروع کار با برنامه کمک خواهد کرد.</0> <1>همچنین مثال‌ها و تمپلت‌های زیادی وجود دارد که به شما در شروع کار کمک می‌کند، و شاید این مثال‌ها در شناخت امکاناتی که ممکن است در روند ساختن رزومه ندانید مفید باشند.</1>"
+msgid ""
+"<0>The community has spent a lot of time writing the documentation for "
+"Reactive Resume, and I'm sure it will help you get started with the "
+"app.</0><1>There are also a lot of examples to help you get started, and "
+"features that you might not know about which could help you build your "
+"perfect resume.</1>"
+msgstr ""
+"<0>جامعه Reactive Resume زمان زیادی را صرف نوشتن مستندات کرده است، و من "
+"مطمئن هستم که به شما در شروع کار با برنامه کمک خواهد کرد.</0> <1>همچنین "
+"مثال‌ها و تمپلت‌های زیادی وجود دارد که به شما در شروع کار کمک می‌کند، و "
+"شاید این مثال‌ها در شناخت امکاناتی که ممکن است در روند ساختن رزومه ندانید "
+"مفید باشند.</1>"
 
 #: apps/client/src/pages/dashboard/settings/_sections/security.tsx:140
-msgid "<0>Two-factor authentication is currently disabled.</0> You can enable it by adding an authenticator app to your account."
-msgstr "<0> احراز هویت دو مرحله‌ای در حال حاضر غیرفعال است.</0> می توانید با نصب یک اپلیکیشن احراز هویت (مثل Google Authenticator یا Microsoft Authenticator) و افزودن آن به حساب خود، ورود دو مرحله‌ای را فعال کنید."
+msgid ""
+"<0>Two-factor authentication is currently disabled.</0> You can enable it "
+"by adding an authenticator app to your account."
+msgstr ""
+"<0> احراز هویت دو مرحله‌ای در حال حاضر غیرفعال است.</0> می توانید با نصب یک "
+"اپلیکیشن احراز هویت (مثل Google Authenticator یا Microsoft Authenticator) و "
+"افزودن آن به حساب خود، ورود دو مرحله‌ای را فعال کنید."
 
 #: apps/client/src/pages/dashboard/settings/_sections/security.tsx:133
-msgid "<0>Two-factor authentication is enabled.</0> You will be asked to enter a code every time you sign in."
-msgstr "<0>احراز هویت دو عاملی فعال است.</0> در هر بار ورود، از شما خواسته می‌شود که یک کد وارد کنید."
+msgid ""
+"<0>Two-factor authentication is enabled.</0> You will be asked to enter a "
+"code every time you sign in."
+msgstr ""
+"<0>احراز هویت دو عاملی فعال است.</0> در هر بار ورود، از شما خواسته می‌شود "
+"که یک کد وارد کنید."
 
 #: apps/client/src/pages/builder/_components/analysis/domain-industry-experience.tsx:73
 #: apps/client/src/pages/builder/_components/analysis/years-experience-match.tsx:75
 msgid "1 year"
-msgstr ""
+msgstr "1 سال"
 
 #: apps/client/src/pages/builder/_components/analysis/recency-weighting.tsx:97
 msgid "1 year ago"
-msgstr ""
+msgstr "1 سال پیش"
 
 #: apps/client/src/pages/home/page.tsx:24
 #: apps/client/src/pages/home/sections/hero/index.tsx:40
@@ -107,8 +151,12 @@ msgstr "یک رزومه ساز رایگان و منبع باز"
 
 #: apps/client/src/pages/home/components/footer.tsx:20
 #: apps/client/src/pages/home/sections/hero/index.tsx:45
-msgid "A free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume."
-msgstr "یک رزومه ساز رایگان و منبع باز که فرآیند ایجاد، به روز رسانی و به اشتراک گذاری رزومه شما را ساده می کند."
+msgid ""
+"A free and open-source resume builder that simplifies the process of "
+"creating, updating, and sharing your resume."
+msgstr ""
+"یک رزومه ساز رایگان و منبع باز که فرآیند ایجاد، به روز رسانی و به اشتراک "
+"گذاری رزومه شما را ساده می کند."
 
 #: apps/client/src/pages/builder/_components/toolbar.tsx:59
 #: apps/client/src/pages/builder/sidebars/right/sections/sharing.tsx:29
@@ -116,12 +164,20 @@ msgid "A link has been copied to your clipboard."
 msgstr "لینک در کلیپ بورد شما کپی شده است."
 
 #: apps/client/src/pages/auth/forgot-password/page.tsx:57
-msgid "A password reset link should have been sent to your inbox, if an account existed with the email you provided."
-msgstr "اگر یک حساب کاربری با ایمیلی که ارائه کرده‌اید وجود دارد، لینک بازنشانی رمز عبور باید به صندوق ورودی شما ارسال شده باشد."
+msgid ""
+"A password reset link should have been sent to your inbox, if an account "
+"existed with the email you provided."
+msgstr ""
+"اگر یک حساب کاربری با ایمیلی که ارائه کرده‌اید وجود دارد، لینک بازنشانی رمز "
+"عبور باید به صندوق ورودی شما ارسال شده باشد."
 
 #: apps/client/src/services/errors/translate-error.ts:43
-msgid "A resume with this slug already exists, please pick a different unique identifier."
-msgstr "یک رزومه با این شناسه منحصر به فرد از قبل وجود دارد، لطفاً یک شناسه منحصر به فرد دیگر انتخاب کنید."
+msgid ""
+"A resume with this slug already exists, please pick a different unique "
+"identifier."
+msgstr ""
+"یک رزومه با این شناسه منحصر به فرد از قبل وجود دارد، لطفاً یک شناسه منحصر "
+"به فرد دیگر انتخاب کنید."
 
 #: apps/client/src/services/errors/translate-error.ts:10
 msgid "A user with this email address and/or username already exists."
@@ -131,8 +187,8 @@ msgstr "کاربری با این آدرس ایمیل و/یا نام کاربری
 msgid "A4"
 msgstr "A4"
 
-#. Helper text to let the user know what filetypes are accepted. {accept} can be .pdf or .json.
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:400
+#. Helper text to let the user know what filetypes are accepted. {accept} can be .pdf or .json.
 msgid "Accepts only {accept} files"
 msgstr "فقط فایل های {accept} را می پذیرد"
 
@@ -142,17 +198,11 @@ msgstr "حساب"
 
 #: apps/client/src/pages/builder/_components/analysis/keyword-in-context-integrity.tsx:234
 msgid "Action Verbs:"
-msgstr ""
+msgstr "افعال عمل:"
 
 #: apps/client/src/pages/builder/sidebars/left/sections/custom/section.tsx:175
 msgid "Add a custom field"
 msgstr "افزودن فیلد دلخواه"
-
-#: apps/client/src/pages/builder/sidebars/left/sections/shared/section-base.tsx:119
-#: apps/client/src/pages/builder/sidebars/left/sections/shared/section-base.tsx:170
-msgctxt "For example, add a new work experience, or add a new profile."
-msgid "Add a new item"
-msgstr "افزودن مورد جدید"
 
 #: apps/client/src/pages/builder/sidebars/left/sections/shared/section-options.tsx:91
 msgid "Add a new item"
@@ -169,15 +219,15 @@ msgstr "افزودن برگهٔ تازه"
 
 #: apps/client/src/pages/builder/_components/analysis/mandatory-requirements-checklist.tsx:96
 msgid "Add this to your resume to improve matching."
-msgstr ""
+msgstr "این را به رزومه خود اضافه کنید تا مطابقت بهبود یابد."
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:541
 msgid "Adding a job description helps tailor your resume to the specific position."
-msgstr ""
+msgstr "اضافه کردن شرح شغل به تنظیم رزومه شما برای موقعیت خاص کمک می کند."
 
 #: apps/client/src/pages/builder/_components/analysis/hard-skill-similarity.tsx:94
 msgid "Additional Skills ({0})"
-msgstr ""
+msgstr "مهارت های اضافی ({0})"
 
 #: apps/client/src/components/ai-actions.tsx:79
 msgid "AI"
@@ -186,11 +236,11 @@ msgstr "AI"
 #: apps/client/src/pages/builder/sidebars/left/index.tsx:56
 #: apps/client/src/pages/builder/sidebars/left/sections/ai-optimize.tsx:144
 msgid "AI Optimize"
-msgstr ""
+msgstr "بهینه سازی هوش مصنوعی"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/progress.tsx:476
 msgid "AI Resume Optimization"
-msgstr ""
+msgstr "بهینه سازی رزومه هوش مصنوعی"
 
 #: apps/client/src/pages/auth/register/page.tsx:71
 msgid "Already have an account?"
@@ -198,7 +248,7 @@ msgstr "درحال حاضر حساب کاربری دارید"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/progress.tsx:375
 msgid "An error occurred during optimization"
-msgstr ""
+msgstr "هنگام بهینه سازی خطایی رخ داد"
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:196
 msgid "An error occurred while validating the file."
@@ -206,30 +256,30 @@ msgstr "هنگام بارگیری فایل خطایی رخ داد."
 
 #: apps/client/src/pages/public/error.tsx:23
 msgid "An internal server error occurred."
-msgstr ""
+msgstr "یک خطای داخلی سرور رخ داد."
 
 #: apps/client/src/pages/public/error.tsx:32
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "یک خطای غیرمنتظره رخ داد."
 
 #: apps/client/src/pages/builder/sidebars/right/index.tsx:65
 #: apps/client/src/pages/builder/sidebars/right/sections/analysis.tsx:220
 #: apps/client/src/pages/builder/sidebars/right/sections/analysis.tsx:400
 #: apps/client/src/pages/builder/sidebars/right/sections/analysis.tsx:401
 msgid "Analysis"
-msgstr ""
+msgstr "تحلیل"
 
 #: apps/client/src/components/usage-limit-dialog.tsx:102
 msgid "analyzing a resume"
-msgstr ""
+msgstr "تجزیه و تحلیل یک رزومه"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/progress.tsx:371
 msgid "Analyzing the optimized content..."
-msgstr ""
+msgstr "در حال تحلیل محتوای بهینه شده..."
 
 #: apps/client/src/pages/builder/_components/ai-optimize/progress.tsx:690
 msgid "Analyzing..."
-msgstr ""
+msgstr "در حال تحلیل..."
 
 #: apps/client/src/pages/home/sections/features/index.tsx:134
 msgid "and many more..."
@@ -241,30 +291,38 @@ msgstr "هر کسی که لینک را داشته باشد می تواند رز�
 
 #: apps/client/src/pages/builder/_components/toolbar.tsx:60
 #: apps/client/src/pages/builder/sidebars/right/sections/sharing.tsx:30
-msgid "Anyone with this link can view and download the resume. Share it on your profile or with recruiters."
-msgstr "از این پیوند همه می توانند رزومه را مشاهده و دانلود کنند. آن را در نمایه خود یا با استخدام کنندگان به اشتراک بگذارید."
+msgid ""
+"Anyone with this link can view and download the resume. Share it on your "
+"profile or with recruiters."
+msgstr ""
+"از این پیوند همه می توانند رزومه را مشاهده و دانلود کنند. آن را در نمایه "
+"خود یا با استخدام کنندگان به اشتراک بگذارید."
 
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:315
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:457
 msgid "Apply"
-msgstr ""
+msgstr "اعمال"
 
 #: apps/client/src/pages/builder/sidebars/right/sections/css.tsx:41
 msgid "Apply Custom CSS"
-msgstr ""
+msgstr "اعمال CSS سفارشی"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:301
 msgid "Apply Optimization"
-msgstr ""
+msgstr "اعمال بهینه سازی"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:312
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:452
 msgid "Applying..."
-msgstr ""
+msgstr "در حال اعمال..."
 
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:303
-msgid "Are you sure you want to apply this optimization? This will update your resume with the optimized content."
+msgid ""
+"Are you sure you want to apply this optimization? This will update your "
+"resume with the optimized content."
 msgstr ""
+"آیا مطمئن هستید که می خواهید این بهینه سازی را اعمال کنید؟ این کار رزومه "
+"شما را با محتوای بهینه شده به روز می کند."
 
 #: apps/client/src/pages/builder/sidebars/left/sections/shared/section-dialog.tsx:128
 msgid "Are you sure you want to delete this item?"
@@ -283,8 +341,12 @@ msgid "Are you sure you want to lock this resume?"
 msgstr "آیا مطمئن هستید که می خواهید این رزومه را قفل کنید؟"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:285
-msgid "Are you sure you want to reject this optimization? This will delete the optimized version of your resume and cannot be undone."
+msgid ""
+"Are you sure you want to reject this optimization? This will delete the "
+"optimized version of your resume and cannot be undone."
 msgstr ""
+"آیا مطمئن هستید که می خواهید این بهینه سازی را رد کنید؟ این کار نسخه بهینه "
+"شده رزومه شما را حذف می کند و قابل بازگشت نیست."
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/lock.tsx:39
 msgid "Are you sure you want to unlock this resume?"
@@ -294,8 +356,8 @@ msgstr "آیا مطمئن هستید که می خواهید قفل این رزو
 msgid "Are you sure?"
 msgstr "آیا مطمئن هستید؟"
 
-#. For example, Computer Science or Business Administration
 #: apps/client/src/pages/builder/sidebars/left/dialogs/education.tsx:73
+#. For example, Computer Science or Business Administration
 msgid "Area of Study"
 msgstr "زمینه مطالعاتی"
 
@@ -305,7 +367,7 @@ msgstr "نسبت تصویر"
 
 #: apps/client/src/components/usage-limit-dialog.tsx:140
 msgid "Available again in:"
-msgstr ""
+msgstr "دوباره در دسترس خواهد بود در:"
 
 #: apps/client/src/pages/home/sections/features/index.tsx:51
 msgid "Available in {languagesCount} languages"
@@ -313,19 +375,19 @@ msgstr "در {languagesCount} زبان موجود است"
 
 #: apps/client/src/pages/builder/_components/analysis/metrics-bar-chart.tsx:465
 msgid "Average (40-69%)"
-msgstr ""
+msgstr "متوسط ​​(40-69٪)"
 
 #: apps/client/src/pages/builder/_components/analysis/achievement-relevance-index.tsx:68
 msgid "Average achievement-job alignment"
-msgstr ""
+msgstr "تطابق متوسط ​​دستاورد با شغل"
 
 #: apps/client/src/pages/builder/_components/analysis/action-verb-density.tsx:61
 msgid "Average action verb usage"
-msgstr ""
+msgstr "میانگین استفاده از فعل عمل"
 
 #: apps/client/src/pages/builder/_components/analysis/keyword-in-context-integrity.tsx:132
 msgid "Average keyword context integrity"
-msgstr ""
+msgstr "میانگین یکپارچگی متن کلمات کلیدی"
 
 #: apps/client/src/pages/builder/sidebars/left/dialogs/awards.tsx:53
 msgid "Awarder"
@@ -348,21 +410,18 @@ msgid "Backup Code"
 msgstr "کد پشتیبان"
 
 #: apps/client/src/pages/auth/backup-otp/page.tsx:81
-msgid "Backup Codes may contain only lowercase letters or numbers, and must be exactly 10 characters."
+msgid ""
+"Backup Codes may contain only lowercase letters or numbers, and must be "
+"exactly 10 characters."
 msgstr "کدهای پشتیبان فقط باید شامل حروف کوچک یا اعداد و دقیقاً 10 کاراکتر باشند."
 
 #: apps/client/src/pages/dashboard/settings/_sections/openai.tsx:132
 msgid "Base URL"
-msgstr ""
+msgstr "URL پایه"
 
 #: apps/client/src/pages/builder/_components/analysis/resume-worldwide.tsx:61
 msgid "Based on anonymized data from similar professional profiles"
-msgstr ""
-
-#: apps/client/src/pages/builder/sidebars/left/index.tsx:63
-msgctxt "The basics section of a resume consists of User's Picture, Full Name, Location etc."
-msgid "Basics"
-msgstr "مبانی"
+msgstr "بر اساس داده های ناشناس از پروفایل های حرفه ای مشابه"
 
 #: apps/client/src/pages/builder/sidebars/left/sections/basics.tsx:21
 msgid "Basics"
@@ -395,19 +454,19 @@ msgstr "انصراف"
 
 #: apps/client/src/pages/builder/_components/analysis/gap-red-flag-detection.tsx:120
 msgid "Career Gaps Detected"
-msgstr ""
+msgstr "شکاف های شغلی شناسایی شد"
 
 #: apps/client/src/pages/builder/_components/analysis/career-trajectory.tsx:531
 msgid "Career Level"
-msgstr ""
+msgstr "سطح شغلی"
 
 #: apps/client/src/pages/builder/_components/analysis/career-trajectory.tsx:413
 msgid "Career Span"
-msgstr ""
+msgstr "طول دوره شغلی"
 
 #: apps/client/src/pages/builder/_components/analysis/career-trajectory.tsx:406
 msgid "Career Trajectory"
-msgstr ""
+msgstr "مسیر شغلی"
 
 #: apps/client/src/components/ai-actions.tsx:103
 #: apps/client/src/components/ai-actions.tsx:106
@@ -441,7 +500,7 @@ msgstr "دایره"
 
 #: apps/client/src/pages/builder/_components/analysis/language-clarity-quality.tsx:49
 msgid "Clear and well-written content"
-msgstr ""
+msgstr "محتوای واضح و خوش نوشته"
 
 #: apps/client/src/components/usage-limit-dialog.tsx:147
 #: apps/client/src/pages/builder/_components/ai-optimize/progress.tsx:506
@@ -451,7 +510,7 @@ msgstr "بستن"
 
 #: apps/client/src/pages/builder/sidebars/right/sections/analysis.tsx:248
 msgid "Close fullscreen view"
-msgstr ""
+msgstr "بستن نمای تمام صفحه"
 
 #: apps/client/src/pages/dashboard/settings/_dialogs/two-factor.tsx:201
 msgid "Code"
@@ -476,32 +535,46 @@ msgstr "مطمئن"
 
 #: apps/client/src/pages/builder/_components/analysis/skill-similarity.tsx:177
 msgid "Consider adding these keywords to your resume if applicable."
-msgstr ""
+msgstr "در صورت لزوم، اضافه کردن این کلمات کلیدی به رزومه خود را در نظر بگیرید."
 
 #: apps/client/src/pages/builder/_components/analysis/hard-skill-similarity.tsx:87
 #: apps/client/src/pages/builder/_components/analysis/skill-similarity.tsx:176
 msgid "Consider adding these skills to your resume if you have them."
-msgstr ""
+msgstr "در صورت داشتن این مهارت ها، اضافه کردن آنها به رزومه خود را در نظر بگیرید."
 
 #: apps/client/src/pages/builder/_components/analysis/gap-red-flag-detection.tsx:155
-msgid "Consider addressing career gaps in your cover letter or summary, highlighting any relevant activities during these periods."
+msgid ""
+"Consider addressing career gaps in your cover letter or summary, "
+"highlighting any relevant activities during these periods."
 msgstr ""
+"در نظر بگیرید که در نامه پوششی یا خلاصه خود به شکاف های شغلی بپردازید و "
+"فعالیت های مرتبط در این دوره ها را برجسته کنید."
 
 #: apps/client/src/pages/builder/_components/analysis/domain-industry-experience.tsx:196
-msgid "Consider highlighting any experience related to the required domains, even if indirect."
+msgid ""
+"Consider highlighting any experience related to the required domains, even "
+"if indirect."
 msgstr ""
+"در نظر بگیرید که هر تجربه مرتبط با دامنه های مورد نیاز را برجسته کنید، حتی "
+"اگر غیر مستقیم باشد."
 
 #: apps/client/src/pages/builder/_components/analysis/domain-industry-experience.tsx:188
 msgid "Consider highlighting relevant experience in these domains if you have it."
-msgstr ""
+msgstr "در صورت داشتن تجربه مرتبط در این زمینه ها، برجسته کردن آن را در نظر بگیرید."
 
 #: apps/client/src/pages/builder/_components/analysis/language-clarity-quality.tsx:100
-msgid "Consider revising the highlighted sentences to improve clarity and readability."
-msgstr ""
+msgid ""
+"Consider revising the highlighted sentences to improve clarity and "
+"readability."
+msgstr "تجدید نظر در جملات برجسته شده را برای بهبود وضوح و خوانایی در نظر بگیرید."
 
 #: apps/client/src/pages/builder/_components/analysis/recency-weighting.tsx:259
-msgid "Consider updating your skills or highlighting more recent experience with required skills."
+msgid ""
+"Consider updating your skills or highlighting more recent experience with "
+"required skills."
 msgstr ""
+"به روز رسانی مهارت های خود یا برجسته کردن تجربه های جدیدتر با مهارت های "
+"مورد نیاز را در نظر بگیرید."
 
 #: apps/client/src/pages/dashboard/settings/_dialogs/two-factor.tsx:234
 #: apps/client/src/pages/dashboard/settings/_dialogs/two-factor.tsx:246
@@ -510,7 +583,7 @@ msgstr "ادامه"
 
 #: apps/client/src/pages/home/sections/hero/call-to-action.tsx:46
 msgid "Convert your existing resume instantly"
-msgstr ""
+msgstr "تبدیل فوری رزومه موجود خود"
 
 #: apps/client/src/pages/builder/sidebars/left/sections/shared/section-list-item.tsx:96
 msgid "Copy"
@@ -544,32 +617,27 @@ msgstr "ساخت آیتم جدید"
 msgid "Create a new resume"
 msgstr "ساخت رزومه جدید"
 
-#: apps/client/src/pages/auth/login/page.tsx:65
-msgctxt "This is a link to create a new account"
-msgid "Create one now"
-msgstr "اکنون یکی ایجاد کنید"
-
 #: apps/client/src/pages/dashboard/resumes/_dialogs/resume.tsx:261
 msgid "Create Sample Resume"
 msgstr "ایجاد نمونه رزومه"
 
 #: apps/client/src/components/usage-limit-dialog.tsx:96
 msgid "creating a new resume"
-msgstr ""
+msgstr "ایجاد یک رزومه جدید"
 
 #: apps/client/src/pages/builder/_components/analysis/recency-weighting.tsx:96
 msgid "Current"
-msgstr ""
+msgstr "جاری"
 
 #: apps/client/src/pages/dashboard/settings/_sections/security.tsx:82
 msgid "Current Password"
-msgstr ""
+msgstr "رمز عبور فعلی"
 
 #: apps/client/src/pages/builder/sidebars/right/index.tsx:100
 #: apps/client/src/pages/builder/sidebars/right/sections/css.tsx:27
 #: apps/client/src/pages/builder/sidebars/right/sections/css.tsx:28
 msgid "Custom CSS"
-msgstr ""
+msgstr "CSS سفارشی"
 
 #: apps/client/src/pages/home/sections/features/index.tsx:62
 msgid "Custom resume sections"
@@ -637,11 +705,11 @@ msgstr "طراحی رزومه تک / چند صفحه‌ای"
 #: apps/client/src/pages/builder/_components/ai-optimize/progress.tsx:708
 #: apps/client/src/pages/builder/sidebars/right/sections/analysis.tsx:275
 msgid "Detailed Metrics"
-msgstr ""
+msgstr "معیارهای دقیق"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:355
 msgid "Diff"
-msgstr ""
+msgstr "تفاوت"
 
 #: apps/client/src/pages/dashboard/settings/_dialogs/two-factor.tsx:139
 msgid "Disable"
@@ -664,11 +732,11 @@ msgstr "مستندات"
 
 #: apps/client/src/pages/builder/_components/analysis/domain-industry-experience.tsx:115
 msgid "Domain/industry alignment"
-msgstr ""
+msgstr "هم ترازی دامنه/صنعت"
 
 #: apps/client/src/pages/builder/_components/analysis/domain-industry-experience.tsx:153
 msgid "Domain/Industry Matches ({0})"
-msgstr ""
+msgstr "تطابق های دامنه/صنعت ({0})"
 
 #: apps/client/src/pages/auth/login/page.tsx:62
 msgid "Don't have an account?"
@@ -687,12 +755,21 @@ msgid "Donate to Reactive Resume"
 msgstr "به Reactive Resume دونیت کنید"
 
 #: apps/client/src/pages/builder/sidebars/right/sections/export.tsx:56
-msgid "Download a JSON snapshot of your resume. This file can be used to import your resume in the future, or can even be shared with others to collaborate."
-msgstr "دریافت یک کپی به صورت JSON از رزومه خود. این فایل می تواند برای وارد کردن رزومه خود در آینده استفاده شود، یا حتی با دیگران به اشتراک گذاشته شود تا همکاری کنند."
+msgid ""
+"Download a JSON snapshot of your resume. This file can be used to import "
+"your resume in the future, or can even be shared with others to collaborate."
+msgstr ""
+"دریافت یک کپی به صورت JSON از رزومه خود. این فایل می تواند برای وارد کردن "
+"رزومه خود در آینده استفاده شود، یا حتی با دیگران به اشتراک گذاشته شود تا "
+"همکاری کنند."
 
 #: apps/client/src/pages/builder/sidebars/right/sections/export.tsx:74
-msgid "Download a PDF of your resume. This file can be used to print your resume, send it to recruiters, or upload on job portals."
-msgstr "دریافت یک پی‌دی‌اف از رزومه‌ی خود. این فایل می‌تواند برای چاپ رزومه‌ی شما، ارسال آن به کارفرمایان، یا آپلود آن در پورتال‌های کاریابی استفاده شود."
+msgid ""
+"Download a PDF of your resume. This file can be used to print your resume, "
+"send it to recruiters, or upload on job portals."
+msgstr ""
+"دریافت یک پی‌دی‌اف از رزومه‌ی خود. این فایل می‌تواند برای چاپ رزومه‌ی شما، "
+"ارسال آن به کارفرمایان، یا آپلود آن در پورتال‌های کاریابی استفاده شود."
 
 #: apps/client/src/pages/builder/_components/toolbar.tsx:176
 msgid "Download PDF"
@@ -720,7 +797,7 @@ msgstr "کپی یک رزومه موجود"
 
 #: apps/client/src/pages/builder/_components/analysis/career-trajectory.tsx:694
 msgid "Duration:"
-msgstr ""
+msgstr "مدت:"
 
 #: apps/client/src/pages/builder/sidebars/left/sections/shared/section-list-item.tsx:92
 msgid "Edit"
@@ -739,8 +816,14 @@ msgid "Email"
 msgstr "ایمیل"
 
 #: apps/client/src/pages/builder/_components/analysis/gap-red-flag-detection.tsx:113
-msgid "Employers often look for consistent career progression with minimal unexplained gaps. Addressing any career gaps or frequent job changes in your resume or cover letter can help mitigate potential concerns."
+msgid ""
+"Employers often look for consistent career progression with minimal "
+"unexplained gaps. Addressing any career gaps or frequent job changes in "
+"your resume or cover letter can help mitigate potential concerns."
 msgstr ""
+"کارفرمایان اغلب به دنبال پیشرفت شغلی مداوم با حداقل شکاف های غیرقابل توضیح "
+"هستند. پرداختن به هرگونه شکاف شغلی یا تغییر شغل مکرر در رزومه یا نامه پوششی "
+"شما می تواند به کاهش نگرانی های احتمالی کمک کند."
 
 #: apps/client/src/pages/dashboard/settings/_sections/security.tsx:163
 msgid "Enable 2FA"
@@ -751,43 +834,59 @@ msgid "Enter a new password below, and make sure it's secure."
 msgstr "یک رمز عبور جدید در زیر وارد کنید و مطمئن شوید که ایمن است."
 
 #: apps/client/src/pages/auth/backup-otp/page.tsx:59
-msgid "Enter one of the 10 backup codes you saved when you enabled two-factor authentication."
-msgstr "یکی از 10 کد پشتیبان را که هنگام فعال کردن احراز هویت دو مرحله‌ای ذخیره کرده‌اید، وارد کنید."
+msgid ""
+"Enter one of the 10 backup codes you saved when you enabled two-factor "
+"authentication."
+msgstr ""
+"یکی از 10 کد پشتیبان را که هنگام فعال کردن احراز هویت دو مرحله‌ای ذخیره "
+"کرده‌اید، وارد کنید."
 
 #: apps/client/src/pages/builder/sidebars/left/sections/custom/section.tsx:63
 msgid "Enter Phosphor Icon"
 msgstr "آیکون Phosphor را وارد کنید"
 
 #: apps/client/src/pages/dashboard/settings/_dialogs/two-factor.tsx:170
-msgid "Enter the 6-digit code from your authenticator app to verify that 2FA has been setup correctly."
-msgstr "کد 6 رقمی را از برنامه احراز هویت خود وارد کنید تا تأیید شود که 2FA به درستی تنظیم شده است."
+msgid ""
+"Enter the 6-digit code from your authenticator app to verify that 2FA has "
+"been setup correctly."
+msgstr ""
+"کد 6 رقمی را از برنامه احراز هویت خود وارد کنید تا تأیید شود که 2FA به "
+"درستی تنظیم شده است."
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:468
-msgid "Enter the job description to optimize your resume for this specific position."
-msgstr ""
+msgid ""
+"Enter the job description to optimize your resume for this specific "
+"position."
+msgstr "برای بهینه سازی رزومه خود برای این موقعیت خاص، شرح شغل را وارد کنید."
 
 #: apps/client/src/pages/auth/verify-otp/page.tsx:60
 msgid "Enter the one-time password provided by your authenticator app below."
-msgstr "رمز عبور یکبار مصرف ارائه شده توسط برنامه احراز هویت خود را در زیر وارد کنید."
+msgstr ""
+"رمز عبور یکبار مصرف ارائه شده توسط برنامه احراز هویت خود را در زیر وارد "
+"کنید."
 
 #: apps/client/src/pages/auth/forgot-password/page.tsx:70
-msgid "Enter your email address and we will send you a link to reset your password if the account exists."
-msgstr "ایمیل خود را وارد کنید و ما یک لینک برای بازنشانی رمز عبور به شما ارسال خواهیم کرد اگر حساب وجود داشته باشد."
+msgid ""
+"Enter your email address and we will send you a link to reset your password "
+"if the account exists."
+msgstr ""
+"ایمیل خود را وارد کنید و ما یک لینک برای بازنشانی رمز عبور به شما ارسال "
+"خواهیم کرد اگر حساب وجود داشته باشد."
 
 #: apps/client/src/components/user-options.tsx:47
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:68
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:85
 #: apps/client/src/pages/dashboard/upgrade.tsx:48
 msgid "Error"
-msgstr ""
+msgstr "خطا"
 
 #: apps/client/src/pages/public/error.tsx:46
 msgid "Error {statusCode}"
-msgstr ""
+msgstr "خطا {statusCode}"
 
 #: apps/client/src/pages/builder/sidebars/left/sections/ai-optimize.tsx:169
 msgid "Error during optimization. Please try again."
-msgstr ""
+msgstr "خطا در طول بهینه سازی. لطفا دوباره تلاش کنید."
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:413
 msgid "Errors"
@@ -795,23 +894,38 @@ msgstr "خطاها"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/progress.tsx:367
 msgid "Evaluating your resume and preparing optimizations..."
-msgstr ""
+msgstr "در حال ارزیابی رزومه شما و آماده سازی بهینه سازی ها..."
 
 #: apps/client/src/pages/builder/_components/ai-optimize/progress.tsx:692
 msgid "Evaluating..."
-msgstr ""
+msgstr "در حال ارزیابی..."
 
 #: apps/client/src/pages/home/sections/support/index.tsx:78
-msgid "Even if you're not in a position to contribute financially, you can still make a difference by giving the GitHub repository a star, spreading the word to your friends, or dropping a quick message to let me know how Reactive Resume has helped you. Your feedback and support are always welcome and much appreciated!"
-msgstr "حتی اگر قادر به کمک مالی نباشید، هنوز می‌توانید با به دادن یک ستاره در گیت هاب، گسترش خبر به دوستانتان یا ارسال یک پیام سریع برای من که چگونه Reactive Resume به شما کمک کرده است، تفاوت ایجاد کنید. بازخورد و حمایت شما همیشه خوش‌آمدید و بسیار قدردانی می‌شود!"
+msgid ""
+"Even if you're not in a position to contribute financially, you can still "
+"make a difference by giving the GitHub repository a star, spreading the "
+"word to your friends, or dropping a quick message to let me know how "
+"Reactive Resume has helped you. Your feedback and support are always "
+"welcome and much appreciated!"
+msgstr ""
+"حتی اگر قادر به کمک مالی نباشید، هنوز می‌توانید با به دادن یک ستاره در گیت "
+"هاب، گسترش خبر به دوستانتان یا ارسال یک پیام سریع برای من که چگونه Reactive "
+"Resume به شما کمک کرده است، تفاوت ایجاد کنید. بازخورد و حمایت شما همیشه "
+"خوش‌آمدید و بسیار قدردانی می‌شود!"
 
 #: apps/client/src/pages/builder/_components/analysis/action-verb-density.tsx:99
 msgid "Examples of Strong Action Verb Bullets"
-msgstr ""
+msgstr "مثال هایی از بولت های فعل کنش قوی"
 
 #: apps/client/src/pages/home/sections/templates/index.tsx:12
-msgid "Explore the templates available in Reactive Resume and view the resumes crafted with them. They could also serve as examples to help guide the creation of your next resume."
-msgstr "قالب‌های موجود در Reactive Resume را بررسی کرده و رزومه‌های تولید شده با آنها را مشاهده کنید. آنها همچنین می‌توانند به عنوان نمونه‌ها برای کمک در هدایت ایجاد رزومه بعدی شما خدمت کنند."
+msgid ""
+"Explore the templates available in Reactive Resume and view the resumes "
+"crafted with them. They could also serve as examples to help guide the "
+"creation of your next resume."
+msgstr ""
+"قالب‌های موجود در Reactive Resume را بررسی کرده و رزومه‌های تولید شده با "
+"آنها را مشاهده کنید. آنها همچنین می‌توانند به عنوان نمونه‌ها برای کمک در "
+"هدایت ایجاد رزومه بعدی شما خدمت کنند."
 
 #: apps/client/src/pages/builder/sidebars/right/index.tsx:128
 #: apps/client/src/pages/builder/sidebars/right/sections/export.tsx:39
@@ -821,21 +935,21 @@ msgstr "خروجی گرفتن"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:86
 msgid "Failed to apply optimization, please try again later."
-msgstr ""
+msgstr "اعمال بهینه سازی ناموفق بود، لطفا بعدا دوباره تلاش کنید."
 
 #: apps/client/src/components/user-options.tsx:48
 #: apps/client/src/pages/dashboard/upgrade.tsx:49
 msgid "Failed to get billing portal URL. Please try again."
-msgstr ""
+msgstr "دریافت آدرس پورتال پرداخت ناموفق بود. لطفا دوباره تلاش کنید."
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:309
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:318
 msgid "Failed to import job description"
-msgstr ""
+msgstr "وارد کردن شرح شغل ناموفق بود"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:69
 msgid "Failed to reject optimization, please try again later."
-msgstr ""
+msgstr "رد کردن بهینه سازی ناموفق بود، لطفا بعدا دوباره تلاش کنید."
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:385
 msgid "File"
@@ -854,8 +968,12 @@ msgid "Fix Spelling & Grammar"
 msgstr "تصحیح املا و گرامر"
 
 #: apps/client/src/pages/builder/_components/analysis/gap-red-flag-detection.tsx:158
-msgid "Focus on achievements in short-term roles to demonstrate value despite brief tenure."
+msgid ""
+"Focus on achievements in short-term roles to demonstrate value despite "
+"brief tenure."
 msgstr ""
+"تمرکز بر دستاوردها در نقش های کوتاه مدت برای نشان دادن ارزش با وجود دوره "
+"تصدی کوتاه."
 
 #: apps/client/src/pages/builder/sidebars/right/sections/typography.tsx:107
 msgid "Font Family"
@@ -874,8 +992,12 @@ msgid "Font Variants"
 msgstr "انواع فونت"
 
 #: apps/client/src/pages/builder/sidebars/right/sections/notes.tsx:35
-msgid "For example, information regarding which companies you sent this resume to or the links to the job descriptions can be noted down here."
-msgstr "برای مثال، اطلاعات مربوط به شرکت‌هایی که این رزومه را به آن‌ها ارسال کرده‌اید یا لینک‌هایی به توضیحات شغلی می‌توانند در اینجا یادداشت شوند."
+msgid ""
+"For example, information regarding which companies you sent this resume to "
+"or the links to the job descriptions can be noted down here."
+msgstr ""
+"برای مثال، اطلاعات مربوط به شرکت‌هایی که این رزومه را به آن‌ها ارسال "
+"کرده‌اید یا لینک‌هایی به توضیحات شغلی می‌توانند در اینجا یادداشت شوند."
 
 #: apps/client/src/pages/dashboard/settings/_sections/openai.tsx:182
 msgid "Forget"
@@ -909,7 +1031,7 @@ msgstr "دوستانه"
 
 #: apps/client/src/pages/builder/_components/analysis/years-experience-match.tsx:110
 msgid "From Job Description"
-msgstr ""
+msgstr "از شرح شغل"
 
 #: apps/client/src/pages/builder/sidebars/left/sections/basics.tsx:31
 msgid "Full Name"
@@ -917,7 +1039,7 @@ msgstr "نام و نام خانوادگی"
 
 #: apps/client/src/pages/builder/_components/analysis/gap-red-flag-detection.tsx:126
 msgid "Gap between {0} and {1} ({2} year{3})"
-msgstr ""
+msgstr "فاصله بین {0} و {1} ({2} سال{3})"
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/resume.tsx:204
 msgid "Generate a random title for your resume"
@@ -926,18 +1048,20 @@ msgstr "یک عنوان تصادفی برای رزومه خود ایجاد کن�
 #: apps/client/src/pages/builder/sidebars/right/sections/analysis.tsx:154
 msgid "Generate an analysis to see how your resume matches the job description"
 msgstr ""
+"ایجاد یک تجزیه و تحلیل برای دیدن اینکه چگونه رزومه شما با شرح شغل مطابقت "
+"دارد"
 
 #: apps/client/src/pages/builder/sidebars/right/sections/analysis.tsx:164
 msgid "Generate Analysis"
-msgstr ""
+msgstr "ایجاد تجزیه و تحلیل"
 
 #: apps/client/src/pages/builder/sidebars/right/sections/analysis.tsx:161
 msgid "Generating..."
-msgstr ""
+msgstr "در حال ایجاد..."
 
 #: apps/client/src/pages/builder/_components/analysis/resume-worldwide.tsx:37
 msgid "Geographic distribution of similar resumes around the world"
-msgstr ""
+msgstr "توزیع جغرافیایی رزومه های مشابه در سراسر جهان"
 
 #: apps/client/src/pages/auth/_components/social-auth.tsx:18
 msgid "GitHub"
@@ -958,15 +1082,15 @@ msgstr "رفتن به داشبورد"
 
 #: apps/client/src/pages/public/error.tsx:55
 msgid "Go to home"
-msgstr ""
+msgstr "برو به خانه"
 
 #: apps/client/src/pages/builder/_components/analysis/achievement-relevance-index.tsx:138
 msgid "Goal #{0}"
-msgstr ""
+msgstr "هدف #{0}"
 
 #: apps/client/src/pages/builder/_components/analysis/metrics-bar-chart.tsx:471
 msgid "Good (70-100%)"
-msgstr ""
+msgstr "خوب (70-100%)"
 
 #: apps/client/src/pages/auth/_components/social-auth.tsx:31
 msgid "Google"
@@ -982,19 +1106,27 @@ msgstr "جدول"
 
 #: apps/client/src/pages/builder/_components/analysis/hard-skill-similarity.tsx:47
 msgid "Hard Skill Similarity"
-msgstr ""
+msgstr "تشابه مهارت های سخت"
 
 #: apps/client/src/pages/builder/sidebars/left/sections/basics.tsx:43
 msgid "Headline"
 msgstr "تيتر"
 
 #: apps/client/src/pages/dashboard/settings/_sections/account.tsx:107
-msgid "Here, you can update your account information such as your profile picture, name and username."
-msgstr "امکان ویرایش اطلاعات حساب کاربری خود مانند تصویر پروفایل، نام و نام کاربری خود را اینجا پیدا می کنید."
+msgid ""
+"Here, you can update your account information such as your profile picture, "
+"name and username."
+msgstr ""
+"امکان ویرایش اطلاعات حساب کاربری خود مانند تصویر پروفایل، نام و نام کاربری "
+"خود را اینجا پیدا می کنید."
 
 #: apps/client/src/pages/dashboard/settings/_sections/profile.tsx:68
-msgid "Here, you can update your profile to customize and personalize your experience."
-msgstr "در اینجا می‌توانید پروفایل خود را به‌روزرسانی کنید تا تجربه‌ی خود را شخصی‌سازی کنید."
+msgid ""
+"Here, you can update your profile to customize and personalize your "
+"experience."
+msgstr ""
+"در اینجا می‌توانید پروفایل خود را به‌روزرسانی کنید تا تجربه‌ی خود را "
+"شخصی‌سازی کنید."
 
 #: apps/client/src/pages/builder/sidebars/left/dialogs/languages.tsx:80
 #: apps/client/src/pages/builder/sidebars/left/dialogs/skills.tsx:94
@@ -1026,15 +1158,21 @@ msgstr "رزومه خود را به صورت عمومی منتشر کنید"
 
 #: apps/client/src/pages/builder/_components/analysis/career-trajectory.tsx:671
 msgid "Hover over positions to see the job details"
-msgstr ""
+msgstr "برای دیدن جزئیات شغل، نشانگر ماوس را روی موقعیت ها نگه دارید"
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:482
 msgid "https://www.linkedin.com/jobs/view/... or other job listing URL"
-msgstr ""
+msgstr "https://www.linkedin.com/jobs/view/... یا آدرس اینترنتی لیست مشاغل دیگر"
 
 #: apps/client/src/pages/home/sections/testimonials/index.tsx:70
-msgid "I always love to hear from the users of Reactive Resume with feedback or support. Here are some of the messages I've received. If you have any feedback, feel free to drop me an email at <0>{email}</0>."
-msgstr "همیشه دوست دارم از کاربران Reactive Resume با بازخورد یا پشتیبانی بشنوم. اینجا بعضی از پیام هایی که دریافت کردم هستند. اگر بازخوردی دارید، می‌توانید یک ایمیل به من بزنید به <0>{email}</0>."
+msgid ""
+"I always love to hear from the users of Reactive Resume with feedback or "
+"support. Here are some of the messages I've received. If you have any "
+"feedback, feel free to drop me an email at <0>{email}</0>."
+msgstr ""
+"همیشه دوست دارم از کاربران Reactive Resume با بازخورد یا پشتیبانی بشنوم. "
+"اینجا بعضی از پیام هایی که دریافت کردم هستند. اگر بازخوردی دارید، می‌توانید "
+"یک ایمیل به من بزنید به <0>{email}</0>."
 
 #: apps/client/src/pages/builder/sidebars/left/dialogs/profiles.tsx:83
 #: apps/client/src/pages/builder/sidebars/left/sections/custom/section.tsx:53
@@ -1042,16 +1180,34 @@ msgid "Icon"
 msgstr "آیکون"
 
 #: apps/client/src/pages/home/sections/logo-cloud/index.tsx:47
-msgid "If this app has helped you with your job hunt, let me know by reaching out through <0>this contact form</0>."
-msgstr "اگر این برنامه به شما در جستجوی شغل کمک کرده است، از طریق <0>فرم تماس</0> با من ارتباط بگیرید."
+msgid ""
+"If this app has helped you with your job hunt, let me know by reaching out "
+"through <0>this contact form</0>."
+msgstr ""
+"اگر این برنامه به شما در جستجوی شغل کمک کرده است، از طریق <0>فرم تماس</0> "
+"با من ارتباط بگیرید."
 
 #: apps/client/src/pages/dashboard/settings/_dialogs/two-factor.tsx:128
-msgid "If you disable two-factor authentication, you will no longer be required to enter a verification code when logging in."
-msgstr "اگر احراز هویت دو عاملی را غیرفعال کنید، دیگر نیازی به وارد کردن یک کد تأیید نیست وقتی که وارد سیستم می‌شوید."
+msgid ""
+"If you disable two-factor authentication, you will no longer be required to "
+"enter a verification code when logging in."
+msgstr ""
+"اگر احراز هویت دو عاملی را غیرفعال کنید، دیگر نیازی به وارد کردن یک کد "
+"تأیید نیست وقتی که وارد سیستم می‌شوید."
 
 #: apps/client/src/pages/home/sections/support/index.tsx:59
-msgid "If you're multilingual, we'd love your help in bringing the app to more languages and communities. Don't worry if you don't see your language on the list - just give me a shout-out on GitHub, and I'll make sure to include it. Ready to get started? Jump into translation over at Crowdin by clicking the link below."
-msgstr "اگر چندزبانه هستید، ما خیلی خوشحال می‌شویم که به کمک شما، اپ را به بیشتر زبان‌ها و اجتماع‌ها برسانیم. نگران نباشید اگر زبان خود را در لیست نمی‌بینید - فقط به من در گیت‌هاب پیام دهید و من اطمینان حاصل خواهم کرد که آن را اضافه کنم. آیا آماده‌اید که شروع کنید؟ با کلیک بر روی لینک، وارد ترجمه در Crowdin شوید."
+msgid ""
+"If you're multilingual, we'd love your help in bringing the app to more "
+"languages and communities. Don't worry if you don't see your language on "
+"the list - just give me a shout-out on GitHub, and I'll make sure to "
+"include it. Ready to get started? Jump into translation over at Crowdin by "
+"clicking the link below."
+msgstr ""
+"اگر چندزبانه هستید، ما خیلی خوشحال می‌شویم که به کمک شما، اپ را به بیشتر "
+"زبان‌ها و اجتماع‌ها برسانیم. نگران نباشید اگر زبان خود را در لیست نمی‌بینید "
+"- فقط به من در گیت‌هاب پیام دهید و من اطمینان حاصل خواهم کرد که آن را اضافه "
+"کنم. آیا آماده‌اید که شروع کنید؟ با کلیک بر روی لینک، وارد ترجمه در Crowdin "
+"شوید."
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:501
 msgid "Import"
@@ -1059,7 +1215,7 @@ msgstr "وارد کردن"
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:555
 msgid "Import & Optimize"
-msgstr ""
+msgstr "وارد کردن و بهینه سازی"
 
 #: apps/client/src/pages/dashboard/resumes/_layouts/grid/_components/import-card.tsx:28
 #: apps/client/src/pages/dashboard/resumes/_layouts/list/_components/import-item.tsx:17
@@ -1068,23 +1224,36 @@ msgstr "وارد کردن رزومه"
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:336
 msgid "Import Resume: Step 1 of 2"
-msgstr ""
+msgstr "وارد کردن رزومه: مرحله 1 از 2"
 
 #: apps/client/src/components/ai-actions.tsx:85
 msgid "Improve Writing"
 msgstr "بهبود بخشیدن نگارش"
 
 #: apps/client/src/pages/dashboard/settings/_dialogs/two-factor.tsx:188
-msgid "In case you are unable to scan this QR Code, you can also copy-paste this link into your authenticator app."
-msgstr "در صورت عدم توانایی شما برای اسکن این کد QR، می‌توانید همچنین این لینک را به برنامه authenticator خود کپی و پیست کنید."
+msgid ""
+"In case you are unable to scan this QR Code, you can also copy-paste this "
+"link into your authenticator app."
+msgstr ""
+"در صورت عدم توانایی شما برای اسکن این کد QR، می‌توانید همچنین این لینک را "
+"به برنامه authenticator خود کپی و پیست کنید."
 
 #: apps/client/src/pages/dashboard/settings/_sections/security.tsx:67
-msgid "In this section, you can change your password and enable/disable two-factor authentication."
-msgstr "در این بخش، شما می‌توانید رمز عبور خود را تغییر دهید و احراز هویت دو عاملی را فعال یا غیرفعال کنید."
+msgid ""
+"In this section, you can change your password and enable/disable two-factor "
+"authentication."
+msgstr ""
+"در این بخش، شما می‌توانید رمز عبور خود را تغییر دهید و احراز هویت دو عاملی "
+"را فعال یا غیرفعال کنید."
 
 #: apps/client/src/pages/dashboard/settings/_sections/danger.tsx:64
-msgid "In this section, you can delete your account and all the data associated to your user, but please keep in mind that <0>this action is irreversible</0>."
-msgstr "در این بحث، شما می‌توانید حساب کاربری خود را و تمام داده‌های مرتبط با کاربر خود حذف کنید، اما لطفاً به خاطر داشته باشید که <0>این عملیات غیرقابل بازگشت</0> است."
+msgid ""
+"In this section, you can delete your account and all the data associated to "
+"your user, but please keep in mind that <0>this action is irreversible</0>."
+msgstr ""
+"در این بحث، شما می‌توانید حساب کاربری خود را و تمام داده‌های مرتبط با کاربر "
+"خود حذف کنید، اما لطفاً به خاطر داشته باشید که <0>این عملیات غیرقابل "
+"بازگشت</0> است."
 
 #: apps/client/src/pages/builder/sidebars/right/index.tsx:142
 #: apps/client/src/pages/builder/sidebars/right/sections/information.tsx:116
@@ -1094,7 +1263,7 @@ msgstr "اطلاعات"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/progress.tsx:365
 msgid "Initializing AI optimization process..."
-msgstr ""
+msgstr "در حال راه اندازی فرآیند بهینه سازی هوش مصنوعی..."
 
 #: apps/client/src/pages/builder/sidebars/left/dialogs/education.tsx:39
 msgid "Institution"
@@ -1102,11 +1271,11 @@ msgstr "موسسه"
 
 #: apps/client/src/pages/builder/_components/analysis/career-trajectory.tsx:697
 msgid "Internal Promotion"
-msgstr ""
+msgstr "ارتقاء داخلی"
 
 #: apps/client/src/pages/builder/_components/analysis/career-trajectory.tsx:457
 msgid "Internal Promotions"
-msgstr ""
+msgstr "ترفیع های داخلی"
 
 #: apps/client/src/pages/builder/sidebars/left/dialogs/certifications.tsx:53
 msgid "Issuer"
@@ -1117,24 +1286,40 @@ msgid "It doesn't look like a user exists with the credentials you provided."
 msgstr "به نظر نمی رسد کاربری با اطلاعات ارائه شده وجود داشته باشد."
 
 #: apps/client/src/services/errors/translate-error.ts:37
-msgid "It looks like the backup code you provided is invalid or used. Please try again."
-msgstr "به نظر می رسد کد پشتیبانی که ارائه داده اید نامعتبر یا استفاده شده است. لطفا دوباره امتحان کنید."
+msgid ""
+"It looks like the backup code you provided is invalid or used. Please try "
+"again."
+msgstr ""
+"به نظر می رسد کد پشتیبانی که ارائه داده اید نامعتبر یا استفاده شده است. "
+"لطفا دوباره امتحان کنید."
 
 #: apps/client/src/services/errors/translate-error.ts:19
-msgid "It looks like the reset token you provided is invalid. Please try restarting the password reset process again."
-msgstr "به نظر می رسد توکن ریست که شما ارائه داده اید نامعتبر است. لطفاً دوباره فرآیند تنظیم مجدد رمز عبور را شروع کنید."
+msgid ""
+"It looks like the reset token you provided is invalid. Please try "
+"restarting the password reset process again."
+msgstr ""
+"به نظر می رسد توکن ریست که شما ارائه داده اید نامعتبر است. لطفاً دوباره "
+"فرآیند تنظیم مجدد رمز عبور را شروع کنید."
 
 #: apps/client/src/services/errors/translate-error.ts:46
 msgid "It looks like the resume you're looking for doesn't exist."
 msgstr "به نظر می رسد رزومه ای که شما انتخاب کردید وجود ندارد."
 
 #: apps/client/src/services/errors/translate-error.ts:34
-msgid "It looks like the two-factor authentication code you provided is invalid. Please try again."
-msgstr "به نظر می رسد کد احراز هویت دو عاملی که ارائه داده اید نامعتبر است. لطفا دوباره امتحان کنید."
+msgid ""
+"It looks like the two-factor authentication code you provided is invalid. "
+"Please try again."
+msgstr ""
+"به نظر می رسد کد احراز هویت دو عاملی که ارائه داده اید نامعتبر است. لطفا "
+"دوباره امتحان کنید."
 
 #: apps/client/src/services/errors/translate-error.ts:22
-msgid "It looks like the verification token you provided is invalid. Please try restarting the verification process again."
-msgstr "به نظر می رسد توکن تاییدیه که شما ارائه داده اید نامعتبر است. لطفاً دوباره فرآیند تایید را شروع کنید."
+msgid ""
+"It looks like the verification token you provided is invalid. Please try "
+"restarting the verification process again."
+msgstr ""
+"به نظر می رسد توکن تاییدیه که شما ارائه داده اید نامعتبر است. لطفاً دوباره "
+"فرآیند تایید را شروع کنید."
 
 #: apps/client/src/services/errors/translate-error.ts:25
 msgid "It looks like your email address has already been verified."
@@ -1142,38 +1327,23 @@ msgstr "به نظر می‌رسد آدرس ایمیل شما از قبلاً ت�
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:523
 msgid "Job Description"
-msgstr ""
+msgstr "شرح شغل"
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:303
 msgid "Job description imported successfully"
-msgstr ""
+msgstr "شرح شغل با موفقیت وارد شد"
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:70
 msgid "Job description is required"
-msgstr ""
+msgstr "شرح شغل الزامی است"
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:464
 msgid "Job Description: Step 2 of 2"
-msgstr ""
+msgstr "شرح شغل: مرحله 2 از 2"
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:478
 msgid "Job URL"
-msgstr ""
-
-#: apps/client/src/pages/auth/register/page.tsx:101
-msgctxt "Localized version of a placeholder name. For example, Max Mustermann in German or Jan Kowalski in Polish."
-msgid "John Doe"
-msgstr "John Doe"
-
-#: apps/client/src/pages/auth/register/page.tsx:123
-msgctxt "Localized version of a placeholder username. For example, max.mustermann in German or jan.kowalski in Polish."
-msgid "john.doe"
-msgstr "john.doe"
-
-#: apps/client/src/pages/auth/register/page.tsx:145
-msgctxt "Localized version of a placeholder email. For example, max.mustermann@example.de in German or jan.kowalski@example.pl in Polish."
-msgid "john.doe@example.com"
-msgstr "john.doe@example.com"
+msgstr "آدرس اینترنتی شغل"
 
 #: apps/client/src/pages/builder/sidebars/right/sections/export.tsx:54
 msgid "JSON"
@@ -1181,7 +1351,7 @@ msgstr "JSON"
 
 #: apps/client/src/pages/builder/_components/analysis/achievement-relevance-index.tsx:162
 msgid "Key Job Goals ({0})"
-msgstr ""
+msgstr "اهداف کلیدی شغل ({0})"
 
 #: apps/client/src/pages/builder/sidebars/left/dialogs/custom-section.tsx:159
 #: apps/client/src/pages/builder/sidebars/left/dialogs/interests.tsx:63
@@ -1192,15 +1362,19 @@ msgstr "کلید واژه‌ها"
 
 #: apps/client/src/pages/builder/_components/analysis/keyword-in-context-integrity.tsx:269
 msgid "Keywords Missing Context ({0})"
-msgstr ""
+msgstr "کلمات کلیدی فاقد زمینه ({0})"
 
 #: apps/client/src/pages/builder/_components/analysis/keyword-in-context-integrity.tsx:175
-msgid "Keywords that appear with both an action verb AND a measurable outcome in the same bullet point create stronger context and impact."
+msgid ""
+"Keywords that appear with both an action verb AND a measurable outcome in "
+"the same bullet point create stronger context and impact."
 msgstr ""
+"کلمات کلیدی که هم با یک فعل عمل و هم با یک نتیجه قابل اندازه گیری در یک "
+"نقطه گلوله ظاهر می شوند، زمینه و تأثیر قوی تری ایجاد می کنند."
 
 #: apps/client/src/pages/builder/_components/analysis/keyword-in-context-integrity.tsx:183
 msgid "Keywords with Strong Context ({0}/{1})"
-msgstr ""
+msgstr "کلمات کلیدی با زمینه قوی ({0}/{1})"
 
 #: apps/client/src/pages/builder/sidebars/left/sections/shared/url-input.tsx:42
 #: apps/client/src/pages/builder/sidebars/left/sections/shared/url-input.tsx:52
@@ -1213,7 +1387,7 @@ msgstr "زبان"
 
 #: apps/client/src/pages/builder/_components/analysis/language-clarity-quality.tsx:63
 msgid "Language clarity analysis"
-msgstr ""
+msgstr "تجزیه و تحلیل وضوح زبان"
 
 #: apps/client/src/pages/dashboard/resumes/_layouts/grid/_components/resume-card.tsx:83
 #: apps/client/src/pages/dashboard/resumes/_layouts/list/_components/resume-item.tsx:139
@@ -1241,11 +1415,11 @@ msgstr "سطح"
 
 #: apps/client/src/pages/builder/_components/analysis/career-trajectory.tsx:437
 msgid "Level Growth"
-msgstr ""
+msgstr "رشد سطح"
 
 #: apps/client/src/pages/builder/_components/analysis/career-trajectory.tsx:700
 msgid "Level:"
-msgstr ""
+msgstr "سطح:"
 
 #: apps/client/src/pages/dashboard/settings/_sections/profile.tsx:86
 msgid "Light"
@@ -1257,7 +1431,7 @@ msgstr "تم روشن یا تاریک"
 
 #: apps/client/src/pages/builder/_components/analysis/domain-industry-experience.tsx:108
 msgid "Limited domain/industry match"
-msgstr ""
+msgstr "تطابق محدود دامنه/صنعت"
 
 #: apps/client/src/pages/builder/sidebars/right/sections/typography.tsx:165
 msgid "Line Height"
@@ -1276,7 +1450,7 @@ msgstr "لیست"
 #: apps/client/src/pages/dashboard/upgrade.tsx:59
 #: apps/client/src/pages/dashboard/upgrade.tsx:97
 msgid "Loading..."
-msgstr ""
+msgstr "در حال بارگذاری..."
 
 #: apps/client/src/pages/builder/sidebars/left/dialogs/custom-section.tsx:101
 #: apps/client/src/pages/builder/sidebars/left/dialogs/experience.tsx:86
@@ -1297,8 +1471,14 @@ msgid "Lock a resume to prevent editing"
 msgstr "قفل کردن یک رزومه برای جلوگیری از ویرایش"
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/lock.tsx:43
-msgid "Locking a resume will prevent any further changes to it. This is useful when you have already shared your resume with someone and you don't want to accidentally make any changes to it."
-msgstr "قفل کردن رزومه از جلوگیری از هرگونه تغییر بعدی در آن جلوگیری می کند. این وقتی مفید است که رزومه خود را با کسی به اشتراک گذاشته اید و نمی خواهید به طور اتفاقی تغییری در آن ایجاد کنید."
+msgid ""
+"Locking a resume will prevent any further changes to it. This is useful "
+"when you have already shared your resume with someone and you don't want to "
+"accidentally make any changes to it."
+msgstr ""
+"قفل کردن رزومه از جلوگیری از هرگونه تغییر بعدی در آن جلوگیری می کند. این "
+"وقتی مفید است که رزومه خود را با کسی به اشتراک گذاشته اید و نمی خواهید به "
+"طور اتفاقی تغییری در آن ایجاد کنید."
 
 #: apps/client/src/components/user-options.tsx:91
 #: apps/client/src/pages/home/sections/hero/call-to-action.tsx:37
@@ -1320,12 +1500,12 @@ msgstr "مدیریت چند رزومه"
 #: apps/client/src/components/user-options.tsx:76
 #: apps/client/src/pages/dashboard/upgrade.tsx:100
 msgid "Manage Subscription"
-msgstr ""
+msgstr "مدیریت اشتراک"
 
-#. The month and year should be uniform across all languages.
 #: apps/client/src/pages/builder/sidebars/left/dialogs/awards.tsx:71
 #: apps/client/src/pages/builder/sidebars/left/dialogs/certifications.tsx:69
 #: apps/client/src/pages/builder/sidebars/left/dialogs/publications.tsx:69
+#. The month and year should be uniform across all languages.
 msgid "March 2023"
 msgstr "مارچ 2023"
 
@@ -1342,58 +1522,58 @@ msgstr "حاشیه"
 
 #: apps/client/src/pages/builder/_components/analysis/metrics-bar-chart.tsx:453
 msgid "Match Score"
-msgstr ""
+msgstr "امتیاز تطابق"
 
 #: apps/client/src/pages/builder/_components/analysis/mandatory-requirements-checklist.tsx:61
 msgid "Matched: {matchedCount}/{totalCount}"
-msgstr ""
+msgstr "تطبیق داده شد: {matchedCount}/{totalCount}"
 
 #: apps/client/src/pages/builder/_components/analysis/domain-industry-experience.tsx:138
 msgid "Matching Domains"
-msgstr ""
+msgstr "دامنه‌های تطبیق"
 
 #: apps/client/src/pages/builder/_components/analysis/skill-similarity.tsx:107
 msgid "Matching Keywords ({0}/{1})"
-msgstr ""
+msgstr "کلمات کلیدی تطبیق ({0}/{1})"
 
 #: apps/client/src/pages/builder/_components/analysis/hard-skill-similarity.tsx:52
 #: apps/client/src/pages/builder/_components/analysis/skill-similarity.tsx:106
 msgid "Matching Skills ({0}/{1})"
-msgstr ""
+msgstr "مهارت‌های تطبیق ({0}/{1})"
 
 #: apps/client/src/pages/dashboard/settings/_sections/openai.tsx:158
 msgid "Max Tokens"
-msgstr ""
+msgstr "حداکثر توکن‌ها"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:362
 msgid "Metrics"
-msgstr ""
+msgstr "سنجش‌ها"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:494
 msgid "Metrics Summary"
-msgstr ""
+msgstr "خلاصه سنجش‌ها"
 
 #: apps/client/src/pages/builder/_components/analysis/domain-industry-experience.tsx:174
 msgid "Missing Domains ({0})"
-msgstr ""
+msgstr "دامنه‌های گمشده ({0})"
 
 #: apps/client/src/pages/builder/_components/analysis/keyword-in-context-integrity.tsx:293
 #: apps/client/src/pages/builder/_components/analysis/skill-similarity.tsx:148
 msgid "Missing Keywords ({0})"
-msgstr ""
+msgstr "کلمات کلیدی گمشده ({0})"
 
 #: apps/client/src/pages/builder/_components/analysis/recency-weighting.tsx:217
 msgid "Missing Skills"
-msgstr ""
+msgstr "مهارت‌های گمشده"
 
 #: apps/client/src/pages/builder/_components/analysis/hard-skill-similarity.tsx:73
 #: apps/client/src/pages/builder/_components/analysis/skill-similarity.tsx:147
 msgid "Missing Skills ({0})"
-msgstr ""
+msgstr "مهارت‌های گمشده ({0})"
 
 #: apps/client/src/pages/builder/_components/analysis/mandatory-requirements-checklist.tsx:65
 msgid "Missing: {missingCount}"
-msgstr ""
+msgstr "گم شده: {missingCount}"
 
 #: apps/client/src/pages/home/sections/features/index.tsx:48
 msgid "MIT License"
@@ -1401,11 +1581,11 @@ msgstr "مجور MIT"
 
 #: apps/client/src/pages/dashboard/settings/_sections/openai.tsx:145
 msgid "Model"
-msgstr ""
+msgstr "مدل"
 
 #: apps/client/src/pages/builder/_components/analysis/gap-red-flag-detection.tsx:79
 msgid "Multiple career gaps or frequent job changes detected"
-msgstr ""
+msgstr "چندین شکاف شغلی یا تغییرات شغلی مکرر شناسایی شد"
 
 #: apps/client/src/pages/auth/register/page.tsx:98
 #: apps/client/src/pages/builder/sidebars/left/dialogs/custom-section.tsx:59
@@ -1420,11 +1600,6 @@ msgstr ""
 msgid "Name"
 msgstr "نام"
 
-#: apps/client/src/pages/builder/sidebars/left/dialogs/certifications.tsx:39
-msgctxt "Name of the Certification"
-msgid "Name"
-msgstr "نام"
-
 #: apps/client/src/pages/builder/sidebars/left/dialogs/profiles.tsx:40
 msgid "Network"
 msgstr "شبکه"
@@ -1435,36 +1610,38 @@ msgstr "رمز عبور جدید"
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:442
 msgid "Next"
-msgstr ""
+msgstr "بعدی"
 
 #: apps/client/src/pages/builder/_components/analysis/gap-red-flag-detection.tsx:73
 msgid "No career gaps or job-hopping detected"
-msgstr ""
+msgstr "هیچ شکاف شغلی یا جابجایی شغلی شناسایی نشد"
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:310
 msgid "No job description found for the provided URL."
-msgstr ""
+msgstr "هیچ شرح شغلی برای آدرس اینترنتی ارائه شده یافت نشد."
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:306
 msgid "No job description found. Please check the URL or try copying manually."
 msgstr ""
+"هیچ شرح شغلی یافت نشد. لطفا آدرس اینترنتی را بررسی کنید یا سعی کنید به صورت "
+"دستی کپی کنید."
 
 #: apps/client/src/pages/builder/_components/analysis/domain-industry-experience.tsx:168
 msgid "No matching domains found."
-msgstr ""
+msgstr "هیچ دامنه منطبقی یافت نشد."
 
 #: apps/client/src/pages/builder/_components/analysis/skill-similarity.tsx:138
 msgid "No matching keywords found."
-msgstr ""
+msgstr "هیچ کلمه کلیدی منطبقی یافت نشد."
 
 #: apps/client/src/pages/builder/_components/analysis/hard-skill-similarity.tsx:67
 #: apps/client/src/pages/builder/_components/analysis/skill-similarity.tsx:137
 msgid "No matching skills found."
-msgstr ""
+msgstr "هیچ مهارت منطبقی یافت نشد."
 
 #: apps/client/src/pages/builder/_components/analysis/mandatory-requirements-checklist.tsx:105
 msgid "No requirements found."
-msgstr ""
+msgstr "هیچ نیازمندی یافت نشد."
 
 #: apps/client/src/components/locale-combobox.tsx:45
 msgid "No results found"
@@ -1472,7 +1649,7 @@ msgstr "موردی یافت نشد"
 
 #: apps/client/src/pages/builder/sidebars/right/sections/analysis.tsx:152
 msgid "No Resume Analysis Found"
-msgstr ""
+msgstr "هیچ تجزیه و تحلیل رزومه یافت نشد"
 
 #: apps/client/src/pages/home/sections/features/index.tsx:49
 msgid "No user tracking or advertising"
@@ -1490,11 +1667,11 @@ msgstr "یادداشت‌ها"
 
 #: apps/client/src/pages/builder/_components/analysis/action-verb-density.tsx:85
 msgid "of bullet points start with action verbs"
-msgstr ""
+msgstr "از نکات گلوله ای با افعال کنشی شروع می شوند"
 
 #: apps/client/src/pages/builder/_components/analysis/keyword-in-context-integrity.tsx:170
 msgid "of job keywords have context"
-msgstr ""
+msgstr "از کلمات کلیدی شغلی دارای زمینه هستند"
 
 #: apps/client/src/pages/auth/verify-otp/page.tsx:82
 msgid "One-Time Password"
@@ -1529,50 +1706,49 @@ msgstr "ادغام با OpenAI"
 
 #: apps/client/src/pages/dashboard/settings/_sections/openai.tsx:119
 msgid "OpenAI/Ollama API Key"
-msgstr ""
+msgstr "کلید API اوپن ای آی/اولاما"
 
 #: apps/client/src/pages/dashboard/settings/_sections/openai.tsx:79
 msgid "OpenAI/Ollama Integration"
-msgstr ""
+msgstr "ادغام اوپن ای آی/اولاما"
 
 #: apps/client/src/pages/builder/sidebars/left/sections/ai-optimize.tsx:95
 msgid "Optimization Failed"
-msgstr ""
+msgstr "بهینه سازی ناموفق بود"
 
 #: apps/client/src/pages/builder/sidebars/left/sections/ai-optimize.tsx:162
 msgid "Optimize Resume with AI"
-msgstr ""
+msgstr "بهینه سازی رزومه با هوش مصنوعی"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:440
 msgid "Optimized Resume"
-msgstr ""
+msgstr "رزومه بهینه شده"
 
 #: apps/client/src/components/usage-limit-dialog.tsx:99
 msgid "optimizing a resume"
-msgstr ""
+msgstr "بهینه سازی یک رزومه"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/progress.tsx:369
 msgid "Optimizing your resume..."
-msgstr ""
+msgstr "در حال بهینه سازی رزومه شما..."
 
 #: apps/client/src/pages/builder/_components/ai-optimize/progress.tsx:688
 #: apps/client/src/pages/builder/sidebars/left/sections/ai-optimize.tsx:159
 msgid "Optimizing..."
-msgstr ""
+msgstr "در حال بهینه سازی..."
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:505
-msgid "Optional: Enter a job URL to import the job description. Works with LinkedIn, Indeed, and other job sites."
+msgid ""
+"Optional: Enter a job URL to import the job description. Works with "
+"LinkedIn, Indeed, and other job sites."
 msgstr ""
+"اختیاری: یک آدرس اینترنتی شغلی برای وارد کردن شرح شغل وارد کنید. با "
+"لینکدین، ایندید و سایر سایت های شغلی کار می کند."
 
 #: apps/client/src/pages/builder/sidebars/right/sections/page.tsx:67
 #: apps/client/src/pages/builder/sidebars/right/sections/typography.tsx:182
 msgid "Options"
 msgstr "گزینه‌ها"
-
-#: apps/client/src/pages/auth/layout.tsx:47
-msgctxt "The user can either login with email/password, or continue with GitHub or Google."
-msgid "or continue with"
-msgstr "یا ادامه با"
 
 #: apps/client/src/pages/builder/sidebars/left/dialogs/volunteer.tsx:39
 msgid "Organization"
@@ -1580,15 +1756,15 @@ msgstr "سازمان"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:413
 msgid "Original Resume"
-msgstr ""
+msgstr "رزومه اصلی"
 
 #: apps/client/src/pages/builder/_components/analysis/keyword-in-context-integrity.tsx:246
 msgid "Outcomes:"
-msgstr ""
+msgstr "نتایج:"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:502
 msgid "Overall Score"
-msgstr ""
+msgstr "امتیاز کلی"
 
 #: apps/client/src/pages/builder/sidebars/right/index.tsx:107
 #: apps/client/src/pages/builder/sidebars/right/sections/page.tsx:25
@@ -1598,11 +1774,11 @@ msgstr "صفحه"
 
 #: apps/client/src/pages/builder/sidebars/right/sections/layout.tsx:228
 msgid "Page {pageNumber}"
-msgstr ""
+msgstr "صفحه {pageNumber}"
 
 #: apps/client/src/pages/builder/_components/analysis/domain-industry-experience.tsx:101
 msgid "Partial domain/industry match"
-msgstr ""
+msgstr "تطابق جزئی دامنه/صنعت"
 
 #: apps/client/src/pages/auth/login/page.tsx:110
 #: apps/client/src/pages/auth/register/page.tsx:163
@@ -1613,7 +1789,7 @@ msgstr "رمز عبور"
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:536
 msgid "Paste the job description here or import it from a URL above..."
-msgstr ""
+msgstr "شرح شغل را اینجا جایگذاری کنید یا از یک آدرس اینترنتی در بالا وارد کنید..."
 
 #: apps/client/src/pages/builder/sidebars/right/sections/export.tsx:72
 msgid "PDF"
@@ -1642,7 +1818,7 @@ msgstr "تصویر"
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:273
 msgid "Please enter a job URL"
-msgstr ""
+msgstr "لطفاً یک آدرس اینترنتی شغل وارد کنید"
 
 #: apps/client/src/pages/auth/verify-email/page.tsx:59
 msgid "Please note that this step is completely optional."
@@ -1653,33 +1829,34 @@ msgid "Please select a file type"
 msgstr "لطفاً فرمت فایل را انتخاب کنید"
 
 #: apps/client/src/pages/dashboard/settings/_dialogs/two-factor.tsx:228
-msgid "Please store your backup codes in a secure location. You can use one of these one-time use codes to login in case you lose access to your authenticator app."
-msgstr "لطفاً کدهای پشتیبان خود را در یک مکان امن ذخیره کنید. می توانید از یکی از این کدهای یک بار استفاده برای ورود به حساب خود استفاده کنید در صورتی که دسترسی به برنامه auchenticator خود را از دست بدهید."
+msgid ""
+"Please store your backup codes in a secure location. You can use one of "
+"these one-time use codes to login in case you lose access to your "
+"authenticator app."
+msgstr ""
+"لطفاً کدهای پشتیبان خود را در یک مکان امن ذخیره کنید. می توانید از یکی از "
+"این کدهای یک بار استفاده برای ورود به حساب خود استفاده کنید در صورتی که "
+"دسترسی به برنامه auchenticator خود را از دست بدهید."
 
 #: apps/client/src/pages/builder/_components/analysis/metrics-bar-chart.tsx:460
 msgid "Poor (0-39%)"
-msgstr ""
+msgstr "ضعیف (۰-۳۹٪)"
 
 #: apps/client/src/pages/builder/_components/analysis/achievement-relevance-index.tsx:62
 msgid "Poor achievement-job alignment"
-msgstr ""
+msgstr "تطابق ضعیف دستاورد-شغل"
 
 #: apps/client/src/pages/builder/_components/analysis/action-verb-density.tsx:55
 msgid "Poor action verb usage"
-msgstr ""
+msgstr "استفاده ضعیف از فعل عمل"
 
 #: apps/client/src/pages/builder/_components/analysis/keyword-in-context-integrity.tsx:126
 msgid "Poor keyword context integrity"
-msgstr ""
+msgstr "یکپارچگی ضعیف متن کلمه کلیدی"
 
 #: apps/client/src/pages/builder/sidebars/left/sections/picture/options.tsx:99
 msgid "Portrait"
 msgstr "تصویر"
-
-#: apps/client/src/pages/builder/sidebars/left/dialogs/experience.tsx:54
-msgctxt "Position held at a company, for example, Software Engineer"
-msgid "Position"
-msgstr "موقعیت شغلی"
 
 #: apps/client/src/pages/builder/sidebars/left/dialogs/volunteer.tsx:53
 msgid "Position"
@@ -1687,7 +1864,7 @@ msgstr "موقعیت شغلی"
 
 #: apps/client/src/pages/builder/_components/analysis/career-trajectory.tsx:426
 msgid "Positions Held"
-msgstr ""
+msgstr "مناصب اشغال شده"
 
 #: apps/client/src/pages/home/sections/features/index.tsx:96
 msgid "Powered by"
@@ -1699,11 +1876,11 @@ msgstr "ساخته شده توسط <0>Simple Icons</0>"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:400
 msgid "Preparing comparison..."
-msgstr ""
+msgstr "در حال آماده سازی مقایسه..."
 
 #: apps/client/src/pages/builder/_components/ai-optimize/progress.tsx:632
 msgid "Preparing your resume optimization..."
-msgstr ""
+msgstr "در حال آماده سازی بهینه سازی رزومه شما..."
 
 #: apps/client/src/pages/builder/sidebars/right/sections/theme.tsx:43
 msgid "Primary Color"
@@ -1711,7 +1888,7 @@ msgstr "رنگ اصلی"
 
 #: apps/client/src/pages/builder/_components/analysis/achievement-relevance-index.tsx:183
 msgid "Priority: {0}/10"
-msgstr ""
+msgstr "اولویت: {0}/10"
 
 #: apps/client/src/pages/home/components/footer.tsx:47
 msgid "Privacy Policy"
@@ -1720,7 +1897,7 @@ msgstr "سیاست حفظ حریم شخصی"
 #: apps/client/src/pages/builder/_components/ai-optimize/progress.tsx:377
 #: apps/client/src/pages/builder/_components/ai-optimize/progress.tsx:693
 msgid "Processing..."
-msgstr ""
+msgstr "در حال پردازش..."
 
 #: apps/client/src/components/ai-actions.tsx:109
 #: apps/client/src/components/ai-actions.tsx:112
@@ -1765,25 +1942,52 @@ msgid "Reactive Resume has helped people land jobs at these great companies:"
 msgstr "Reactive Resume به مردم در استخدام در این شرکت‌های بزرگ کمک کرده است:"
 
 #: apps/client/src/pages/home/sections/support/index.tsx:12
-msgid "Reactive Resume is a free and open-source project crafted mostly by me, and your support would be greatly appreciated. If you're inclined to contribute, and only if you can afford to, consider making a donation through any of the listed platforms. Additionally, donations to Reactive Resume through Open Collective are tax-exempt, as the project is fiscally hosted by Open Collective Europe."
-msgstr "Reactive Resume یک پروژه رایگان و اوپن سورس است که بیشتر توسط من ساخته شد، و حمایت شما بسیار قدردانی می شود. اگر مایل به همکاری هستید و تنها اگر امکان دارد، در نظر بگیرید که از طریق هر یک از پلتفرم های معرفی شده، دونیتی انجام دهید. به افزودنی، اهدایی به رزومه واکنشی از طریق Open Collective، معاف از مالیات است، زیرا این پروژه توسط Open Collective اروپا میزبانی مالی شده است."
+msgid ""
+"Reactive Resume is a free and open-source project crafted mostly by me, and "
+"your support would be greatly appreciated. If you're inclined to "
+"contribute, and only if you can afford to, consider making a donation "
+"through any of the listed platforms. Additionally, donations to Reactive "
+"Resume through Open Collective are tax-exempt, as the project is fiscally "
+"hosted by Open Collective Europe."
+msgstr ""
+"Reactive Resume یک پروژه رایگان و اوپن سورس است که بیشتر توسط من ساخته شد، "
+"و حمایت شما بسیار قدردانی می شود. اگر مایل به همکاری هستید و تنها اگر امکان "
+"دارد، در نظر بگیرید که از طریق هر یک از پلتفرم های معرفی شده، دونیتی انجام "
+"دهید. به افزودنی، اهدایی به رزومه واکنشی از طریق Open Collective، معاف از "
+"مالیات است، زیرا این پروژه توسط Open Collective اروپا میزبانی مالی شده است."
 
 #: apps/client/src/pages/home/sections/features/index.tsx:107
-msgid "Reactive Resume is a passion project of over 3 years of hard work, and with that comes a number of re-iterated ideas and features that have been built to (near) perfection."
-msgstr "Reactive Resume یک پروژه‌ از روی علاقه است که نتیجه‌ی بیش از ۳ سال تلاش سخت است و در این مدت، ایده‌ها و ویژگی‌های مختلفی بارها و بارها بهبود یافته و تا (حد) کمال ساخته شده‌اند."
+msgid ""
+"Reactive Resume is a passion project of over 3 years of hard work, and with "
+"that comes a number of re-iterated ideas and features that have been built "
+"to (near) perfection."
+msgstr ""
+"Reactive Resume یک پروژه‌ از روی علاقه است که نتیجه‌ی بیش از ۳ سال تلاش سخت "
+"است و در این مدت، ایده‌ها و ویژگی‌های مختلفی بارها و بارها بهبود یافته و تا "
+"(حد) کمال ساخته شده‌اند."
 
 #: apps/client/src/pages/home/sections/contributors/index.tsx:22
-msgid "Reactive Resume thrives thanks to its vibrant community. This project owes its progress to numerous individuals who've dedicated their time and skills. Below, we celebrate the coders who've enhanced its features on GitHub and the linguists whose translations on Crowdin have made it accessible to a broader audience."
-msgstr "Reactive Resume به دست جامعه پرانرژی خود زنده می‌ماند. این پروژه پیشرفت خود را به افراد بسیاری مدیون است که وقت و مهارت خود را اختصاص داده‌اند. در زیر، ما از برنامه‌نویسانی که ویژگی‌های آن را در GitHub بهبود داده‌اند و از مترجمانی که ترجمه‌های خود را در Crowdin ارائه داده‌اند بر خواهیم خواند که آن را برای مخاطبان بیشتر قابل دسترس کرده‌اند."
+msgid ""
+"Reactive Resume thrives thanks to its vibrant community. This project owes "
+"its progress to numerous individuals who've dedicated their time and "
+"skills. Below, we celebrate the coders who've enhanced its features on "
+"GitHub and the linguists whose translations on Crowdin have made it "
+"accessible to a broader audience."
+msgstr ""
+"Reactive Resume به دست جامعه پرانرژی خود زنده می‌ماند. این پروژه پیشرفت خود "
+"را به افراد بسیاری مدیون است که وقت و مهارت خود را اختصاص داده‌اند. در زیر، "
+"ما از برنامه‌نویسانی که ویژگی‌های آن را در GitHub بهبود داده‌اند و از "
+"مترجمانی که ترجمه‌های خود را در Crowdin ارائه داده‌اند بر خواهیم خواند که "
+"آن را برای مخاطبان بیشتر قابل دسترس کرده‌اند."
 
 #: apps/client/src/pages/builder/_components/analysis/gap-red-flag-detection.tsx:152
 msgid "Recommendations"
-msgstr ""
+msgstr "توصیه ها"
 
 #: apps/client/src/components/user-options.tsx:34
 #: apps/client/src/pages/dashboard/upgrade.tsx:35
 msgid "Redirecting to billing portal"
-msgstr ""
+msgstr "تغییر مسیر به پورتال صورتحساب"
 
 #: apps/client/src/pages/builder/_components/toolbar.tsx:89
 msgid "Redo"
@@ -1792,33 +1996,33 @@ msgstr "Redo"
 #: apps/client/src/pages/builder/sidebars/right/sections/analysis.tsx:239
 #: apps/client/src/pages/builder/sidebars/right/sections/analysis.tsx:411
 msgid "Regenerate Analysis"
-msgstr ""
+msgstr "تولید مجدد تحلیل"
 
 #: apps/client/src/pages/builder/sidebars/right/sections/analysis.tsx:234
 msgid "Regenerating..."
-msgstr ""
+msgstr "در حال تولید مجدد..."
 
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:291
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:430
 msgid "Reject"
-msgstr ""
+msgstr "رد کردن"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:283
 msgid "Reject Optimization"
-msgstr ""
+msgstr "رد کردن بهینه سازی"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:291
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:425
 msgid "Rejecting..."
-msgstr ""
+msgstr "در حال رد کردن..."
 
 #: apps/client/src/pages/builder/_components/analysis/achievement-relevance-index.tsx:108
 msgid "relevance to job goals"
-msgstr ""
+msgstr "ارتباط با اهداف شغلی"
 
 #: apps/client/src/pages/builder/_components/analysis/domain-industry-experience.tsx:144
 msgid "Relevant Experience"
-msgstr ""
+msgstr "تجربه مرتبط"
 
 #: apps/client/src/pages/builder/sidebars/left/sections/shared/section-list-item.tsx:100
 #: apps/client/src/pages/builder/sidebars/left/sections/shared/section-options.tsx:157
@@ -1838,15 +2042,15 @@ msgstr "تغییر نام"
 
 #: apps/client/src/pages/builder/_components/analysis/years-experience-match.tsx:98
 msgid "Required Experience"
-msgstr ""
+msgstr "تجربه مورد نیاز"
 
 #: apps/client/src/pages/builder/_components/analysis/seniority-alignment.tsx:94
 msgid "Required Level"
-msgstr ""
+msgstr "سطح مورد نیاز"
 
 #: apps/client/src/pages/builder/_components/analysis/mandatory-requirements-checklist.tsx:70
 msgid "Requirements ({matchedCount}/{totalCount})"
-msgstr ""
+msgstr "الزامات ({matchedCount}/{totalCount})"
 
 #: apps/client/src/pages/dashboard/settings/_sections/account.tsx:199
 msgid "Resend email confirmation link"
@@ -1871,11 +2075,11 @@ msgstr "ریست بزرگنمایی"
 
 #: apps/client/src/pages/builder/sidebars/right/sections/analysis.tsx:221
 msgid "Resume Analysis"
-msgstr ""
+msgstr "تحلیل رزومه"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/progress.tsx:373
 msgid "Resume optimization completed... Moving to comparison..."
-msgstr ""
+msgstr "بهینه سازی رزومه به پایان رسید... در حال رفتن به مقایسه..."
 
 #: apps/client/src/pages/dashboard/_components/sidebar.tsx:85
 #: apps/client/src/pages/dashboard/resumes/page.tsx:20
@@ -1889,7 +2093,7 @@ msgstr "رزومه های به‌وجود آمده"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/compare.tsx:345
 msgid "Review Optimized Resume"
-msgstr ""
+msgstr "بازبینی رزومه بهینه شده"
 
 #: apps/client/src/pages/home/sections/features/index.tsx:105
 msgid "Rich in features, not in pricing."
@@ -1908,32 +2112,36 @@ msgstr "ذخیرهٔ تغییرات"
 
 #: apps/client/src/pages/dashboard/settings/_sections/openai.tsx:176
 msgid "Save Locally"
-msgstr ""
+msgstr "ذخیره محلی"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/progress.tsx:497
 msgid "Save Optimized Resume"
-msgstr ""
+msgstr "ذخیره رزومه بهینه شده"
 
 #: apps/client/src/pages/dashboard/settings/_sections/openai.tsx:176
 msgid "Saved"
-msgstr ""
+msgstr "ذخیره شد"
 
 #: apps/client/src/pages/dashboard/settings/_dialogs/two-factor.tsx:168
-msgid "Scan the QR code below with your authenticator app to setup 2FA on your account."
-msgstr "اسکن کد QR زیر با برنامه‌ی authenticator خود برای راه‌اندازی احراز هویت دو مرحله ای بر روی حساب خود."
+msgid ""
+"Scan the QR code below with your authenticator app to setup 2FA on your "
+"account."
+msgstr ""
+"اسکن کد QR زیر با برنامه‌ی authenticator خود برای راه‌اندازی احراز هویت دو "
+"مرحله ای بر روی حساب خود."
 
-#. Score or honors for the degree, for example, CGPA or magna cum laude
 #: apps/client/src/pages/builder/sidebars/left/dialogs/education.tsx:92
+#. Score or honors for the degree, for example, CGPA or magna cum laude
 msgid "Score"
 msgstr "امتیاز"
 
 #: apps/client/src/pages/builder/_components/toolbar.tsx:104
 msgid "Scroll to Pan"
-msgstr ""
+msgstr "پیمایش برای حرکت"
 
 #: apps/client/src/pages/builder/_components/toolbar.tsx:104
 msgid "Scroll to Zoom"
-msgstr ""
+msgstr "پیمایش برای بزرگنمایی"
 
 #: apps/client/src/pages/builder/sidebars/right/sections/typography.tsx:111
 msgid "Search for a font family"
@@ -1973,7 +2181,7 @@ msgstr "ارسال پیام"
 
 #: apps/client/src/pages/builder/_components/analysis/language-clarity-quality.tsx:86
 msgid "Sentences to Improve"
-msgstr ""
+msgstr "جملات برای بهبود"
 
 #: apps/client/src/pages/builder/sidebars/left/sections/shared/section-options.tsx:97
 msgid "Separate Links"
@@ -1998,7 +2206,7 @@ msgstr "اشتراک‌گذاری"
 
 #: apps/client/src/pages/builder/_components/analysis/gap-red-flag-detection.tsx:137
 msgid "Short-Term Positions (< 1 year)"
-msgstr ""
+msgstr "موقعیت های کوتاه مدت (کمتر از 1 سال)"
 
 #: apps/client/src/pages/builder/sidebars/left/sections/shared/section-options.tsx:106
 msgid "Show"
@@ -2007,7 +2215,7 @@ msgstr "نمایش"
 #: apps/client/src/pages/builder/_components/analysis/recency-weighting.tsx:177
 #: apps/client/src/pages/builder/_components/analysis/recency-weighting.tsx:231
 msgid "Show All ({0})"
-msgstr ""
+msgstr "نمایش همه ({0})"
 
 #: apps/client/src/pages/builder/sidebars/right/sections/page.tsx:78
 msgid "Show Break Line"
@@ -2019,12 +2227,12 @@ msgstr "نمایش خط بین صفحه"
 #: apps/client/src/pages/builder/_components/analysis/skill-similarity.tsx:129
 #: apps/client/src/pages/builder/_components/analysis/skill-similarity.tsx:169
 msgid "Show less"
-msgstr ""
+msgstr "نمایش کمتر"
 
 #: apps/client/src/pages/builder/_components/analysis/recency-weighting.tsx:172
 #: apps/client/src/pages/builder/_components/analysis/recency-weighting.tsx:226
 msgid "Show Less"
-msgstr ""
+msgstr "نمایش کمتر"
 
 #: apps/client/src/pages/builder/sidebars/right/sections/page.tsx:91
 msgid "Show Page Numbers"
@@ -2042,7 +2250,7 @@ msgstr "ورود"
 
 #: apps/client/src/pages/home/sections/hero/call-to-action.tsx:57
 msgid "Sign In"
-msgstr ""
+msgstr "ورود"
 
 #: apps/client/src/pages/auth/register/page.tsx:74
 msgid "Sign in now"
@@ -2082,8 +2290,12 @@ msgid "Size (in px)"
 msgstr "اندازه (به پیکسل)"
 
 #: apps/client/src/pages/builder/_components/analysis/recency-weighting.tsx:151
-msgid "Skills used more recently are scored higher. Skills older than 10 years receive zero score."
+msgid ""
+"Skills used more recently are scored higher. Skills older than 10 years "
+"receive zero score."
 msgstr ""
+"مهارت‌هایی که اخیراً بیشتر استفاده شده‌اند امتیاز بالاتری می‌گیرند. "
+"مهارت‌های قدیمی‌تر از 10 سال امتیاز صفر دریافت می‌کنند."
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/resume.tsx:230
 msgid "Slug"
@@ -2091,27 +2303,41 @@ msgstr "نام یکتا"
 
 #: apps/client/src/pages/builder/_components/analysis/gap-red-flag-detection.tsx:85
 msgid "Some career gaps or short tenures detected"
-msgstr ""
+msgstr "برخی وقفه‌های شغلی یا دوره‌های کوتاه مدت شناسایی شدند"
 
 #: apps/client/src/pages/builder/_components/analysis/language-clarity-quality.tsx:56
 msgid "Some language clarity issues detected"
-msgstr ""
+msgstr "برخی مشکلات وضوح زبان شناسایی شد"
 
 #: apps/client/src/pages/builder/_components/analysis/recency-weighting.tsx:257
 msgid "Some of your skills are recent, but others may benefit from updating."
 msgstr ""
+"برخی از مهارت‌های شما جدید هستند، اما برخی دیگر ممکن است از به‌روزرسانی "
+"بهره‌مند شوند."
 
 #: apps/client/src/services/errors/translate-error.ts:55
-msgid "Something went wrong while grabbing a preview your resume. Please try again later or raise an issue on GitHub."
-msgstr "هنگام دریافت پیش‌نمایش از رزومه شما مشکلی پیش آمد. لطفا بعدا دوباره تلاش کنید یا مشکل را در گیت‌هاب گزارش کنید."
+msgid ""
+"Something went wrong while grabbing a preview your resume. Please try again "
+"later or raise an issue on GitHub."
+msgstr ""
+"هنگام دریافت پیش‌نمایش از رزومه شما مشکلی پیش آمد. لطفا بعدا دوباره تلاش "
+"کنید یا مشکل را در گیت‌هاب گزارش کنید."
 
 #: apps/client/src/services/errors/translate-error.ts:52
-msgid "Something went wrong while printing your resume. Please try again later or raise an issue on GitHub."
-msgstr "هنگام دریافت رزومه شما مشکلی پیش آمد. لطفا بعدا دوباره تلاش کنید یا مشکل را در گیت‌هاب گزارش کنید."
+msgid ""
+"Something went wrong while printing your resume. Please try again later or "
+"raise an issue on GitHub."
+msgstr ""
+"هنگام دریافت رزومه شما مشکلی پیش آمد. لطفا بعدا دوباره تلاش کنید یا مشکل را "
+"در گیت‌هاب گزارش کنید."
 
 #: apps/client/src/services/errors/translate-error.ts:58
-msgid "Something went wrong while processing your request. Please try again later or raise an issue on GitHub."
-msgstr "هنگام پردازش درخواست شما یک مشکل پیش آمد. لطفا بعدا دوباره تلاش کنید یا مشکل را در گیت‌هاب گزارش کنید."
+msgid ""
+"Something went wrong while processing your request. Please try again later "
+"or raise an issue on GitHub."
+msgstr ""
+"هنگام پردازش درخواست شما یک مشکل پیش آمد. لطفا بعدا دوباره تلاش کنید یا "
+"مشکل را در گیت‌هاب گزارش کنید."
 
 #: apps/client/src/pages/builder/sidebars/left/sections/picture/options.tsx:87
 #: apps/client/src/pages/builder/sidebars/left/sections/picture/options.tsx:132
@@ -2128,8 +2354,12 @@ msgid "Start building your resume by giving it a name."
 msgstr "شروع به ساخت رزومه خود با دادن یک نام به آن کنید."
 
 #: apps/client/src/pages/builder/_components/analysis/action-verb-density.tsx:90
-msgid "Starting bullets with strong action verbs (like \"Achieved\", \"Built\", \"Developed\") makes your resume more impactful and demonstrates results."
+msgid ""
+"Starting bullets with strong action verbs (like \"Achieved\", \"Built\", "
+"\"Developed\") makes your resume more impactful and demonstrates results."
 msgstr ""
+"شروع گلوله‌ها با افعال کنشی قوی (مانند \"دستیابی\", \"ساخت\", \"توسعه\") "
+"رزومه شما را تأثیرگذارتر می‌کند و نتایج را نشان می‌دهد."
 
 #: apps/client/src/pages/builder/sidebars/right/index.tsx:121
 #: apps/client/src/pages/builder/sidebars/right/sections/statistics.tsx:22
@@ -2147,23 +2377,27 @@ msgstr "کدهای پشتیبان خود را به صورت امن ذخیره ک
 
 #: apps/client/src/pages/builder/_components/analysis/achievement-relevance-index.tsx:56
 msgid "Strong achievement-job alignment"
-msgstr ""
+msgstr "همسویی قوی دستاورد-شغل"
 
 #: apps/client/src/pages/builder/_components/analysis/action-verb-density.tsx:49
 msgid "Strong action verb usage"
-msgstr ""
+msgstr "استفاده قوی از فعل عمل"
 
 #: apps/client/src/pages/builder/_components/analysis/domain-industry-experience.tsx:94
 msgid "Strong domain/industry match"
-msgstr ""
+msgstr "تطابق قوی دامنه/صنعت"
 
 #: apps/client/src/pages/builder/_components/analysis/keyword-in-context-integrity.tsx:120
 msgid "Strong keyword context integrity"
-msgstr ""
+msgstr "یکپارچگی قوی متن کلمات کلیدی"
 
 #: apps/client/src/pages/builder/_components/analysis/gap-red-flag-detection.tsx:160
-msgid "Structure your resume to emphasize skills and achievements rather than chronology if job-hopping is a concern."
+msgid ""
+"Structure your resume to emphasize skills and achievements rather than "
+"chronology if job-hopping is a concern."
 msgstr ""
+"اگر پرش شغلی یک نگرانی است، رزومه خود را طوری ساختار دهید که بر مهارت‌ها و "
+"دستاوردها تأکید شود تا ترتیب زمانی."
 
 #: apps/client/src/pages/builder/sidebars/left/dialogs/awards.tsx:101
 #: apps/client/src/pages/builder/sidebars/left/dialogs/certifications.tsx:95
@@ -2213,23 +2447,35 @@ msgstr "رنگ متن"
 
 #: apps/client/src/pages/public/error.tsx:17
 msgid "The page you're looking for doesn't exist."
-msgstr ""
+msgstr "صفحه‌ای که دنبالش هستید وجود ندارد."
 
 #: apps/client/src/pages/public/error.tsx:29
 msgid "The request was invalid."
-msgstr ""
+msgstr "درخواست نامعتبر بود."
 
 #: apps/client/src/services/errors/translate-error.ts:49
-msgid "The resume you want to update is locked, please unlock if you wish to make any changes to it."
-msgstr "رزومه‌ای که می‌خواهید به‌روزرسانی کنید قفل شده است، لطفاً اگر می‌خواهید تغییری در آن انجام دهید آن را باز کنید."
+msgid ""
+"The resume you want to update is locked, please unlock if you wish to make "
+"any changes to it."
+msgstr ""
+"رزومه‌ای که می‌خواهید به‌روزرسانی کنید قفل شده است، لطفاً اگر می‌خواهید "
+"تغییری در آن انجام دهید آن را باز کنید."
 
 #: apps/client/src/pages/builder/_components/analysis/years-experience-match.tsx:125
-msgid "The role requires more experience than listed in your resume. Consider highlighting additional relevant experience."
+msgid ""
+"The role requires more experience than listed in your resume. Consider "
+"highlighting additional relevant experience."
 msgstr ""
+"این نقش به تجربه بیشتری نسبت به آنچه در رزومه شما ذکر شده است نیاز دارد. "
+"برجسته کردن تجربه مرتبط اضافی را در نظر بگیرید."
 
 #: apps/client/src/pages/builder/_components/analysis/seniority-alignment.tsx:106
-msgid "The role requires more seniority than your current level. Consider highlighting leadership experiences in your resume."
+msgid ""
+"The role requires more seniority than your current level. Consider "
+"highlighting leadership experiences in your resume."
 msgstr ""
+"این نقش به ارشدیت بیشتری نسبت به سطح فعلی شما نیاز دارد. برجسته کردن "
+"تجربیات رهبری در رزومه خود را در نظر بگیرید."
 
 #: apps/client/src/pages/builder/sidebars/right/index.tsx:93
 #: apps/client/src/pages/builder/sidebars/right/sections/theme.tsx:19
@@ -2240,56 +2486,83 @@ msgstr "تم"
 
 #: apps/client/src/pages/builder/sidebars/left/sections/ai-optimize.tsx:96
 msgid "There was a problem starting the optimization process."
-msgstr ""
+msgstr "مشکلی در شروع فرآیند بهینه سازی وجود داشت."
 
 #: apps/client/src/services/errors/translate-error.ts:40
-msgid "There was an error connecting to the browser. Please make sure 'chrome' is running and reachable."
-msgstr "خطا در اتصال به مرورگر رخ داد. لطفاً مطمئن شوید که 'chrome' در حال اجرا و قابل دسترس است."
+msgid ""
+"There was an error connecting to the browser. Please make sure 'chrome' is "
+"running and reachable."
+msgstr ""
+"خطا در اتصال به مرورگر رخ داد. لطفاً مطمئن شوید که 'chrome' در حال اجرا و "
+"قابل دسترس است."
 
 #: apps/client/src/pages/builder/_components/analysis/keyword-in-context-integrity.tsx:284
-msgid "These keywords appear in your resume but need to be paired with both action verbs AND measurable outcomes."
+msgid ""
+"These keywords appear in your resume but need to be paired with both action "
+"verbs AND measurable outcomes."
 msgstr ""
+"این کلمات کلیدی در رزومه شما ظاهر می‌شوند اما باید با افعال کنشی و نتایج "
+"قابل اندازه‌گیری جفت شوند."
 
 #: apps/client/src/pages/builder/_components/analysis/keyword-in-context-integrity.tsx:308
 msgid "These keywords from the job description don't appear in your resume."
-msgstr ""
+msgstr "این کلمات کلیدی از شرح شغل در رزومه شما ظاهر نمی‌شوند."
 
 #: apps/client/src/pages/builder/sidebars/left/sections/shared/section-dialog.tsx:130
-msgid "This action can be reverted by clicking on the undo button in the floating toolbar."
-msgstr "این عملیات می تواند با کلیک بر روی دکمه بازگردانی در نوار ابزار شناور بازگشت پیدا کند."
+msgid ""
+"This action can be reverted by clicking on the undo button in the floating "
+"toolbar."
+msgstr ""
+"این عملیات می تواند با کلیک بر روی دکمه بازگردانی در نوار ابزار شناور "
+"بازگشت پیدا کند."
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/resume.tsx:153
-msgid "This action cannot be undone. This will permanently delete your resume and cannot be recovered."
-msgstr "این عملیات قابل بازگشت نیست. این عملیات به طور دائمی رزومه شما را حذف خواهد کرد و غیرقابل بازیابی است."
+msgid ""
+"This action cannot be undone. This will permanently delete your resume and "
+"cannot be recovered."
+msgstr ""
+"این عملیات قابل بازگشت نیست. این عملیات به طور دائمی رزومه شما را حذف خواهد "
+"کرد و غیرقابل بازیابی است."
 
 #: apps/client/src/services/errors/translate-error.ts:16
-msgid "This email address is associated with an OAuth account. Please sign in with your OAuth provider."
-msgstr "این آدرس ایمیل با یک حساب OAuth مرتبط است. لطفا با ارائه دهنده OAuth خود وارد شوید."
+msgid ""
+"This email address is associated with an OAuth account. Please sign in with "
+"your OAuth provider."
+msgstr ""
+"این آدرس ایمیل با یک حساب OAuth مرتبط است. لطفا با ارائه دهنده OAuth خود "
+"وارد شوید."
 
 #: apps/client/src/components/usage-limit-dialog.tsx:105
 msgid "this feature"
-msgstr ""
+msgstr "این ویژگی"
 
 #: apps/client/src/pages/builder/_components/analysis/achievement-relevance-index.tsx:113
-msgid "This measures how well your achievements align with the job goals. Higher relevance demonstrates that your accomplishments are directly applicable to the position."
+msgid ""
+"This measures how well your achievements align with the job goals. Higher "
+"relevance demonstrates that your accomplishments are directly applicable to "
+"the position."
 msgstr ""
+"این اندازه‌گیری می‌کند که دستاوردهای شما چقدر با اهداف شغلی همسو هستند. "
+"ارتباط بالاتر نشان می‌دهد که دستاوردهای شما مستقیماً برای این موقعیت قابل "
+"استفاده است."
 
 #: apps/client/src/pages/builder/_components/header.tsx:57
 msgid "This resume is locked, please unlock to make further changes."
 msgstr "این رزومه قفل شده است، لطفاً برای ایجاد تغییرات بیشتر بازش کنید."
 
 #: apps/client/src/pages/builder/sidebars/right/sections/notes.tsx:23
-msgid "This section is reserved for your personal notes specific to this resume. The content here remains private and is not shared with anyone else."
-msgstr "این بخش برای یادداشت‌های شخصی شما مخصوص این رزومه اختصاص داده شده است. محتوای اینجا خصوصی است و با هیچ کس دیگری به اشتراک گذاشته نمی شود."
+msgid ""
+"This section is reserved for your personal notes specific to this resume. "
+"The content here remains private and is not shared with anyone else."
+msgstr ""
+"این بخش برای یادداشت‌های شخصی شما مخصوص این رزومه اختصاص داده شده است. "
+"محتوای اینجا خصوصی است و با هیچ کس دیگری به اشتراک گذاشته نمی شود."
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/resume.tsx:218
 msgid "Tip: You can name the resume referring to the position you are applying for."
-msgstr "نکته: می توانید رزومه خود را با اشاره به موقعیت شغلی که بیشتر برای آن درخواست داده اید نامگذاری کنید."
-
-#: apps/client/src/pages/builder/sidebars/left/dialogs/awards.tsx:39
-msgctxt "Name of the Award"
-msgid "Title"
-msgstr "عنوان"
+msgstr ""
+"نکته: می توانید رزومه خود را با اشاره به موقعیت شغلی که بیشتر برای آن "
+"درخواست داده اید نامگذاری کنید."
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/resume.tsx:198
 msgid "Title"
@@ -2305,7 +2578,7 @@ msgstr "تغییر وضعیت شماره صفحات"
 
 #: apps/client/src/pages/builder/_components/analysis/achievement-relevance-index.tsx:121
 msgid "Top Relevant Achievements ({0})"
-msgstr ""
+msgstr "برترین دستاوردهای مرتبط ({0})"
 
 #: apps/client/src/pages/home/sections/features/index.tsx:68
 msgid "Track views and downloads"
@@ -2313,7 +2586,7 @@ msgstr "بررسی تعداد بازدیدها و دانلود‌ها"
 
 #: apps/client/src/pages/builder/_components/ai-optimize/progress.tsx:487
 msgid "Try Again"
-msgstr ""
+msgstr "دوباره امتحان کنید"
 
 #: apps/client/src/pages/auth/verify-otp/page.tsx:52
 #: apps/client/src/pages/auth/verify-otp/page.tsx:57
@@ -2333,8 +2606,8 @@ msgstr "احراز هویت دو عاملی برای این حساب فعال ن
 msgid "Type <0>delete</0> to confirm deleting your account."
 msgstr "برای تأیید حذف حساب کاربری خود <0>delete</0> را وارد کنید."
 
-#. For example, Bachelor's Degree or Master's Degree
 #: apps/client/src/pages/builder/sidebars/left/dialogs/education.tsx:54
+#. For example, Bachelor's Degree or Master's Degree
 msgid "Type of Study"
 msgstr "نوع تحصیلات"
 
@@ -2354,7 +2627,7 @@ msgstr "بازگردانی"
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:314
 msgid "Unknown error occurred"
-msgstr ""
+msgstr "خطای ناشناخته رخ داده است"
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/lock.tsx:52
 #: apps/client/src/pages/dashboard/resumes/_layouts/grid/_components/resume-card.tsx:110
@@ -2382,19 +2655,27 @@ msgstr "به روزرسانی یک رزومه موجود"
 #: apps/client/src/components/usage-limit-dialog.tsx:158
 #: apps/client/src/components/user-options.tsx:85
 msgid "Upgrade to Plus"
-msgstr ""
+msgstr "ارتقا به پلاس"
 
 #: apps/client/src/pages/dashboard/resumes/_dialogs/import.tsx:340
-msgid "Upload a file from one of the accepted sources to parse existing data and import it into Reactive Resume for easier editing."
-msgstr "آپلود یک فایل از یکی از منابع پذیرفته شده برای تجزیه و تحلیل داده های موجود و وارد کردن آن به Reactive Resume برای ویرایش آسانتر."
+msgid ""
+"Upload a file from one of the accepted sources to parse existing data and "
+"import it into Reactive Resume for easier editing."
+msgstr ""
+"آپلود یک فایل از یکی از منابع پذیرفته شده برای تجزیه و تحلیل داده های موجود "
+"و وارد کردن آن به Reactive Resume برای ویرایش آسانتر."
 
 #: apps/client/src/pages/home/sections/hero/call-to-action.tsx:53
 msgid "Upload PDF Resume"
-msgstr ""
+msgstr "آپلود رزومه PDF"
 
 #: apps/client/src/pages/home/sections/hero/call-to-action.tsx:47
-msgid "Upload your PDF resume and we'll convert it to a beautiful, interactive format."
+msgid ""
+"Upload your PDF resume and we'll convert it to a beautiful, interactive "
+"format."
 msgstr ""
+"رزومه PDF خود را آپلود کنید و ما آن را به یک فرمت زیبا و تعاملی تبدیل "
+"خواهیم کرد."
 
 #: apps/client/src/pages/builder/sidebars/right/sections/sharing.tsx:73
 msgid "URL"
@@ -2406,7 +2687,7 @@ msgstr "آدرس وب باید با https:// شروع شود"
 
 #: apps/client/src/components/usage-limit-dialog.tsx:132
 msgid "Usage Limit Reached"
-msgstr ""
+msgstr "محدودیت استفاده به پایان رسید"
 
 #: apps/client/src/pages/auth/backup-otp/page.tsx:52
 #: apps/client/src/pages/auth/backup-otp/page.tsx:57
@@ -2414,8 +2695,12 @@ msgid "Use your backup code"
 msgstr "از کد پشتیبان خود استفاده کنید"
 
 #: apps/client/src/services/errors/translate-error.ts:13
-msgid "User does not have an associated 'secrets' record. Please report this issue on GitHub."
-msgstr "کاربر دارای رکورد 'رمزها' مرتبط نیست. لطفاً این مشکل را در گیت‌هاب گزارش دهید."
+msgid ""
+"User does not have an associated 'secrets' record. Please report this issue "
+"on GitHub."
+msgstr ""
+"کاربر دارای رکورد 'رمزها' مرتبط نیست. لطفاً این مشکل را در گیت‌هاب گزارش "
+"دهید."
 
 #: apps/client/src/pages/auth/register/page.tsx:119
 #: apps/client/src/pages/builder/sidebars/left/dialogs/profiles.tsx:55
@@ -2459,7 +2744,7 @@ msgstr "نسخه ۴"
 #: apps/client/src/pages/builder/_components/analysis/fullscreen-button.tsx:16
 #: apps/client/src/pages/builder/_components/analysis/fullscreen-button.tsx:21
 msgid "View Analysis in Full Screen"
-msgstr ""
+msgstr "مشاهده تجزیه و تحلیل در حالت تمام صفحه"
 
 #: apps/client/src/pages/builder/sidebars/right/sections/statistics.tsx:51
 msgid "Views"
@@ -2471,11 +2756,16 @@ msgstr "قابل مشاهده"
 
 #: apps/client/src/pages/builder/sidebars/left/sections/custom/section.tsx:70
 msgid "Visit <0>Phosphor Icons</0> for a list of available icons"
-msgstr ""
+msgstr "برای لیستی از آیکون های موجود از <0>Phosphor Icons</0> دیدن کنید"
 
 #: apps/client/src/pages/auth/verify-email/page.tsx:61
-msgid "We verify your email address only to ensure that we can send you a password reset link in case you forget your password."
-msgstr "ما آدرس ایمیل شما را تأیید می کنیم تا فقط مطمئن شویم که می توانیم لینک بازنشانی رمز عبور را به شما ارسال کنیم در صورتی که رمز عبور خود را فراموش کنید."
+msgid ""
+"We verify your email address only to ensure that we can send you a password "
+"reset link in case you forget your password."
+msgstr ""
+"ما آدرس ایمیل شما را تأیید می کنیم تا فقط مطمئن شویم که می توانیم لینک "
+"بازنشانی رمز عبور را به شما ارسال کنیم در صورتی که رمز عبور خود را فراموش "
+"کنید."
 
 #: apps/client/src/pages/builder/sidebars/left/dialogs/awards.tsx:87
 #: apps/client/src/pages/builder/sidebars/left/dialogs/certifications.tsx:81
@@ -2497,75 +2787,117 @@ msgstr "چه خبر در آخرین نسخه"
 
 #: apps/client/src/pages/builder/_components/analysis/resume-worldwide.tsx:35
 msgid "Worldwide Resume Distribution"
-msgstr ""
+msgstr "توزیع رزومه در سراسر جهان"
 
 #: apps/client/src/pages/builder/_components/analysis/career-trajectory.tsx:420
 msgid "years"
-msgstr ""
+msgstr "سال ها"
 
 #: apps/client/src/pages/public/error.tsx:26
 msgid "You are not authorized to access this page."
-msgstr ""
+msgstr "شما مجاز به دسترسی به این صفحه نیستید."
 
 #: apps/client/src/pages/builder/sidebars/left/dialogs/custom-section.tsx:164
 #: apps/client/src/pages/builder/sidebars/left/dialogs/interests.tsx:68
 #: apps/client/src/pages/builder/sidebars/left/dialogs/projects.tsx:164
 #: apps/client/src/pages/builder/sidebars/left/dialogs/skills.tsx:114
-msgid "You can add multiple keywords by separating them with a comma or pressing enter."
-msgstr "شما می‌توانید کلمات متعددی را با جداکردن آن‌ها با یک کاما یا فشردن کلید اینتر اضافه کنید."
+msgid ""
+"You can add multiple keywords by separating them with a comma or pressing "
+"enter."
+msgstr ""
+"شما می‌توانید کلمات متعددی را با جداکردن آن‌ها با یک کاما یا فشردن کلید "
+"اینتر اضافه کنید."
 
 #: apps/client/src/pages/auth/login/page.tsx:99
 msgid "You can also enter your username."
 msgstr "شما همچنین می‌توانید نام کاربری خود را وارد کنید."
 
 #: apps/client/src/pages/dashboard/settings/_sections/openai.tsx:103
-msgid "You can also integrate with Ollama simply by setting the API key to `sk-1234567890abcdef` and the Base URL to your Ollama URL, i.e. `http://localhost:11434/v1`. You can also pick and choose models and set the max tokens as per your preference."
+msgid ""
+"You can also integrate with Ollama simply by setting the API key to "
+"`sk-1234567890abcdef` and the Base URL to your Ollama URL, i.e. "
+"`http://localhost:11434/v1`. You can also pick and choose models and set "
+"the max tokens as per your preference."
 msgstr ""
+"شما همچنین می توانید به سادگی با تنظیم کلید API به `sk-1234567890abcdef` و "
+"URL پایه به URL اولاما خود، یعنی `http://localhost:11434/v1` با اولاما "
+"ادغام شوید. همچنین می توانید مدل ها را انتخاب کرده و حداکثر توکن ها را "
+"مطابق با ترجیحات خود تنظیم کنید."
 
 #: apps/client/src/pages/dashboard/settings/_sections/openai.tsx:81
-msgid "You can make use of the OpenAI API to help you generate content, or improve your writing while composing your resume."
-msgstr "شما می توانید از API OpenAI استفاده کنید تا به شما در تولید محتوا کمک کند یا نوشتن شما را بهتر کند در حالی که رزومه خود را تنظیم می کنید."
+msgid ""
+"You can make use of the OpenAI API to help you generate content, or improve "
+"your writing while composing your resume."
+msgstr ""
+"شما می توانید از API OpenAI استفاده کنید تا به شما در تولید محتوا کمک کند "
+"یا نوشتن شما را بهتر کند در حالی که رزومه خود را تنظیم می کنید."
 
 #: apps/client/src/pages/builder/sidebars/right/sections/statistics.tsx:40
-msgid "You can track the number of views your resume has received, or how many people have downloaded the resume by enabling public sharing."
-msgstr "شما می‌توانید تعداد بازدید‌های رزومه خود را یا تعداد افرادی که رزومه را با فعال کردن اشتراک عمومی دانلود کرده‌اند، بررسی کنید."
+msgid ""
+"You can track the number of views your resume has received, or how many "
+"people have downloaded the resume by enabling public sharing."
+msgstr ""
+"شما می‌توانید تعداد بازدید‌های رزومه خود را یا تعداد افرادی که رزومه را با "
+"فعال کردن اشتراک عمومی دانلود کرده‌اند، بررسی کنید."
 
 #: apps/client/src/components/usage-limit-dialog.tsx:116
 msgid "You can upgrade to Plus for higher usage limits."
-msgstr ""
+msgstr "برای محدودیت های استفاده بالاتر می توانید به پلاس ارتقا دهید."
 
 #: apps/client/src/pages/public/error.tsx:20
 msgid "You don't have permission to access this page."
-msgstr ""
+msgstr "شما اجازه دسترسی به این صفحه را ندارید."
 
 #: apps/client/src/pages/builder/_components/analysis/years-experience-match.tsx:123
-msgid "You have more experience than required, which is a strong advantage for this position."
-msgstr ""
+msgid ""
+"You have more experience than required, which is a strong advantage for "
+"this position."
+msgstr "شما تجربه بیشتری نسبت به نیاز دارید، که یک مزیت قوی برای این موقعیت است."
 
 #: apps/client/src/pages/builder/_components/analysis/seniority-alignment.tsx:104
-msgid "You have more seniority than required, which could be advantageous but consider if the role meets your career goals."
+msgid ""
+"You have more seniority than required, which could be advantageous but "
+"consider if the role meets your career goals."
 msgstr ""
+"شما ارشدیت بیشتری نسبت به نیاز دارید، که می تواند سودمند باشد اما در نظر "
+"بگیرید که آیا این نقش با اهداف شغلی شما مطابقت دارد یا خیر."
 
 #: apps/client/src/pages/builder/_components/analysis/domain-industry-experience.tsx:195
-msgid "You have some relevant industry experience, but could strengthen alignment with the job requirements."
+msgid ""
+"You have some relevant industry experience, but could strengthen alignment "
+"with the job requirements."
 msgstr ""
+"شما تجربه صنعت مرتبطی دارید، اما می توانید همسویی با الزامات شغلی را تقویت "
+"کنید."
 
 #: apps/client/src/pages/dashboard/settings/_sections/openai.tsx:87
-msgid "You have the option to <0>obtain your own OpenAI API key</0>. This key empowers you to leverage the API as you see fit. Alternatively, if you wish to disable the AI features in Reactive Resume altogether, you can simply remove the key from your settings."
-msgstr "شما قادر به <0>دریافت کلید API اختصاصی OpenAI خودتان هستید</0>. این کلید به شما این امکان را می دهد که از API به دلخواه خود استفاده کنید. به عنوان یک گزینه دیگر، اگر می خواهید قابلیت های هوش مصنوعی در Reactive Resume را کاملاً غیرفعال کنید، می توانید به سادگی این کلید را از تنظیمات خود حذف کنید."
+msgid ""
+"You have the option to <0>obtain your own OpenAI API key</0>. This key "
+"empowers you to leverage the API as you see fit. Alternatively, if you wish "
+"to disable the AI features in Reactive Resume altogether, you can simply "
+"remove the key from your settings."
+msgstr ""
+"شما قادر به <0>دریافت کلید API اختصاصی OpenAI خودتان هستید</0>. این کلید به "
+"شما این امکان را می دهد که از API به دلخواه خود استفاده کنید. به عنوان یک "
+"گزینه دیگر، اگر می خواهید قابلیت های هوش مصنوعی در Reactive Resume را "
+"کاملاً غیرفعال کنید، می توانید به سادگی این کلید را از تنظیمات خود حذف کنید."
 
 #: apps/client/src/pages/auth/verify-email/page.tsx:50
-msgid "You should have received an email from <0>Reactive Resume</0> with a link to verify your account."
-msgstr "شما باید یک ایمیل از <0>Reactive Resume</0> با یک لینک برای تأیید حساب خود دریافت کرده باشید."
+msgid ""
+"You should have received an email from <0>Reactive Resume</0> with a link "
+"to verify your account."
+msgstr ""
+"شما باید یک ایمیل از <0>Reactive Resume</0> با یک لینک برای تأیید حساب خود "
+"دریافت کرده باشید."
 
 #: apps/client/src/components/user-options.tsx:35
 #: apps/client/src/pages/dashboard/upgrade.tsx:36
 msgid "You will be redirected to the Stripe billing portal in a moment."
-msgstr ""
+msgstr "شما لحظاتی دیگر به پورتال صورتحساب Stripe هدایت خواهید شد."
 
 #: apps/client/src/pages/dashboard/upgrade.tsx:86
 msgid "You're already a Plus subscriber!"
-msgstr ""
+msgstr "شما قبلاً مشترک پلاس هستید!"
 
 #: apps/client/src/pages/auth/forgot-password/page.tsx:49
 #: apps/client/src/pages/auth/forgot-password/page.tsx:54
@@ -2574,15 +2906,23 @@ msgstr "شما ایمیل دریافت کردید"
 
 #: apps/client/src/components/usage-limit-dialog.tsx:114
 msgid "You've reached your usage cap for {feature}."
-msgstr ""
+msgstr "شما به سقف استفاده خود برای {feature} رسیده اید."
 
 #: apps/client/src/pages/dashboard/settings/_sections/danger.tsx:52
 msgid "Your account and all your data has been deleted successfully. Goodbye!"
 msgstr "حساب شما و تمام داده‌های شما با موفقیت حذف شد. خدانگهدار!"
 
 #: apps/client/src/pages/dashboard/settings/_sections/openai.tsx:191
-msgid "Your API key is securely stored in the browser's local storage and is only utilized when making requests to OpenAI via their official SDK. Rest assured that your key is not transmitted to any external server except when interacting with OpenAI's services."
-msgstr "کلید API شما به صورت ایمن در حافظه مرورگر دستگاه ذخیره می شود و تنها هنگام ارسال درخواست به OpenAI از طریق SDK رسمی آنها استفاده می شود. اطمینان حاصل کنید که کلید شما به هیچ سرور خارجی انتقال داده نمی شود مگر اینکه برای تعامل با خدمات OpenAI استفاده شود."
+msgid ""
+"Your API key is securely stored in the browser's local storage and is only "
+"utilized when making requests to OpenAI via their official SDK. Rest "
+"assured that your key is not transmitted to any external server except when "
+"interacting with OpenAI's services."
+msgstr ""
+"کلید API شما به صورت ایمن در حافظه مرورگر دستگاه ذخیره می شود و تنها هنگام "
+"ارسال درخواست به OpenAI از طریق SDK رسمی آنها استفاده می شود. اطمینان حاصل "
+"کنید که کلید شما به هیچ سرور خارجی انتقال داده نمی شود مگر اینکه برای تعامل "
+"با خدمات OpenAI استفاده شود."
 
 #: apps/client/src/pages/auth/verify-email/page.tsx:28
 msgid "Your email address has been verified successfully."
@@ -2590,31 +2930,35 @@ msgstr "آدرس ایمیل شما با موفقیت تأیید شد."
 
 #: apps/client/src/pages/builder/_components/analysis/years-experience-match.tsx:92
 msgid "Your Experience"
-msgstr ""
+msgstr "تجربه شما"
 
 #: apps/client/src/pages/builder/_components/analysis/years-experience-match.tsx:49
 msgid "Your experience exceeds the requirement"
-msgstr ""
+msgstr "تجربه شما فراتر از نیاز است"
 
 #: apps/client/src/pages/builder/_components/analysis/years-experience-match.tsx:56
 msgid "Your experience is below the requirement"
-msgstr ""
+msgstr "تجربه شما کمتر از نیاز است"
 
 #: apps/client/src/pages/builder/_components/analysis/years-experience-match.tsx:63
 msgid "Your experience matches the requirement"
-msgstr ""
+msgstr "تجربه شما با نیاز مطابقت دارد"
 
 #: apps/client/src/pages/builder/_components/analysis/domain-industry-experience.tsx:194
 msgid "Your industry experience aligns well with the job requirements."
-msgstr ""
+msgstr "تجربه صنعت شما به خوبی با الزامات شغلی مطابقت دارد."
 
 #: apps/client/src/pages/builder/_components/analysis/seniority-alignment.tsx:90
 msgid "Your Level"
-msgstr ""
+msgstr "سطح شما"
 
 #: apps/client/src/services/openai/client.ts:11
-msgid "Your OpenAI API Key has not been set yet. Please go to your account settings to enable OpenAI Integration."
-msgstr "کلید API OpenAI شما هنوز تنظیم نشده است. لطفاً به تنظیمات حساب کاربری خود بروید تا امکان ادغام OpenAI را فعال کنید."
+msgid ""
+"Your OpenAI API Key has not been set yet. Please go to your account "
+"settings to enable OpenAI Integration."
+msgstr ""
+"کلید API OpenAI شما هنوز تنظیم نشده است. لطفاً به تنظیمات حساب کاربری خود "
+"بروید تا امکان ادغام OpenAI را فعال کنید."
 
 #: apps/client/src/pages/dashboard/settings/_sections/security.tsx:56
 msgid "Your password has been updated successfully."
@@ -2622,47 +2966,47 @@ msgstr "رمز عبور شما با موفقیت به روز شد."
 
 #: apps/client/src/pages/builder/_components/analysis/recency-weighting.tsx:163
 msgid "Your Recent Skills"
-msgstr ""
+msgstr "مهارت های اخیر شما"
 
 #: apps/client/src/pages/builder/_components/analysis/language-clarity-quality.tsx:98
 msgid "Your resume demonstrates clear, concise language with good readability."
-msgstr ""
+msgstr "رزومه شما زبان واضح، مختصر و با قابلیت خوانایی خوب را نشان می دهد."
 
 #: apps/client/src/pages/builder/_components/analysis/seniority-alignment.tsx:53
 msgid "Your seniority level is higher than required"
-msgstr ""
+msgstr "سطح ارشدیت شما بالاتر از حد مورد نیاز است"
 
 #: apps/client/src/pages/builder/_components/analysis/seniority-alignment.tsx:60
 msgid "Your seniority level is lower than required"
-msgstr ""
+msgstr "سطح ارشدیت شما پایین تر از حد مورد نیاز است"
 
 #: apps/client/src/pages/builder/_components/analysis/seniority-alignment.tsx:67
 msgid "Your seniority level matches the requirement"
-msgstr ""
+msgstr "سطح ارشدیت شما با نیاز مطابقت دارد"
 
 #: apps/client/src/pages/builder/_components/analysis/seniority-alignment.tsx:102
 msgid "Your seniority level perfectly matches what's required for this position."
-msgstr ""
+msgstr "سطح ارشدیت شما کاملاً با آنچه برای این موقعیت لازم است مطابقت دارد."
 
 #: apps/client/src/pages/builder/_components/analysis/recency-weighting.tsx:70
 msgid "Your skills are recent and relevant"
-msgstr ""
+msgstr "مهارت های شما جدید و مرتبط هستند"
 
 #: apps/client/src/pages/builder/_components/analysis/recency-weighting.tsx:255
 msgid "Your skills are recent and relevant to the job requirements."
-msgstr ""
+msgstr "مهارت های شما جدید و مرتبط با الزامات شغلی هستند."
 
 #: apps/client/src/pages/builder/_components/analysis/recency-weighting.tsx:84
 msgid "Your skills have moderate recency"
-msgstr ""
+msgstr "مهارت های شما از تازگی متوسطی برخوردار هستند"
 
 #: apps/client/src/pages/builder/_components/analysis/recency-weighting.tsx:77
 msgid "Your skills might need updating"
-msgstr ""
+msgstr "مهارت های شما ممکن است نیاز به به روز رسانی داشته باشند"
 
 #: apps/client/src/pages/builder/_components/analysis/years-experience-match.tsx:121
 msgid "Your years of experience match the job requirements well."
-msgstr ""
+msgstr "سالها تجربه شما به خوبی با الزامات شغلی مطابقت دارد."
 
 #: apps/client/src/pages/builder/_components/toolbar.tsx:112
 msgid "Zoom In"
@@ -2671,3 +3015,64 @@ msgstr "بزرگ‌نمایی"
 #: apps/client/src/pages/builder/_components/toolbar.tsx:118
 msgid "Zoom Out"
 msgstr "کوچک‌نمایی"
+
+#: apps/client/src/pages/builder/sidebars/left/sections/shared/section-base.tsx:119
+#: apps/client/src/pages/builder/sidebars/left/sections/shared/section-base.tsx:170
+msgctxt "For example, add a new work experience, or add a new profile."
+msgid "Add a new item"
+msgstr "افزودن مورد جدید"
+
+#: apps/client/src/pages/builder/sidebars/left/index.tsx:63
+msgctxt ""
+"The basics section of a resume consists of User's Picture, Full Name, "
+"Location etc."
+msgid "Basics"
+msgstr "مبانی"
+
+#: apps/client/src/pages/auth/login/page.tsx:65
+msgctxt "This is a link to create a new account"
+msgid "Create one now"
+msgstr "اکنون یکی ایجاد کنید"
+
+#: apps/client/src/pages/auth/register/page.tsx:101
+msgctxt ""
+"Localized version of a placeholder name. For example, Max Mustermann in "
+"German or Jan Kowalski in Polish."
+msgid "John Doe"
+msgstr "John Doe"
+
+#: apps/client/src/pages/auth/register/page.tsx:123
+msgctxt ""
+"Localized version of a placeholder username. For example, max.mustermann in "
+"German or jan.kowalski in Polish."
+msgid "john.doe"
+msgstr "john.doe"
+
+#: apps/client/src/pages/auth/register/page.tsx:145
+msgctxt ""
+"Localized version of a placeholder email. For example, "
+"max.mustermann@example.de in German or jan.kowalski@example.pl in Polish."
+msgid "john.doe@example.com"
+msgstr "john.doe@example.com"
+
+#: apps/client/src/pages/builder/sidebars/left/dialogs/certifications.tsx:39
+msgctxt "Name of the Certification"
+msgid "Name"
+msgstr "نام"
+
+#: apps/client/src/pages/auth/layout.tsx:47
+msgctxt ""
+"The user can either login with email/password, or continue with GitHub or "
+"Google."
+msgid "or continue with"
+msgstr "یا ادامه با"
+
+#: apps/client/src/pages/builder/sidebars/left/dialogs/experience.tsx:54
+msgctxt "Position held at a company, for example, Software Engineer"
+msgid "Position"
+msgstr "موقعیت شغلی"
+
+#: apps/client/src/pages/builder/sidebars/left/dialogs/awards.tsx:39
+msgctxt "Name of the Award"
+msgid "Title"
+msgstr "عنوان"
