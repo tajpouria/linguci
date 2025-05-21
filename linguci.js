@@ -88,13 +88,19 @@ class Linguci {
 
   /**
    * Storage for translation batches organized by file, locale, and context
-   * @type {Object}
+   * @type {Object<string, Object<string, Object<string, Object<number, Object>>>>}
+   * @property {Object<string, Object<string, Object<number, Object>>>} [sourcePath] - Key is source file path
+   * @property {Object<string, Object<number, Object>>} [sourcePath.translationPath] - Key is translation file path
+   * @property {Object<number, Object>} [sourcePath.translationPath.contextKey] - Key is context name
+   * @property {Object} [sourcePath.translationPath.contextKey.batchNumber] - Zod schema for validating translations
    */
   translationBatches = null;
 
   /**
    * Storage for translation PO objects organized by file and locale
-   * @type {Object}
+   * @type {Object<string, Object<string, Object>>}
+   * @property {Object<string, Object>} [sourcePath] - Key is source file path
+   * @property {Object} [sourcePath.translationPath] - Key is translation file path, value is PO object
    */
   translationPos = null;
 
@@ -220,6 +226,16 @@ class Linguci {
     return this;
   }
 
+  /**
+   * Creates batches of translation entries that need to be translated
+   * Processes all source and translation files defined in the config
+   * Organizes entries by source file, translation file, context and batch number
+   * Uses Zod schemas to validate translations
+   * 
+   * @param {Object} options - Configuration options
+   * @param {number} [options.batchSize=5] - Number of entries per batch
+   * @returns {Linguci} this instance for chaining
+   */
   createTranslationBatches({ batchSize = 5 }) {
     const config = this.config;
     this.translationBatches = {};
