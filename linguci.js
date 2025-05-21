@@ -759,8 +759,8 @@ class Linguci {
   async createPullRequest({
     baseBranch = "main",
     branchPrefix = "linguci-translations",
-    prTitle = "",
-    prBody = "",
+    prTitle = "Update translations",
+    prBody = "This PR includes translation updates\n\n*Generated automatically by linguci*",
   } = {}) {
     this.log("DEBUG", "Starting pull request creation process");
 
@@ -810,27 +810,9 @@ class Linguci {
         throw new Error(`Failed to push branch: ${pushResult.error}`);
       }
 
-      // Get changed locales for PR title/body if not provided
-      const statusResult = await this._executeCommand("git status --porcelain");
-      const changedFiles = statusResult.stdout
-        .split("\n")
-        .filter((line) => line.trim());
-      const changedLocales = this._getChangedLocales(changedFiles);
-
-      // Create PR title and body if not provided
-      const title =
-        prTitle || `Update translations for ${changedLocales.length} locales`;
-      const body =
-        prBody ||
-        `## Translation Updates\n\n` +
-          `This PR includes translation updates for the following locales:\n\n` +
-          changedLocales
-            .map(
-              (locale) =>
-                `- ${locale} (${this.languageNames[locale]?.[1] || locale})`
-            )
-            .join("\n") +
-          `\n\n*Generated automatically by linguci*`;
+      // Use static title and body for PR
+      const title = prTitle;
+      const body = prBody;
 
       // Create PR using GitHub CLI
       this.log("DEBUG", "Creating pull request using GitHub CLI");
