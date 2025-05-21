@@ -10,3 +10,6 @@ locales:
 files:
   - source: locales/en-US.po
     translation: locales/%locale%.po
+llm:
+  provider: google-generative-ai
+  model: gemini-2.0-flash

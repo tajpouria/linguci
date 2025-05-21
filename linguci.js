@@ -3,6 +3,8 @@ import path from "path";
 import yaml from "js-yaml";
 import gettextParser from "gettext-parser";
 import { z } from "zod";
+import { google } from "@ai-sdk/google";
+import { generateObject } from "ai";
 
 /**
  * Main class for handling linguci configuration
@@ -70,6 +72,33 @@ class Linguci {
     "zh-CN": ["中文 (中国大陆)", "Chinese (PRC)"],
     "zh-TW": ["中文 (台灣)", "Chinese (Taiwan)"],
   };
+
+  /**
+   * Get the model for the given provider
+   * @param {Object} options - The options object
+   * @param {string} options.provider - The provider name
+   * @param {string} options.model - The model name
+   * @returns {Object} The model object
+   */
+  getModel({ provider, model }) {
+    const models = {
+      "google-generative-ai": () =>
+        google(model, {
+          structuredOutputs: false,
+        }),
+    };
+
+    const modelFactory = models[provider];
+    if (!modelFactory) {
+      throw new Error(
+        `Unsupported provider: ${provider}, supported providers: ${Object.keys(
+          models
+        ).join(", ")}`
+      );
+    }
+
+    return modelFactory();
+  }
 
   /**
    * The workspace directory path
@@ -221,6 +250,9 @@ class Linguci {
         }
       }
     }
+
+    // Validate the model
+    this.getModel(this.config.llm);
 
     return this;
   }
