@@ -1,7 +1,8 @@
-const fs = require("fs");
-const path = require("path");
-const yaml = require("js-yaml");
-const gettextParser = require("gettext-parser");
+import fs from "fs";
+import path from "path";
+import yaml from "js-yaml";
+import gettextParser from "gettext-parser";
+import { z } from "zod";
 
 /**
  * Main class for handling linguci configuration
@@ -86,6 +87,18 @@ class Linguci {
   config = null;
 
   /**
+   * Storage for translation batches organized by file, locale, and context
+   * @type {Object}
+   */
+  translationBatches = null;
+
+  /**
+   * Storage for translation PO objects organized by file and locale
+   * @type {Object}
+   */
+  translationPos = null;
+
+  /**
    * @param {string} workspace - The workspace directory path
    */
   constructor(workspace) {
@@ -132,30 +145,9 @@ class Linguci {
     }
 
     const config = this.config;
-    if (
-      !config.files ||
-      !Array.isArray(config.files) ||
-      config.files.length === 0
-    ) {
-      throw new Error("Config must include a non-empty 'files' array");
-    }
 
-    for (const file of config.files) {
-      if (!file.source) {
-        throw new Error("Each file entry must have a 'source' property");
-      }
-
-      if (!file.translation) {
-        throw new Error("Each file entry must have a 'translation' property");
-      }
-
-      const sourcePath = path.join(
-        config.base_path || this.workspace,
-        file.source
-      );
-      if (!fs.existsSync(sourcePath)) {
-        throw new Error(`Source file does not exist: ${file.source}`);
-      }
+    if (!config.base_path) {
+      config.base_path = this.workspace;
     }
 
     if (
@@ -176,8 +168,177 @@ class Linguci {
       }
     }
 
+    if (
+      !config.files ||
+      !Array.isArray(config.files) ||
+      config.files.length === 0
+    ) {
+      throw new Error("Config must include a non-empty 'files' array");
+    }
+
+    for (const file of config.files) {
+      if (!file.source) {
+        throw new Error("Each file entry must have a 'source' property");
+      }
+
+      if (!file.translation) {
+        throw new Error("Each file entry must have a 'translation' property");
+      }
+
+      const sourcePath = path.join(config.base_path, file.source);
+      if (!fs.existsSync(sourcePath)) {
+        throw new Error(`Source file does not exist: ${file.source}`);
+      }
+
+      if (file.translation.includes("%locale%")) {
+        const nonExistentTranslationPaths = [];
+        for (const locale of config.locales) {
+          const translationPath = path.join(
+            config.base_path,
+            file.translation.replace("%locale%", locale)
+          );
+          if (!fs.existsSync(translationPath)) {
+            nonExistentTranslationPaths.push(translationPath);
+          }
+        }
+        if (nonExistentTranslationPaths.length > 0) {
+          throw new Error(
+            `Translation file does not exist: ${nonExistentTranslationPaths.join(
+              ", "
+            )}`
+          );
+        }
+      } else {
+        if (!fs.existsSync(file.translation)) {
+          throw new Error(
+            `Translation file does not exist: ${file.translation}`
+          );
+        }
+      }
+    }
+
+    return this;
+  }
+
+  createTranslationBatches({ batchSize = 5 }) {
+    const config = this.config;
+    this.translationBatches = {};
+    this.translationPos = {};
+
+    for (const file of config.files) {
+      const sourcePath = path.join(config.base_path, file.source);
+      const sourceContent = fs.readFileSync(sourcePath, "utf8");
+      const sourcePo = gettextParser.po.parse(sourceContent);
+
+      for (const locale of config.locales) {
+        // Handle %locale% placeholder in translation path
+        const translationPath = path.join(
+          config.base_path,
+          file.translation.includes("%locale%")
+            ? file.translation.replace("%locale%", locale)
+            : file.translation
+        );
+
+        // Skip if translation file doesn't exist
+        if (!fs.existsSync(translationPath)) {
+          console.warn(`Translation file not found: ${translationPath}`);
+          continue;
+        }
+
+        const translationContent = fs.readFileSync(translationPath, "utf8");
+        const translationPo = gettextParser.po.parse(translationContent);
+
+        // Store translation PO object
+        this.translationPos[file.source] =
+          this.translationPos[file.source] || {};
+        this.translationPos[file.source][locale] = translationPo;
+
+        // Ensure the file and locale are initialized in batches
+        this.translationBatches[file.source] =
+          this.translationBatches[file.source] || {};
+        this.translationBatches[file.source][locale] =
+          this.translationBatches[file.source][locale] || {};
+
+        const sourceTranslations = sourcePo.translations;
+
+        // First, ensure all entries from source exist in translation
+        for (const contextKey in sourceTranslations) {
+          const sourceContext = sourceTranslations[contextKey];
+
+          // Create context in translation if it doesn't exist
+          if (!translationPo.translations[contextKey]) {
+            translationPo.translations[contextKey] = {};
+          }
+
+          const translationContext = translationPo.translations[contextKey];
+
+          // Check each message in this context
+          for (const msgid in sourceContext) {
+            if (!translationContext[msgid]) {
+              // Copy the missing entry to translation
+              translationContext[msgid] = { ...sourceContext[msgid] };
+
+              // Clear the translation if it's not the empty msgid
+              if (msgid !== "") {
+                translationContext[msgid].msgstr = [""];
+              }
+            }
+          }
+        }
+
+        // Find entries that need translation (empty msgstr)
+        const emptyMsgStrs = {};
+        for (const contextKey in translationPo.translations) {
+          const translationContext = translationPo.translations[contextKey];
+
+          for (const msgid in translationContext) {
+            if (
+              msgid !== "" && // Skip the header
+              (translationContext[msgid].msgstr.length === 0 ||
+                translationContext[msgid].msgstr[0] === "")
+            ) {
+              emptyMsgStrs[contextKey] = emptyMsgStrs[contextKey] || {};
+              emptyMsgStrs[contextKey][msgid] = translationContext[msgid];
+            }
+          }
+        }
+
+        // Create schema batches for this file and locale
+        const schemaBatches = {};
+
+        // Organize all the msgids by context
+        for (const contextKey in emptyMsgStrs) {
+          const msgids = Object.keys(emptyMsgStrs[contextKey]);
+
+          // Initialize this context in the schema batches
+          schemaBatches[contextKey] = {};
+
+          // Create batches for this context
+          for (
+            let i = 0, batchNumber = 0;
+            i < msgids.length;
+            i += batchSize, batchNumber++
+          ) {
+            const batchMsgids = msgids.slice(i, i + batchSize);
+            const batchSchemaObj = {};
+
+            // Add schemas for each msgid in this batch
+            for (const msgid of batchMsgids) {
+              batchSchemaObj[msgid] = z.string();
+            }
+
+            // Store the Zod schema object
+            schemaBatches[contextKey][batchNumber] = z.object(batchSchemaObj);
+          }
+        }
+
+        // Store batches for this file and locale
+        this.translationBatches[file.source][locale] = schemaBatches;
+      }
+    }
+
     return this;
   }
 }
 
-module.exports = Linguci;
+export default Linguci;

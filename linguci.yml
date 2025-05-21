@@ -2,11 +2,11 @@
 base_path: .
 locales:
   - fa-IR
-  - en-US
-  - fr-FR
   - es-ES
-  - de-DE
-  - ja-JP
+  - en-US
+  # - fr-FR
+  # - de-DE
+  # - ja-JP
 files:
   - source: locales/en-US.po
     translation: locales/%locale%.po
