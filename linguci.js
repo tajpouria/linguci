@@ -324,44 +324,61 @@ class Linguci {
    * @param {number} [options.retryDelay=1000] - Delay between retries in milliseconds
    * @returns {Promise<Linguci>} this instance for chaining
    */
-  async executeTranslations({ languageConcurrency = 1, maxRetries = 3, retryDelay = 1000 } = {}) {
-    console.log(`[DEBUG] Starting translation process with options: languageConcurrency=${languageConcurrency}, maxRetries=${maxRetries}, retryDelay=${retryDelay}ms`);
-    
+  async executeTranslations({
+    languageConcurrency = 1,
+    maxRetries = 3,
+    retryDelay = 1000,
+  } = {}) {
+    console.log(
+      `[DEBUG] Starting translation process with options: languageConcurrency=${languageConcurrency}, maxRetries=${maxRetries}, retryDelay=${retryDelay}ms`
+    );
+
     // Get model from config
     const model = this.getModel(this.config.llm);
-    console.log(`[DEBUG] Using model: ${this.config.llm.provider}/${this.config.llm.model}`);
-    
+    console.log(
+      `[DEBUG] Using model: ${this.config.llm.provider}/${this.config.llm.model}`
+    );
+
     // Create a queue of translation tasks
     const translationTasks = [];
-    
+
     // Build tasks for all translation paths and their batches
     for (const sourcePath in this.translationBatches) {
       console.log(`[DEBUG] Processing source file: ${sourcePath}`);
-      
+
       for (const translationPath in this.translationBatches[sourcePath]) {
         // Extract locale from translation path
         const locale = this._extractLocaleFromPath(translationPath);
         const language = this.languageNames[locale]?.[1] || locale;
-        
-        console.log(`[DEBUG] Processing translation for locale: ${locale} (${language}), file: ${translationPath}`);
-        
+
+        console.log(
+          `[DEBUG] Processing translation for locale: ${locale} (${language}), file: ${translationPath}`
+        );
+
         // Get the PO object for this translation
         const translationPo = this.translationPos[sourcePath][translationPath];
-        
+
         // Process each context and its batches
-        for (const contextKey in this.translationBatches[sourcePath][translationPath]) {
-          const contextBatches = this.translationBatches[sourcePath][translationPath][contextKey];
+        for (const contextKey in this.translationBatches[sourcePath][
+          translationPath
+        ]) {
+          const contextBatches =
+            this.translationBatches[sourcePath][translationPath][contextKey];
           const batchCount = Object.keys(contextBatches).length;
-          
-          console.log(`[DEBUG] Context '${contextKey}' has ${batchCount} batches to translate`);
-          
+
+          console.log(
+            `[DEBUG] Context '${contextKey}' has ${batchCount} batches to translate`
+          );
+
           // Add each batch as a task
           for (const batchNumber in contextBatches) {
             const schema = contextBatches[batchNumber];
             const messageCount = Object.keys(schema.shape).length;
-            
-            console.log(`[DEBUG] Adding batch #${batchNumber} with ${messageCount} messages for translation`);
-            
+
+            console.log(
+              `[DEBUG] Adding batch #${batchNumber} with ${messageCount} messages for translation`
+            );
+
             translationTasks.push({
               sourcePath,
               translationPath,
@@ -371,106 +388,153 @@ class Linguci {
               language,
               locale,
               translationPo,
-              messageCount
+              messageCount,
             });
           }
         }
       }
     }
-    
-    console.log(`[DEBUG] Created ${translationTasks.length} translation tasks in total`);
-    
+
+    console.log(
+      `[DEBUG] Created ${translationTasks.length} translation tasks in total`
+    );
+
     // Process translation tasks with concurrency limit
     const executeTask = async (task) => {
-      const { sourcePath, translationPath, contextKey, batchNumber, schema, language, translationPo, messageCount } = task;
-      
-      console.log(`[DEBUG] Starting translation task: ${translationPath}, context '${contextKey}', batch #${batchNumber} (${messageCount} messages to ${language})`);
-      
+      const {
+        sourcePath,
+        translationPath,
+        contextKey,
+        batchNumber,
+        schema,
+        language,
+        translationPo,
+        messageCount,
+      } = task;
+
+      console.log(
+        `[DEBUG] Starting translation task: ${translationPath}, context '${contextKey}', batch #${batchNumber} (${messageCount} messages to ${language})`
+      );
+
       let retries = 0;
       let success = false;
       let result;
-      
+
       // Retry loop
       while (!success && retries <= maxRetries) {
         try {
-          console.log(`[DEBUG] Sending translation request for batch #${batchNumber} to ${language}`);
-          
+          console.log(
+            `[DEBUG] Sending translation request for batch #${batchNumber} to ${language}`
+          );
+
           const startTime = Date.now();
           result = await generateObject({
             model,
             prompt: `Translate the following keys word by word to ${language}. Keep the original format and only translate the text values. Do not add any formatting or explanations.`,
-            schema
+            schema,
           });
           const endTime = Date.now();
-          
-          const translationKeys = Object.keys(result).join(', ');
-          console.log(`[DEBUG] Translation successful for batch #${batchNumber} (${endTime - startTime}ms)`);
+
+          const translationKeys = Object.keys(result).join(", ");
+          console.log(
+            `[DEBUG] Translation successful for batch #${batchNumber} (${
+              endTime - startTime
+            }ms)`
+          );
           console.log(`[DEBUG] Translated keys: ${translationKeys}`);
-          
+
           success = true;
         } catch (error) {
           retries++;
-          console.error(`[ERROR] Translation failed for ${translationPath}, context ${contextKey}, batch ${batchNumber}. Retry ${retries}/${maxRetries}`);
+          console.error(
+            `[ERROR] Translation failed for ${translationPath}, context ${contextKey}, batch ${batchNumber}. Retry ${retries}/${maxRetries}`
+          );
           console.error(`[ERROR] Error details: ${error.message}`);
-          
+
           if (retries <= maxRetries) {
             // Wait before retrying
-            console.log(`[DEBUG] Waiting ${retryDelay}ms before retry #${retries}`);
-            await new Promise(resolve => setTimeout(resolve, retryDelay));
+            console.log(
+              `[DEBUG] Waiting ${retryDelay}ms before retry #${retries}`
+            );
+            await new Promise((resolve) => setTimeout(resolve, retryDelay));
           } else {
-            console.error(`[ERROR] Max retries exceeded for ${translationPath}, context ${contextKey}, batch ${batchNumber}`);
+            console.error(
+              `[ERROR] Max retries exceeded for ${translationPath}, context ${contextKey}, batch ${batchNumber}`
+            );
             throw error;
           }
         }
       }
-      
+
       // Update the PO object with translations
       if (success && result) {
-        console.log(`[DEBUG] Updating PO object for ${translationPath}, context '${contextKey}'`);
+        console.log(
+          `[DEBUG] Updating PO object for ${translationPath}, context '${contextKey}'`
+        );
         this._updateTranslationPoWithResults(translationPo, contextKey, result);
-        console.log(`[DEBUG] PO object updated successfully with ${Object.keys(result).length} translations`);
+        console.log(
+          `[DEBUG] PO object updated successfully with ${
+            Object.keys(result).length
+          } translations`
+        );
       }
-      
+
       return { success, sourcePath, translationPath };
     };
-    
+
     // Process tasks with concurrency
     const processTasks = async (tasks) => {
       const results = [];
-      
+
       // Process in chunks based on language concurrency
       for (let i = 0; i < tasks.length; i += languageConcurrency) {
         const chunk = tasks.slice(i, i + languageConcurrency);
-        console.log(`[DEBUG] Processing chunk ${Math.floor(i/languageConcurrency) + 1}/${Math.ceil(tasks.length/languageConcurrency)} with ${chunk.length} tasks`);
-        
-        const chunkPromises = chunk.map(task => executeTask(task));
-        
+        console.log(
+          `[DEBUG] Processing chunk ${
+            Math.floor(i / languageConcurrency) + 1
+          }/${Math.ceil(tasks.length / languageConcurrency)} with ${
+            chunk.length
+          } tasks`
+        );
+
+        const chunkPromises = chunk.map((task) => executeTask(task));
+
         const chunkResults = await Promise.allSettled(chunkPromises);
         results.push(...chunkResults);
-        
-        console.log(`[DEBUG] Completed chunk ${Math.floor(i/languageConcurrency) + 1}/${Math.ceil(tasks.length/languageConcurrency)}`);
+
+        console.log(
+          `[DEBUG] Completed chunk ${
+            Math.floor(i / languageConcurrency) + 1
+          }/${Math.ceil(tasks.length / languageConcurrency)}`
+        );
       }
-      
+
       return results;
     };
-    
+
     // Execute all translation tasks
     console.log(`[DEBUG] Beginning execution of all translation tasks`);
     const results = await processTasks(translationTasks);
-    
+
     // Log summary
-    const successful = results.filter(r => r.status === 'fulfilled' && r.value?.success).length;
+    const successful = results.filter(
+      (r) => r.status === "fulfilled" && r.value?.success
+    ).length;
     const failed = results.length - successful;
-    
+
     console.log(`[DEBUG] Translation process complete`);
-    console.log(`[INFO] Translation summary: ${successful} successful, ${failed} failed`);
-    
+    console.log(
+      `[INFO] Translation summary: ${successful} successful, ${failed} failed`
+    );
+
     // Note: No longer writing to files, only updating PO objects in memory
-    console.log(`[DEBUG] PO objects updated in memory only, no files were written`);
-    
+    console.log(
+      `[DEBUG] PO objects updated in memory only, no files were written`
+    );
+
     return this;
   }
-  
+
   /**
    * Extract locale code from translation file path
    * @private
@@ -486,7 +550,7 @@ class Linguci {
     }
     return null;
   }
-  
+
   /**
    * Update translation PO object with translation results
    * @private
@@ -498,9 +562,9 @@ class Linguci {
     if (!translationPo.translations[contextKey]) {
       return;
     }
-    
+
     const context = translationPo.translations[contextKey];
-    
+
     // Update each msgid with its translation
     for (const msgid in results) {
       if (context[msgid]) {
