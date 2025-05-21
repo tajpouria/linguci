@@ -1,0 +1,5 @@
+name: "Linguci"
+description: "Automatically translates missing locale strings and opens pull requests with updated translations in your GitHub CI pipeline."
+runs:
+  using: "node22"
+  main: "main.js"
