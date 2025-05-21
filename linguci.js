@@ -674,7 +674,7 @@ class Linguci {
    * @param {boolean} [options.addAll=false] - Whether to add all changes or only translation files
    * @returns {Promise<Linguci>} this instance for chaining
    */
-  async commitChanges({ commitMessageTemplate, addAll = false } = {}) {
+  async commitChanges({ addAll = false } = {}) {
     this.log("DEBUG", "Starting to commit translation changes to git");
 
     try {
@@ -702,12 +702,6 @@ class Linguci {
       const changedFiles = statusResult.stdout
         .split("\n")
         .filter((line) => line.trim());
-      const addedFiles = changedFiles.filter((line) =>
-        line.startsWith("A")
-      ).length;
-      const modifiedFiles = changedFiles.filter((line) =>
-        line.startsWith("M")
-      ).length;
       const totalChanges = changedFiles.length;
 
       if (totalChanges === 0) {
@@ -715,25 +709,12 @@ class Linguci {
         return this;
       }
 
-      // Generate commit message
-      let commitMessage;
+      // Default dynamic commit message
+      const changedLocales = this._getChangedLocales(changedFiles);
 
-      if (commitMessageTemplate) {
-        // Replace placeholders in template
-        commitMessage = commitMessageTemplate
-          .replace(/%totalChanges%/g, totalChanges)
-          .replace(/%addedFiles%/g, addedFiles)
-          .replace(/%modifiedFiles%/g, modifiedFiles)
-          .replace(/%locales%/g, this.config.locales.join(", "));
-      } else {
-        // Default dynamic commit message
-        const changedLocales = this._getChangedLocales(changedFiles);
-
-        commitMessage =
-          `linguci: update translations for ${changedLocales.length} locales\n\n` +
-          `Added ${addedFiles}, modified ${modifiedFiles} translation files\n` +
-          `Locales: ${changedLocales.join(", ")}`;
-      }
+      const commitMessage =
+        `linguci: update translations for ${changedLocales.length} locales\n` +
+        `Locales: ${changedLocales.join(", ")}`;
 
       // Execute git commit command
       const commitCommand = `git commit -m "${commitMessage.replace(
