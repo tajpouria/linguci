@@ -204,10 +204,14 @@ class Linguci {
   translationPos = {};
 
   /**
-   * @param {string} workspace - The workspace directory path
+   * Constructor
+   * @param {Object} options - The options object
+   * @param {string} options.workspace - The workspace directory path
+   * @param {string} options.logLevel - The log level (DEBUG, INFO, WARN, ERROR, NONE)
    */
-  constructor(workspace) {
+  constructor({ workspace = ".", logLevel = "DEBUG" } = {}) {
     this.workspace = workspace;
+    this.setLogLevel(logLevel);
   }
 
   /**
@@ -626,11 +630,10 @@ class Linguci {
   /**
    * Writes the translated PO objects to their respective files
    * @param {Object} options - Configuration options
-   * @param {boolean} [options.backup=true] - Whether to create backup files before writing
    * @returns {Linguci} this instance for chaining
    */
-  writeTranslations({ backup = true } = {}) {
-    this.log("DEBUG", `Starting to write translation files (backup=${backup})`);
+  writeTranslations() {
+    this.log("DEBUG", `Starting to write translation files`);
 
     let filesWritten = 0;
 
@@ -642,13 +645,6 @@ class Linguci {
         const translationPo = this.translationPos[sourcePath][translationPath];
 
         try {
-          // Create backup if requested
-          if (backup && fs.existsSync(translationPath)) {
-            const backupPath = `${translationPath}.bak`;
-            this.log("DEBUG", `Creating backup at: ${backupPath}`);
-            fs.copyFileSync(translationPath, backupPath);
-          }
-
           // Compile PO object to buffer
           const outputBuf = gettextParser.po.compile(translationPo);
 

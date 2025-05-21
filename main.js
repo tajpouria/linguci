@@ -4,14 +4,14 @@ import Linguci from "./linguci.js";
 
 async function run() {
   try {
-    const linguci = new Linguci(process.env.GITHUB_WORKSPACE);
+    const linguci = new Linguci();
 
     await linguci
       .readConfig()
       .validateConfig()
       .createTranslationBatches({ batchSize: 5 })
       .executeTranslations()
-      .then(instance => instance.writeTranslations());
+      .then((instance) => instance.writeTranslations());
 
     console.log(linguci.translationBatches);
     console.log(linguci.translationPos);
