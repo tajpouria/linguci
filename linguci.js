@@ -11,6 +11,76 @@ import { generateObject } from "ai";
  */
 class Linguci {
   /**
+   * Log levels
+   * @type {Object}
+   */
+  LOG_LEVELS = {
+    DEBUG: 0,
+    INFO: 1,
+    WARN: 2,
+    ERROR: 3,
+    NONE: 4,
+  };
+
+  /**
+   * Current log level
+   * @type {number}
+   */
+  logLevel = this.LOG_LEVELS.INFO;
+
+  /**
+   * ANSI color codes for different log levels
+   * @type {Object}
+   */
+  LOG_COLORS = {
+    DEBUG: "\x1b[36m", // Cyan
+    INFO: "\x1b[32m", // Green
+    WARN: "\x1b[33m", // Yellow
+    ERROR: "\x1b[31m", // Red
+    RESET: "\x1b[0m", // Reset
+  };
+
+  /**
+   * Log a message with the specified level
+   * @param {string} level - Log level (DEBUG, INFO, WARN, ERROR)
+   * @param {string} message - The message to log
+   */
+  log(level, message) {
+    // Skip if message level is below current log level
+    if (this.LOG_LEVELS[level] < this.logLevel) {
+      return;
+    }
+
+    const color = this.LOG_COLORS[level] || "";
+    const resetColor = this.LOG_COLORS.RESET;
+    const formattedMessage = `${color}[${level}]${resetColor} ${message}`;
+
+    switch (level) {
+      case "ERROR":
+        console.error(formattedMessage);
+        break;
+      case "WARN":
+        console.warn(formattedMessage);
+        break;
+      default:
+        console.log(formattedMessage);
+        break;
+    }
+  }
+
+  /**
+   * Set the log level
+   * @param {string} level - Log level (DEBUG, INFO, WARN, ERROR, NONE)
+   */
+  setLogLevel(level) {
+    if (this.LOG_LEVELS[level] !== undefined) {
+      this.logLevel = this.LOG_LEVELS[level];
+    } else {
+      this.log("ERROR", `Invalid log level: ${level}`);
+    }
+  }
+
+  /**
    * Map of language codes to their names in different languages
    * @type {Object<string, string[]>}
    */
@@ -329,14 +399,16 @@ class Linguci {
     maxRetries = 3,
     retryDelay = 1000,
   } = {}) {
-    console.log(
-      `[DEBUG] Starting translation process with options: languageConcurrency=${languageConcurrency}, maxRetries=${maxRetries}, retryDelay=${retryDelay}ms`
+    this.log(
+      "DEBUG",
+      `Starting translation process with options: languageConcurrency=${languageConcurrency}, maxRetries=${maxRetries}, retryDelay=${retryDelay}ms`
     );
 
     // Get model from config
     const model = this.getModel(this.config.llm);
-    console.log(
-      `[DEBUG] Using model: ${this.config.llm.provider}/${this.config.llm.model}`
+    this.log(
+      "DEBUG",
+      `Using model: ${this.config.llm.provider}/${this.config.llm.model}`
     );
 
     // Create a queue of translation tasks
@@ -344,15 +416,16 @@ class Linguci {
 
     // Build tasks for all translation paths and their batches
     for (const sourcePath in this.translationBatches) {
-      console.log(`[DEBUG] Processing source file: ${sourcePath}`);
+      this.log("DEBUG", `Processing source file: ${sourcePath}`);
 
       for (const translationPath in this.translationBatches[sourcePath]) {
         // Extract locale from translation path
         const locale = this._extractLocaleFromPath(translationPath);
-        const language = this.languageNames[locale]?.[1] || locale;
+        const language = this.languageNames[locale] || locale;
 
-        console.log(
-          `[DEBUG] Processing translation for locale: ${locale} (${language}), file: ${translationPath}`
+        this.log(
+          "DEBUG",
+          `Processing translation for locale: ${locale} (${language}), file: ${translationPath}`
         );
 
         // Get the PO object for this translation
@@ -366,8 +439,9 @@ class Linguci {
             this.translationBatches[sourcePath][translationPath][contextKey];
           const batchCount = Object.keys(contextBatches).length;
 
-          console.log(
-            `[DEBUG] Context '${contextKey}' has ${batchCount} batches to translate`
+          this.log(
+            "DEBUG",
+            `Context '${contextKey}' has ${batchCount} batches to translate`
           );
 
           // Add each batch as a task
@@ -375,8 +449,9 @@ class Linguci {
             const schema = contextBatches[batchNumber];
             const messageCount = Object.keys(schema.shape).length;
 
-            console.log(
-              `[DEBUG] Adding batch #${batchNumber} with ${messageCount} messages for translation`
+            this.log(
+              "DEBUG",
+              `Adding batch #${batchNumber} with ${messageCount} messages for translation`
             );
 
             translationTasks.push({
@@ -395,8 +470,9 @@ class Linguci {
       }
     }
 
-    console.log(
-      `[DEBUG] Created ${translationTasks.length} translation tasks in total`
+    this.log(
+      "DEBUG",
+      `Created ${translationTasks.length} translation tasks in total`
     );
 
     // Process translation tasks with concurrency limit
@@ -412,8 +488,9 @@ class Linguci {
         messageCount,
       } = task;
 
-      console.log(
-        `[DEBUG] Starting translation task: ${translationPath}, context '${contextKey}', batch #${batchNumber} (${messageCount} messages to ${language})`
+      this.log(
+        "DEBUG",
+        `Starting translation task: ${translationPath}, context '${contextKey}', batch #${batchNumber} (${messageCount} messages to ${language})`
       );
 
       let retries = 0;
@@ -423,8 +500,9 @@ class Linguci {
       // Retry loop
       while (!success && retries <= maxRetries) {
         try {
-          console.log(
-            `[DEBUG] Sending translation request for batch #${batchNumber} to ${language}`
+          this.log(
+            "DEBUG",
+            `Sending translation request for batch #${batchNumber} to ${language}`
           );
 
           const startTime = Date.now();
@@ -436,30 +514,34 @@ class Linguci {
           const endTime = Date.now();
 
           const translationKeys = Object.keys(result).join(", ");
-          console.log(
-            `[DEBUG] Translation successful for batch #${batchNumber} (${
+          this.log(
+            "DEBUG",
+            `Translation successful for batch #${batchNumber} (${
               endTime - startTime
             }ms)`
           );
-          console.log(`[DEBUG] Translated keys: ${translationKeys}`);
+          this.log("DEBUG", `Translated keys: ${translationKeys}`);
 
           success = true;
         } catch (error) {
           retries++;
-          console.error(
-            `[ERROR] Translation failed for ${translationPath}, context ${contextKey}, batch ${batchNumber}. Retry ${retries}/${maxRetries}`
+          this.log(
+            "ERROR",
+            `Translation failed for ${translationPath}, context ${contextKey}, batch ${batchNumber}. Retry ${retries}/${maxRetries}`
           );
-          console.error(`[ERROR] Error details: ${error.message}`);
+          this.log("ERROR", `Error details: ${error.message}`);
 
           if (retries <= maxRetries) {
             // Wait before retrying
-            console.log(
-              `[DEBUG] Waiting ${retryDelay}ms before retry #${retries}`
+            this.log(
+              "DEBUG",
+              `Waiting ${retryDelay}ms before retry #${retries}`
             );
             await new Promise((resolve) => setTimeout(resolve, retryDelay));
           } else {
-            console.error(
-              `[ERROR] Max retries exceeded for ${translationPath}, context ${contextKey}, batch ${batchNumber}`
+            this.log(
+              "ERROR",
+              `Max retries exceeded for ${translationPath}, context ${contextKey}, batch ${batchNumber}`
             );
             throw error;
           }
@@ -468,12 +550,14 @@ class Linguci {
 
       // Update the PO object with translations
       if (success && result) {
-        console.log(
-          `[DEBUG] Updating PO object for ${translationPath}, context '${contextKey}'`
+        this.log(
+          "DEBUG",
+          `Updating PO object for ${translationPath}, context '${contextKey}'`
         );
         this._updateTranslationPoWithResults(translationPo, contextKey, result);
-        console.log(
-          `[DEBUG] PO object updated successfully with ${
+        this.log(
+          "DEBUG",
+          `PO object updated successfully with ${
             Object.keys(result).length
           } translations`
         );
@@ -489,8 +573,9 @@ class Linguci {
       // Process in chunks based on language concurrency
       for (let i = 0; i < tasks.length; i += languageConcurrency) {
         const chunk = tasks.slice(i, i + languageConcurrency);
-        console.log(
-          `[DEBUG] Processing chunk ${
+        this.log(
+          "DEBUG",
+          `Processing chunk ${
             Math.floor(i / languageConcurrency) + 1
           }/${Math.ceil(tasks.length / languageConcurrency)} with ${
             chunk.length
@@ -502,8 +587,9 @@ class Linguci {
         const chunkResults = await Promise.allSettled(chunkPromises);
         results.push(...chunkResults);
 
-        console.log(
-          `[DEBUG] Completed chunk ${
+        this.log(
+          "DEBUG",
+          `Completed chunk ${
             Math.floor(i / languageConcurrency) + 1
           }/${Math.ceil(tasks.length / languageConcurrency)}`
         );
@@ -513,7 +599,7 @@ class Linguci {
     };
 
     // Execute all translation tasks
-    console.log(`[DEBUG] Beginning execution of all translation tasks`);
+    this.log("DEBUG", `Beginning execution of all translation tasks`);
     const results = await processTasks(translationTasks);
 
     // Log summary
@@ -522,14 +608,16 @@ class Linguci {
     ).length;
     const failed = results.length - successful;
 
-    console.log(`[DEBUG] Translation process complete`);
-    console.log(
-      `[INFO] Translation summary: ${successful} successful, ${failed} failed`
+    this.log("DEBUG", `Translation process complete`);
+    this.log(
+      "INFO",
+      `Translation summary: ${successful} successful, ${failed} failed`
     );
 
     // Note: No longer writing to files, only updating PO objects in memory
-    console.log(
-      `[DEBUG] PO objects updated in memory only, no files were written`
+    this.log(
+      "DEBUG",
+      `PO objects updated in memory only, no files were written`
     );
 
     return this;
@@ -542,15 +630,13 @@ class Linguci {
    * @returns {Linguci} this instance for chaining
    */
   writeTranslations({ backup = true } = {}) {
-    console.log(
-      `[DEBUG] Starting to write translation files (backup=${backup})`
-    );
+    this.log("DEBUG", `Starting to write translation files (backup=${backup})`);
 
     let filesWritten = 0;
 
     // Write all updated PO files
     for (const sourcePath in this.translationPos) {
-      console.log(`[DEBUG] Writing translations for source: ${sourcePath}`);
+      this.log("DEBUG", `Writing translations for source: ${sourcePath}`);
 
       for (const translationPath in this.translationPos[sourcePath]) {
         const translationPo = this.translationPos[sourcePath][translationPath];
@@ -559,7 +645,7 @@ class Linguci {
           // Create backup if requested
           if (backup && fs.existsSync(translationPath)) {
             const backupPath = `${translationPath}.bak`;
-            console.log(`[DEBUG] Creating backup at: ${backupPath}`);
+            this.log("DEBUG", `Creating backup at: ${backupPath}`);
             fs.copyFileSync(translationPath, backupPath);
           }
 
@@ -567,19 +653,20 @@ class Linguci {
           const outputBuf = gettextParser.po.compile(translationPo);
 
           // Write to file
-          console.log(`[DEBUG] Writing PO file: ${translationPath}`);
+          this.log("DEBUG", `Writing PO file: ${translationPath}`);
           fs.writeFileSync(translationPath, outputBuf);
           filesWritten++;
         } catch (error) {
-          console.error(
-            `[ERROR] Failed to write file ${translationPath}: ${error.message}`
+          this.log(
+            "ERROR",
+            `Failed to write file ${translationPath}: ${error.message}`
           );
           throw error;
         }
       }
     }
 
-    console.log(`[INFO] Translation files written: ${filesWritten}`);
+    this.log("INFO", `Translation files written: ${filesWritten}`);
     return this;
   }
 
