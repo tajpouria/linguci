@@ -8,15 +8,31 @@ const yaml = require("js-yaml");
  */
 class Linguci {
   /**
+   * The workspace directory path
+   * @type {string}
+   */
+  workspace = null;
+
+  /**
+   * The parsed configuration object from linguci.yml/yaml
+   * @type {Object}
+   * @property {Array<{source: string, translation: string}>} files - List of files to be translated, each with source and translation paths
+   * @property {string[]} locales - List of target locale codes that must be valid language keys
+   * @property {string} base_path - Base path for file resolution
+   */
+  config = null;
+
+  /**
    * @param {string} workspace - The workspace directory path
    */
   constructor(workspace) {
     this.workspace = workspace;
+    this.config = null;
   }
 
   /**
    * Reads and parses the linguci config file
-   * @returns {Object} The parsed config (without validation)
+   * @returns {Linguci} this instance for chaining
    */
   readConfig() {
     // Check for linguci.yml or linguci.yaml
@@ -34,10 +50,10 @@ class Linguci {
       );
     }
 
-    // Read and parse the config file
     try {
       const fileContents = fs.readFileSync(configPath, "utf8");
-      return yaml.load(fileContents);
+      this.config = yaml.load(fileContents);
+      return this;
     } catch (error) {
       throw new Error(`Error reading config file: ${error.message}`);
     }
@@ -45,17 +61,14 @@ class Linguci {
 
   /**
    * Validates the config object
-   * @param {Object} config - The config object to validate
-   * @param {Array<Object>} config.files - Array of file entries to process
-   * @param {string} config.files[].source - Source file path
-   * @param {string} config.files[].translation - Translation file path
-   * @param {Array<string>} config.locales - Array of locale codes
-   * @param {string} [config.base_path] - Optional base path for file references
-   * @returns {void}
+   * @returns {Linguci} this instance for chaining
    */
-  validateConfig(config) {
-    // Check if files array exists and is not empty
+  validateConfig() {
+    if (!this.config) {
+      throw new Error("No configuration loaded. Call readConfig() first.");
+    }
 
+    const config = this.config;
     if (
       !config.files ||
       !Array.isArray(config.files) ||
@@ -64,7 +77,6 @@ class Linguci {
       throw new Error("Config must include a non-empty 'files' array");
     }
 
-    // Check each file entry
     for (const file of config.files) {
       if (!file.source) {
         throw new Error("Each file entry must have a 'source' property");
@@ -74,7 +86,6 @@ class Linguci {
         throw new Error("Each file entry must have a 'translation' property");
       }
 
-      // Check if source file exists
       const sourcePath = path.join(
         config.base_path || this.workspace,
         file.source
@@ -84,7 +95,6 @@ class Linguci {
       }
     }
 
-    // Check locales
     if (
       !config.locales ||
       !Array.isArray(config.locales) ||
@@ -93,7 +103,6 @@ class Linguci {
       throw new Error("Config must include a non-empty 'locales' array");
     }
 
-    // Validate each locale
     for (const locale of config.locales) {
       if (!languageNames[locale]) {
         throw new Error(
@@ -101,6 +110,8 @@ class Linguci {
         );
       }
     }
+
+    return this;
   }
 }
 
