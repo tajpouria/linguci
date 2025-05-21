@@ -668,6 +668,143 @@ class Linguci {
   }
 
   /**
+   * Commits the translation changes to git repository
+   * @param {Object} options - Configuration options
+   * @param {string} [options.commitMessageTemplate] - Optional template for commit message
+   * @param {boolean} [options.addAll=false] - Whether to add all changes or only translation files
+   * @returns {Promise<Linguci>} this instance for chaining
+   */
+  async commitChanges({ commitMessageTemplate, addAll = false } = {}) {
+    this.log("DEBUG", "Starting to commit translation changes to git");
+
+    try {
+      // Determine which files to add
+      const gitAddCommand = addAll
+        ? "git add ."
+        : 'git add $(find . -name "*.po")';
+
+      // Execute git add command
+      this.log("DEBUG", `Running: ${gitAddCommand}`);
+      const addResult = await this._executeCommand(gitAddCommand);
+
+      if (addResult.error) {
+        throw new Error(`Git add failed: ${addResult.error}`);
+      }
+
+      // Get git status to see what's being committed
+      const statusResult = await this._executeCommand("git status --porcelain");
+
+      if (statusResult.error) {
+        throw new Error(`Git status failed: ${statusResult.error}`);
+      }
+
+      // Count changed files by type
+      const changedFiles = statusResult.stdout
+        .split("\n")
+        .filter((line) => line.trim());
+      const addedFiles = changedFiles.filter((line) =>
+        line.startsWith("A")
+      ).length;
+      const modifiedFiles = changedFiles.filter((line) =>
+        line.startsWith("M")
+      ).length;
+      const totalChanges = changedFiles.length;
+
+      if (totalChanges === 0) {
+        this.log("INFO", "No changes to commit");
+        return this;
+      }
+
+      // Generate commit message
+      let commitMessage;
+
+      if (commitMessageTemplate) {
+        // Replace placeholders in template
+        commitMessage = commitMessageTemplate
+          .replace(/%totalChanges%/g, totalChanges)
+          .replace(/%addedFiles%/g, addedFiles)
+          .replace(/%modifiedFiles%/g, modifiedFiles)
+          .replace(/%locales%/g, this.config.locales.join(", "));
+      } else {
+        // Default dynamic commit message
+        const changedLocales = this._getChangedLocales(changedFiles);
+
+        commitMessage =
+          `feat(i18n): update translations for ${changedLocales.length} locales\n\n` +
+          `Added ${addedFiles}, modified ${modifiedFiles} translation files\n` +
+          `Locales: ${changedLocales.join(", ")}`;
+      }
+
+      // Execute git commit command
+      const commitCommand = `git commit -m "${commitMessage.replace(
+        /"/g,
+        '\\"'
+      )}"`;
+      this.log("DEBUG", `Running: ${commitCommand}`);
+
+      const commitResult = await this._executeCommand(commitCommand);
+
+      if (commitResult.error) {
+        throw new Error(`Git commit failed: ${commitResult.error}`);
+      }
+
+      this.log(
+        "INFO",
+        `Successfully committed ${totalChanges} changed files to git`
+      );
+      this.log("DEBUG", `Commit message: ${commitMessage}`);
+    } catch (error) {
+      this.log("ERROR", `Failed to commit changes: ${error.message}`);
+      throw error;
+    }
+
+    return this;
+  }
+
+  /**
+   * Extract changed locales from git status output
+   * @private
+   * @param {string[]} changedFiles - Array of changed file paths from git status
+   * @returns {string[]} Array of changed locale codes
+   */
+  _getChangedLocales(changedFiles) {
+    const locales = new Set();
+
+    for (const file of changedFiles) {
+      // Extract file path from git status line (remove status indicators)
+      const filePath = file.substring(3);
+
+      // Try to extract locale from path
+      const locale = this._extractLocaleFromPath(filePath);
+      if (locale) {
+        locales.add(locale);
+      }
+    }
+
+    return Array.from(locales);
+  }
+
+  /**
+   * Execute a shell command and return the result
+   * @private
+   * @param {string} command - The command to execute
+   * @returns {Promise<Object>} Object with stdout, stderr, and error properties
+   */
+  async _executeCommand(command) {
+    return new Promise((resolve) => {
+      const { exec } = require("child_process");
+
+      exec(command, { cwd: this.workspace }, (error, stdout, stderr) => {
+        resolve({
+          stdout: stdout ? stdout.toString() : "",
+          stderr: stderr ? stderr.toString() : "",
+          error,
+        });
+      });
+    });
+  }
+
+  /**
    * Extract locale code from translation file path
    * @private
    * @param {string} translationPath - Path to the translation file

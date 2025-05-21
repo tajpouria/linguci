@@ -15,7 +15,8 @@ async function run() {
       .executeTranslations({
         languageConcurrency: 2,
       })
-      .then((instance) => instance.writeTranslations());
+      .then((instance) => instance.writeTranslations())
+      .then((instance) => instance.commitChanges());
 
     core.setOutput("status", "success");
   } catch (error) {
