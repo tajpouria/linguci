@@ -41,6 +41,12 @@ class Linguci {
   };
 
   /**
+   * Whether there are translation changes
+   * @type {boolean}
+   */
+  hasTranslationChanges = false;
+
+  /**
    * Log a message with the specified level
    * @param {string} level - Log level (DEBUG, INFO, WARN, ERROR)
    * @param {string} message - The message to log
@@ -674,14 +680,11 @@ class Linguci {
    * @param {boolean} [options.addAll=false] - Whether to add all changes or only translation files
    * @returns {Promise<Linguci>} this instance for chaining
    */
-  async commitChanges({ addAll = false } = {}) {
+  async commitChanges() {
     this.log("DEBUG", "Starting to commit translation changes to git");
 
     try {
-      // Determine which files to add
-      const gitAddCommand = addAll
-        ? "git add ."
-        : 'git add $(find . -name "*.po")';
+      const gitAddCommand = "git add -A";
 
       // Execute git add command
       this.log("DEBUG", `Running: ${gitAddCommand}`);
@@ -708,6 +711,8 @@ class Linguci {
         this.log("INFO", "No changes to commit");
         return this;
       }
+
+      this.hasTranslationChanges = true;
 
       // Default dynamic commit message
       const changedLocales = this._getChangedLocales(changedFiles);
@@ -736,6 +741,116 @@ class Linguci {
       this.log("DEBUG", `Commit message: ${commitMessage}`);
     } catch (error) {
       this.log("ERROR", `Failed to commit changes: ${error.message}`);
+      throw error;
+    }
+
+    return this;
+  }
+
+  /**
+   * Creates a pull request for translation changes
+   * @param {Object} options - Configuration options
+   * @param {string} [options.baseBranch="main"] - The base branch to create PR against
+   * @param {string} [options.branchPrefix="linguci-translations"] - Prefix for the new branch name
+   * @param {string} [options.prTitle] - Optional custom PR title
+   * @param {string} [options.prBody] - Optional custom PR body
+   * @returns {Promise<Linguci>} this instance for chaining
+   */
+  async createPullRequest({
+    baseBranch = "main",
+    branchPrefix = "linguci-translations",
+    prTitle = "",
+    prBody = "",
+  } = {}) {
+    this.log("DEBUG", "Starting pull request creation process");
+
+    // Skip if no translation changes
+    if (!this.hasTranslationChanges) {
+      this.log(
+        "INFO",
+        "No translation changes detected, skipping pull request creation"
+      );
+      return this;
+    }
+
+    try {
+      // Create timestamp for branch name
+      const timestamp = new Date()
+        .toISOString()
+        .replace(/[:.]/g, "-")
+        .replace("T", "-")
+        .slice(0, 19);
+
+      // Get current branch name to return to later if needed
+      const currentBranchResult = await this._executeCommand(
+        "git rev-parse --abbrev-ref HEAD"
+      );
+      const currentBranch = currentBranchResult.stdout.trim();
+
+      // Create branch name with timestamp
+      const newBranch = `${branchPrefix}-${timestamp}`;
+
+      // Create and checkout the new branch
+      this.log("DEBUG", `Creating and checking out new branch: ${newBranch}`);
+      const createBranchResult = await this._executeCommand(
+        `git checkout -b ${newBranch}`
+      );
+
+      if (createBranchResult.error) {
+        throw new Error(`Failed to create branch: ${createBranchResult.error}`);
+      }
+
+      // Push the branch to remote
+      this.log("DEBUG", `Pushing branch ${newBranch} to remote`);
+      const pushResult = await this._executeCommand(
+        `git push -u origin ${newBranch}`
+      );
+
+      if (pushResult.error) {
+        throw new Error(`Failed to push branch: ${pushResult.error}`);
+      }
+
+      // Get changed locales for PR title/body if not provided
+      const statusResult = await this._executeCommand("git status --porcelain");
+      const changedFiles = statusResult.stdout
+        .split("\n")
+        .filter((line) => line.trim());
+      const changedLocales = this._getChangedLocales(changedFiles);
+
+      // Create PR title and body if not provided
+      const title =
+        prTitle || `Update translations for ${changedLocales.length} locales`;
+      const body =
+        prBody ||
+        `## Translation Updates\n\n` +
+          `This PR includes translation updates for the following locales:\n\n` +
+          changedLocales
+            .map(
+              (locale) =>
+                `- ${locale} (${this.languageNames[locale]?.[1] || locale})`
+            )
+            .join("\n") +
+          `\n\n*Generated automatically by linguci*`;
+
+      // Create PR using GitHub CLI
+      this.log("DEBUG", "Creating pull request using GitHub CLI");
+      const createPrCommand = `gh pr create --base ${baseBranch} --title "${title.replace(
+        /"/g,
+        '\\"'
+      )}" --body "${body.replace(/"/g, '\\"')}"`;
+
+      const prResult = await this._executeCommand(createPrCommand);
+
+      if (prResult.error) {
+        throw new Error(`Failed to create PR: ${prResult.error}`);
+      }
+
+      // Extract PR URL from result
+      const prUrl = prResult.stdout.trim();
+
+      this.log("INFO", `Successfully created pull request: ${prUrl}`);
+    } catch (error) {
+      this.log("ERROR", `Failed to create pull request: ${error.message}`);
       throw error;
     }
 
