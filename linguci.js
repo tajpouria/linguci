@@ -344,10 +344,10 @@ class Linguci {
    * Uses Zod schemas to validate translations
    *
    * @param {Object} options - Configuration options
-   * @param {number} [options.batchSize=20] - Number of entries per batch
+   * @param {number} batchSize - Number of entries per batch
    * @returns {Linguci} this instance for chaining
    */
-  createTranslationBatches({ batchSize = 20 }) {
+  createTranslationBatches({ batchSize }) {
     for (const file of this.config.files) {
       const sourcePath = path.join(this.config.base_path, file.source);
       const sourcePo = this._processSourceFile(sourcePath);
@@ -399,15 +399,15 @@ class Linguci {
   /**
    * Executes translations for all batches and updates PO files
    * @param {Object} options - Configuration options
-   * @param {number} [options.languageConcurrency=1] - Number of languages to translate concurrently
-   * @param {number} [options.maxRetries=3] - Maximum number of retry attempts for failed translations
-   * @param {number} [options.retryDelay=1000] - Delay between retries in milliseconds
+   * @param {number} options.languageConcurrency - Number of languages to translate concurrently
+   * @param {number} options.maxRetries - Maximum number of retry attempts for failed translations
+   * @param {number} options.retryDelay - Delay between retries in milliseconds
    * @returns {Promise<Linguci>} this instance for chaining
    */
   async executeTranslations({
-    languageConcurrency = 1,
-    maxRetries = 3,
-    retryDelay = 1000,
+    languageConcurrency,
+    maxRetries,
+    retryDelay,
   } = {}) {
     this.log(
       "DEBUG",
@@ -750,16 +750,12 @@ class Linguci {
   /**
    * Creates a pull request for translation changes
    * @param {Object} options - Configuration options
-   * @param {string} [options.branchPrefix="linguci-translations"] - Prefix for the new branch name
-   * @param {string} [options.prTitle] - Optional custom PR title
-   * @param {string} [options.prBody] - Optional custom PR body
+   * @param {string} options.branchPrefix - Prefix for the new branch name
+   * @param {string} options.prTitle - Custom PR title
+   * @param {string} options.prBody - Custom PR body
    * @returns {Promise<Linguci>} this instance for chaining
    */
-  async createPullRequest({
-    branchPrefix = "linguci",
-    prTitle = "Update translations",
-    prBody = "This PR includes translation updates\n\n*Generated automatically by linguci*",
-  } = {}) {
+  async createPullRequest({ branchPrefix, prTitle, prBody }) {
     this.log("DEBUG", "Starting pull request creation process");
 
     // Skip if no translation changes
