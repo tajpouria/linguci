@@ -70069,14 +70069,29 @@ class Linguci {
   /**
    * Commits the translation changes to git repository
    * @param {Object} options - Configuration options
-   * @param {string} [options.commitMessageTemplate] - Optional template for commit message
+   * @param {string} options.username - The username to use for the commit
+   * @param {string} options.email - The email to use for the commit
    * @param {boolean} [options.addAll=false] - Whether to add all changes or only translation files
    * @returns {Promise<Linguci>} this instance for chaining
    */
-  async commitChanges() {
+  async commitChanges({ username, email }) {
     this.log("DEBUG", "Starting to commit translation changes to git");
 
     try {
+      let gitConfigCommand = `git config user.name "${username}"`;
+      this.log("DEBUG", `Running: ${gitConfigCommand}`);
+      let gitConfigResult = await this._executeCommand(gitConfigCommand);
+      if (gitConfigResult.error) {
+        throw new Error(`Git config failed: ${gitConfigResult.error}`);
+      }
+
+      gitConfigCommand = `git config user.email "${email}"`;
+      this.log("DEBUG", `Running: ${gitConfigCommand}`);
+      gitConfigResult = await this._executeCommand(gitConfigCommand);
+      if (gitConfigResult.error) {
+        throw new Error(`Git config failed: ${gitConfigResult.error}`);
+      }
+
       const gitAddCommand = "git add -A";
 
       // Execute git add command
@@ -70530,7 +70545,12 @@ async function run() {
         retryDelay,
       })
       .then((instance) => instance.writeTranslations())
-      .then((instance) => instance.commitChanges())
+      .then((instance) =>
+        instance.commitChanges({
+          username: "Linguci",
+          email: "linguci@users.noreply.github.com",
+        })
+      )
       .then((instance) =>
         instance.createPullRequest({
           branchPrefix,
