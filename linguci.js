@@ -687,11 +687,17 @@ class Linguci {
     try {
       let gitConfigCommand = `git config user.name "${username}"`;
       this.log("DEBUG", `Running: ${gitConfigCommand}`);
-      const gitConfigResult = await this._executeCommand(gitConfigCommand);
+      let gitConfigResult = await this._executeCommand(gitConfigCommand);
+      if (gitConfigResult.error) {
+        throw new Error(`Git config failed: ${gitConfigResult.error}`);
+      }
 
       gitConfigCommand = `git config user.email "${email}"`;
       this.log("DEBUG", `Running: ${gitConfigCommand}`);
-      const gitConfigResult = await this._executeCommand(gitConfigCommand);
+      gitConfigResult = await this._executeCommand(gitConfigCommand);
+      if (gitConfigResult.error) {
+        throw new Error(`Git config failed: ${gitConfigResult.error}`);
+      }
 
       const gitAddCommand = "git add -A";
 
