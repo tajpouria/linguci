@@ -1,0 +1,25 @@
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  linguci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Linguci
+        uses: .
+        with:
+          batch_size: 20
+          language_concurrency: 2
+          max_retries: 3
+          retry_delay: 1000
+          branch_prefix: linguci
+          pr_title: Update translations
+          pr_body: This PR includes translation updates\n\n*Generated automatically by linguci*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}
