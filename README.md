@@ -10,6 +10,10 @@ Automatically translates missing locale strings and opens pull requests with upd
 - Configurable batch processing and concurrency
 - Supports multiple locales and file formats
 
+## File Format Requirements
+
+Currently, LinguCI only supports PO (Portable Object) files as defined in the [GNU gettext specification](https://www.gnu.org/software/gettext/manual/html_node/PO-Files.html). To generate PO files from your source code, you can use various internationalization libraries such as [LinguiJS](https://lingui.dev/) - A complete internationalization framework for JavaScript/TypeScript projects. We recommend using these tools to instrument your code and generate PO files that LinguCI can then translate.
+
 ## Setup
 
 ### 1. Create configuration file
