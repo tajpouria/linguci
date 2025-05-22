@@ -21,7 +21,7 @@
   "license": "MIT",
   "description": "Automatically translates missing locale strings and opens pull requests with updated translations in your GitHub CI pipeline.",
   "engines": {
-    "node": ">=22"
+    "node": ">=20"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.38.3"

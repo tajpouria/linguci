@@ -30,5 +30,5 @@ inputs:
     required: false
     default: "This PR includes translation updates\n\n*Generated automatically by linguci*"
 runs:
-  using: "node22"
+  using: "node20"
   main: "main.js"
