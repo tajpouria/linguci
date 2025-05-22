@@ -69665,20 +69665,20 @@ class Linguci {
       throw new Error("Config must include a non-empty 'locales' array");
     }
 
+    const missingLocales = [];
     for (const locale of config.locales) {
-      const missingLocales = [];
       if (!this.languageNames[locale]) {
         missingLocales.push(locale);
       }
-      if (missingLocales.length > 0) {
-        throw new Error(
-          `Invalid locale code: ${missingLocales.join(
-            ", "
-          )}. Must be a key in languageNames: ${Object.keys(
-            this.languageNames
-          ).join(", ")}`
-        );
-      }
+    }
+    if (missingLocales.length > 0) {
+      throw new Error(
+        `Invalid locale codes: ${missingLocales.join(
+          ", "
+        )}. Must be a key in languageNames: ${Object.keys(
+          this.languageNames
+        ).join(", ")}`
+      );
     }
 
     if (
