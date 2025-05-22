@@ -1,5 +1,34 @@
 name: "Linguci"
 description: "Automatically translates missing locale strings and opens pull requests with updated translations in your GitHub CI pipeline."
+inputs:
+  batch_size:
+    description: "Number of strings to translate in each batch"
+    required: false
+    default: "20"
+  language_concurrency:
+    description: "Number of languages to translate concurrently"
+    required: false
+    default: "2"
+  max_retries:
+    description: "Maximum number of retry attempts for failed translations"
+    required: false
+    default: "3"
+  retry_delay:
+    description: "Delay between retries in milliseconds"
+    required: false
+    default: "1000"
+  branch_prefix:
+    description: "Prefix for the new branch name"
+    required: false
+    default: "linguci"
+  pr_title:
+    description: "Title for the pull request"
+    required: false
+    default: "Update translations"
+  pr_body:
+    description: "Body content for the pull request"
+    required: false
+    default: "This PR includes translation updates\n\n*Generated automatically by linguci*"
 runs:
   using: "node22"
   main: "main.js"
