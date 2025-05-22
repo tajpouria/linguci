@@ -1,6 +1,6 @@
 {
   "name": "linguci-github-action",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "main": "main.js",
   "type": "module",
   "scripts": {
