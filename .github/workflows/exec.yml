@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Linguci
-        uses: tajpouria/linguci@v0
+        uses: tajpouria/linguci@v0.0.1
         with:
           batch_size: 20
           language_concurrency: 2
