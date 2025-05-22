@@ -9,7 +9,6 @@ jobs:
   linguci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
       - name: Linguci
         uses: tajpouria/linguci-github-action@v0.0.3
         with:
