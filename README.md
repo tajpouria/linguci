@@ -53,8 +53,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: write # Required for writing to the repository
+  pull-requests: write # Required for creating pull requests
 
 jobs:
   linguci:
