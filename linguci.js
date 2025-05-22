@@ -215,7 +215,7 @@ class Linguci {
    * @param {string} options.workspace - The workspace directory path
    * @param {string} options.logLevel - The log level (DEBUG, INFO, WARN, ERROR, NONE)
    */
-  constructor({ workspace = ".", logLevel = "DEBUG" } = {}) {
+  constructor({ workspace = ".", logLevel = "INFO" } = {}) {
     this.workspace = workspace;
     this.setLogLevel(logLevel);
   }
