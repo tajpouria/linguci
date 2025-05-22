@@ -273,9 +273,15 @@ class Linguci {
     }
 
     for (const locale of config.locales) {
+      const missingLocales = [];
       if (!this.languageNames[locale]) {
+        missingLocales.push(locale);
+      }
+      if (missingLocales.length > 0) {
         throw new Error(
-          `Invalid locale code: ${locale}. Must be a key in languageNames: ${Object.keys(
+          `Invalid locale code: ${missingLocales.join(
+            ", "
+          )}. Must be a key in languageNames: ${Object.keys(
             this.languageNames
           ).join(", ")}`
         );
