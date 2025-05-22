@@ -30,7 +30,12 @@ async function run() {
         retryDelay,
       })
       .then((instance) => instance.writeTranslations())
-      .then((instance) => instance.commitChanges())
+      .then((instance) =>
+        instance.commitChanges({
+          username: "Linguci",
+          email: "linguci@users.noreply.github.com",
+        })
+      )
       .then((instance) =>
         instance.createPullRequest({
           branchPrefix,

@@ -676,14 +676,23 @@ class Linguci {
   /**
    * Commits the translation changes to git repository
    * @param {Object} options - Configuration options
-   * @param {string} [options.commitMessageTemplate] - Optional template for commit message
+   * @param {string} options.username - The username to use for the commit
+   * @param {string} options.email - The email to use for the commit
    * @param {boolean} [options.addAll=false] - Whether to add all changes or only translation files
    * @returns {Promise<Linguci>} this instance for chaining
    */
-  async commitChanges() {
+  async commitChanges({ username, email }) {
     this.log("DEBUG", "Starting to commit translation changes to git");
 
     try {
+      let gitConfigCommand = `git config user.name "${username}"`;
+      this.log("DEBUG", `Running: ${gitConfigCommand}`);
+      const gitConfigResult = await this._executeCommand(gitConfigCommand);
+
+      gitConfigCommand = `git config user.email "${email}"`;
+      this.log("DEBUG", `Running: ${gitConfigCommand}`);
+      const gitConfigResult = await this._executeCommand(gitConfigCommand);
+
       const gitAddCommand = "git add -A";
 
       // Execute git add command
