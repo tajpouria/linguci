@@ -747,7 +747,7 @@ msgstr "Alineación de dominio/industria"
 
 #: apps/client/src/pages/builder/_components/analysis/domain-industry-experience.tsx:153
 msgid "Domain/Industry Matches ({0})"
-msgstr ""
+msgstr "Coincidencias de Dominio/Industria ({0})"
 
 #: apps/client/src/pages/auth/login/page.tsx:62
 msgid "Don't have an account?"
@@ -2454,7 +2454,7 @@ msgstr "Admite formatos de página A4/Carta"
 
 #: apps/client/src/pages/dashboard/settings/_sections/profile.tsx:85
 msgid "System"
-msgstr ""
+msgstr "Sistema"
 
 #: apps/client/src/pages/builder/sidebars/right/index.tsx:72
 #: apps/client/src/pages/builder/sidebars/right/sections/template.tsx:18

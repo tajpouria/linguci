@@ -20,7 +20,7 @@ msgstr ""
 
 #: apps/client/src/pages/dashboard/settings/_dialogs/two-factor.tsx:171
 msgid "You have enabled two-factor authentication successfully."
-msgstr ""
+msgstr "شما با موفقیت احراز هویت دو مرحله ای را فعال کردید."
 
 #: apps/client/src/pages/builder/_components/analysis/gap-red-flag-detection.tsx:142
 msgid "{0} ({1} - {2})"
@@ -36,7 +36,7 @@ msgstr "{0} نکته"
 
 #: apps/client/src/pages/builder/_components/analysis/recency-weighting.tsx:98
 msgid "{age} years ago"
-msgstr ""
+msgstr "{age} سال پیش"
 
 #: apps/client/src/pages/home/sections/features/index.tsx:57
 msgid "{templatesCount} resume templates to choose from"
