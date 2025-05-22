@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Linguci
-        uses: tajpouria/linguci-github-action@v0.0.4
+        uses: tajpouria/linguci-github-action@v0.0.5
         with:
           batch_size: 20
           language_concurrency: 2
